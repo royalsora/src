@@ -52,7 +52,7 @@ public class Constants {
 
 	/**
 	 * Holds the most players online at once
-	 */
+	 */ // test
 	public static int MOST_ONLINE = 70;	
 
 	/**
