@@ -27,7 +27,8 @@ public class Constants {
 
 	/**
 	 * Walking check
-	 */
+	 */ 
+	 //findme BRUH
 	public static boolean WALK_CHECK = true;
 	
 	/**
