@@ -2,14 +2,11 @@ package com.dark.rs2.content.minigames.raid;
 
 import java.util.ArrayList;
 
-import com.dark.Server;
 import com.dark.core.util.Utility;
 import com.dark.rs2.content.minigames.raid.RaidBoss.Boss;
 import com.dark.rs2.content.minigames.raid.rounds.RoundHandler;
 import com.dark.rs2.entity.Location;
 import com.dark.rs2.entity.World;
-import com.dark.rs2.entity.item.Item;
-import com.dark.rs2.entity.mob.Mob;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendRemoveInterfaces;

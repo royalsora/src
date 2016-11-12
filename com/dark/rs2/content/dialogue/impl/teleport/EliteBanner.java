@@ -8,7 +8,6 @@ import com.dark.rs2.content.skill.magic.MagicSkill;
 import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.entity.Animation;
 import com.dark.rs2.entity.Location;
-import com.dark.rs2.entity.item.Item;
 import com.dark.rs2.entity.mob.impl.Zulrah;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;

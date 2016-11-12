@@ -6,7 +6,6 @@ import com.dark.rs2.content.dialogue.DialogueManager;
 import com.dark.rs2.content.dialogue.Emotion;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.out.impl.SendInterface;
-import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendRemoveInterfaces;
 import com.dark.rs2.entity.player.net.out.impl.SendString;
 

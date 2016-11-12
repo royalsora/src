@@ -1,7 +1,6 @@
 package com.dark.rs2.entity.player.net.in.command.impl;
 
 import com.dark.Constants;
-import com.dark.rs2.content.housing.HouseObject;
 import com.dark.rs2.content.housing.ParseLoad;
 import com.dark.rs2.content.minigames.raid.MainHandler;
 import com.dark.rs2.entity.player.Player;

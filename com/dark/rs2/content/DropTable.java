@@ -19,7 +19,6 @@ import com.dark.rs2.entity.player.net.out.impl.SendInterface;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendString;
 import com.dark.rs2.entity.player.net.out.impl.SendUpdateItems;
-import com.dark.rs2.entity.player.net.out.impl.SendUpdateItemsAlt;
 
 public class DropTable {
 	

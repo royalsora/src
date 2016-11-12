@@ -1,7 +1,6 @@
 package com.dark.rs2.content.dialogue.impl;
 
 import com.dark.rs2.content.PlayerTitle;
-import com.dark.rs2.content.achievements.AchievementList;
 import com.dark.rs2.content.dialogue.Dialogue;
 import com.dark.rs2.content.dialogue.DialogueConstants;
 import com.dark.rs2.content.dialogue.DialogueManager;

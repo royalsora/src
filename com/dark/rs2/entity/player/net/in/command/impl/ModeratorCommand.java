@@ -1,7 +1,6 @@
 package com.dark.rs2.entity.player.net.in.command.impl;
 
 import com.dark.core.util.Utility;
-import com.dark.core.util.logger.PlayerLogger;
 import com.dark.rs2.content.dialogue.DialogueManager;
 import com.dark.rs2.content.interfaces.InterfaceHandler;
 import com.dark.rs2.content.interfaces.impl.ModCommandsInterface;

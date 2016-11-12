@@ -2,7 +2,6 @@ package com.dark.rs2.content.skill;
 
 import static com.dark.rs2.content.skill.Skills.DUNGEONEERING;
 
-import com.dark.Constants;
 import com.dark.core.util.Utility;
 import com.dark.rs2.content.Prestige;
 import com.dark.rs2.content.combat.Combat.CombatTypes;

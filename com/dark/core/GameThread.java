@@ -18,7 +18,6 @@ import com.dark.core.util.Stopwatch;
 import com.dark.core.util.SystemLogger;
 import com.dark.rs2.entity.World;
 import com.dark.rs2.entity.item.impl.GroundItemHandler;
-import com.dark.rs2.entity.object.ObjectManager;
 
 public class GameThread extends Thread {
 	

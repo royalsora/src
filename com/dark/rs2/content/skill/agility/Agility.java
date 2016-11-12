@@ -9,12 +9,10 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 import com.dark.core.cache.map.RSObject;
-import com.dark.core.util.Utility;
 import com.dark.rs2.content.skill.Skills;
 import com.dark.rs2.content.skill.agility.obstacle.Obstacle;
 import com.dark.rs2.content.skill.agility.obstacle.ObstacleType;
 import com.dark.rs2.entity.Location;
-import com.dark.rs2.entity.item.Item;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendRemoveInterfaces;

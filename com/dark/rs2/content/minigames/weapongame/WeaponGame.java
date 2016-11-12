@@ -217,9 +217,7 @@ public class WeaponGame {
 		int random = Utility.random(5);
 		GameObject object = new GameObject(x, y, z);
 		
-		if (object == null) {
-			return;
-		}
+		
 		
 		switch (random) {
 		case 0:

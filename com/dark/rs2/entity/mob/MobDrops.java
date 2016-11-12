@@ -30,7 +30,6 @@ import com.dark.rs2.content.minigames.warriorsguild.ArmourAnimator;
 import com.dark.rs2.content.minigames.warriorsguild.CyclopsRoom;
 import com.dark.rs2.content.pets.BossPets;
 import com.dark.rs2.content.pets.BossPets.PetData;
-import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 //import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.content.skill.summoning.FamiliarMob;
 import com.dark.rs2.entity.Entity;
@@ -42,7 +41,6 @@ import com.dark.rs2.entity.item.impl.GroundItemHandler;
 import com.dark.rs2.entity.mob.impl.GiantMole;
 import com.dark.rs2.entity.mob.impl.Kraken;
 import com.dark.rs2.entity.mob.impl.CaveKraken;
-import com.dark.rs2.entity.mob.impl.EnragedCow;
 //import com.dark.rs2.entity.mob.impl.EnragedCow;
 import com.dark.rs2.entity.mob.impl.SeaTrollQueen;
 import com.dark.rs2.entity.mob.impl.Zulrah;
@@ -385,15 +383,15 @@ public class MobDrops {
 		player.teleport(new Location(3256, 3282, 4));
 		// player.getMagic().teleport(3256, 3282, player.getIndex() << 2,
 		// TeleportTypes.SPELL_BOOK);
-		player.send(new SendMessage("@dre@As the cow limps off, you notice something LARGE in the distance."));
+		//player.send(new SendMessage("@dre@As the cow limps off, you notice something LARGE in the distance."));
 		// Location spawn =
 		// GameConstants.getClearAdjacentLocation(player.getLocation(), 1);
 		// Mob EnragedCow = new Mob(player, 6401, false, false, true, spawn);
 		// EnragedCow.getCombat().setAttacking(player);
 		// Mob mobToSpawn = new EnragedCow();
-		if (EnragedCow.starterdEnraged) {
-			Mob mobToSpawn = new EnragedCow();
-		}
+		//if (EnragedCow.starterdEnraged) {
+		///	Mob mobToSpawn = new EnragedCow();
+		//}
 		break;
 
 	case 6401:

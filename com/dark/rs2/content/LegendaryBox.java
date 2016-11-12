@@ -46,7 +46,6 @@ public class LegendaryBox {
 	 */
 	private final static String MESSAGE_COLOR = "<col=255>";
 	
-	private final static Item LEGEND_BOX = new Item(7959);
 	/**
 	 * All available items to win
 	 */

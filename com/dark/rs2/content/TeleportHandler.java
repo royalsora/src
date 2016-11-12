@@ -11,7 +11,6 @@ import com.dark.rs2.content.dialogue.DialogueManager;
 import com.dark.rs2.content.dialogue.Emotion;
 import com.dark.rs2.content.dialogue.OptionDialogue;
 import com.dark.rs2.content.membership.CreditPurchase;
-import com.dark.rs2.content.minigames.clanwars.ClanWarsConstants;
 import com.dark.rs2.content.minigames.weapongame.WeaponGameConstants;
 import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.entity.Animation;

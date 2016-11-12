@@ -11,7 +11,6 @@ import java.util.logging.Logger;
 //import org.Vote.MainLoader;
 
 import com.dark.core.GameThread;
-import com.dark.core.network.mysql.HiscoreUpdater;
 import com.dark.core.util.logger.PlayerLogger;
 import com.dark.rs2.content.clanchat.ClanManager;
 import com.dark.rs2.content.io.PlayerSave;

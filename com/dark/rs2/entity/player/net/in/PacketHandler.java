@@ -27,7 +27,6 @@ import com.dark.rs2.entity.player.net.in.impl.PrivateMessagingPacket;
 import com.dark.rs2.entity.player.net.in.impl.PublicChatPacket;
 import com.dark.rs2.entity.player.net.in.impl.ReceiveString;
 import com.dark.rs2.entity.player.net.in.impl.ResetCounter;
-import com.dark.rs2.entity.player.net.in.impl.SpawnTab;
 import com.dark.rs2.entity.player.net.in.impl.StringInputPacket;
 
 public class PacketHandler {

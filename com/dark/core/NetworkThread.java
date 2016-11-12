@@ -4,8 +4,6 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.dark.rs2.entity.World;
-import com.dark.rs2.entity.object.GameObject;
-import com.dark.rs2.entity.object.ObjectManager;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.in.IncomingPacket;
 

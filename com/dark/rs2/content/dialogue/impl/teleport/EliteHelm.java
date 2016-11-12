@@ -4,7 +4,6 @@ import com.dark.rs2.content.dialogue.Dialogue;
 import com.dark.rs2.content.dialogue.DialogueManager;
 import com.dark.rs2.content.skill.magic.MagicSkill;
 import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
-import com.dark.rs2.entity.item.Item;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 

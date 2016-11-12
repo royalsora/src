@@ -21,7 +21,6 @@ import com.dark.rs2.content.combat.Hit.HitTypes;
 import com.dark.rs2.content.combat.special.SpecialAttackHandler;
 import com.dark.rs2.content.dialogue.DialogueManager;
 import com.dark.rs2.content.dialogue.OneLineDialogue;
-import com.dark.rs2.content.dialogue.impl.Tutorial;
 import com.dark.rs2.content.gambling.Gambling;
 import com.dark.rs2.content.gambling.Lottery;
 import com.dark.rs2.content.interfaces.InterfaceHandler;

@@ -17,7 +17,6 @@ import com.dark.Constants;
 import com.dark.Server;
 import com.dark.core.cache.map.Region;
 import com.dark.core.network.StreamBuffer;
-import com.dark.core.network.mysql.HiscoreUpdater;
 import com.dark.core.task.Task;
 import com.dark.core.task.TaskQueue;
 import com.dark.core.task.impl.FinishTeleportingTask;

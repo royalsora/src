@@ -9,8 +9,6 @@ import com.dark.rs2.content.combat.formula.FormulaData;
 import com.dark.rs2.content.combat.formula.MeleeFormulas;
 import com.dark.rs2.entity.Animation;
 import com.dark.rs2.entity.Entity;
-import com.dark.rs2.entity.item.EquipmentConstants;
-import com.dark.rs2.entity.item.Item;
 import com.dark.rs2.entity.mob.Mob;
 
 public class Melee {

@@ -2,11 +2,9 @@ package com.dark.rs2.content.dialogue.impl;
 
 import com.dark.core.task.Task;
 import com.dark.core.task.TaskQueue;
-import com.dark.core.util.Utility;
 import com.dark.rs2.content.dialogue.Dialogue;
 import com.dark.rs2.content.dialogue.DialogueConstants;
 import com.dark.rs2.content.dialogue.DialogueManager;
-import com.dark.rs2.content.dialogue.Emotion;
 import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.entity.Animation;
 import com.dark.rs2.entity.Location;

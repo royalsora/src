@@ -1,7 +1,6 @@
 package com.dark.rs2.content.minigames.war;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.dark.rs2.entity.player.Player;
 
