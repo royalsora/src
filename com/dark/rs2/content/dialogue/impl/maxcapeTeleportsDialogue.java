@@ -3,7 +3,6 @@ package com.dark.rs2.content.dialogue.impl;
 import com.dark.rs2.content.dialogue.Dialogue;
 import com.dark.rs2.content.dialogue.DialogueConstants;
 import com.dark.rs2.content.dialogue.DialogueManager;
-import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.entity.Location;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
@@ -28,38 +27,24 @@ public class maxcapeTeleportsDialogue extends Dialogue {
 		switch (id) {
 
 		case DialogueConstants.OPTIONS_4_1:
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(2442, 9805, 0, TeleportTypes.SPELL_BOOK);
+			 player.teleport(new Location(2442, 9805, 0));
 			 player.send(new SendMessage("You are teleported to the Slayer dungeon."));
              return true;
 
 		case DialogueConstants.OPTIONS_4_2:
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(2854, 3431, 0, TeleportTypes.SPELL_BOOK);
+			 player.teleport(new Location(2854, 3431, 0));
 			 player.send(new SendMessage("You are teleported to the fishing area for free."));
 			break;
 
 		case DialogueConstants.OPTIONS_4_3:
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(2923, 4819, 0, TeleportTypes.SPELL_BOOK);
+			 player.teleport(new Location(2923, 4819, 0));
 			 player.send(new SendMessage("You are teleported to the rune essence mine."));
 			break;
 
 		case DialogueConstants.OPTIONS_4_4:
-			if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-				player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-				return true;
-			}
-			player.getMagic().teleport(3429, 2891, 0, TeleportTypes.SPELL_BOOK);
+			
+			 player.teleport(new Location(3429, 2891, 0));
+			 player.send(new SendMessage("I'll readd the zulrah teleport when i can."));
 			break;
 
 			/* player.getInventory().remove(12938, 1);
