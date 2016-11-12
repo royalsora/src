@@ -77,6 +77,7 @@ import com.dark.rs2.content.dialogue.impl.StaffTitleDialogue;
 import com.dark.rs2.content.dialogue.impl.TzhaarMejKahDialogue;
 import com.dark.rs2.content.dialogue.impl.VannakaDialogue;
 import com.dark.rs2.content.dialogue.impl.WeaponGameDialogue;
+import com.dark.rs2.content.dialogue.impl.ZulrahDialogue;
 import com.dark.rs2.content.dialogue.impl.tokensDialogue;
 import com.dark.rs2.content.dialogue.impl.tokensDialogue2;
 import com.dark.rs2.content.dialogue.impl.teleport.SpiritTree;
@@ -115,6 +116,7 @@ import com.dark.rs2.content.skill.herblore.PotionDecanting;
 import com.dark.rs2.content.skill.hunter.Impling.ImplingRewards.Implings;
 import com.dark.rs2.content.skill.magic.MagicSkill;
 import com.dark.rs2.content.skill.magic.MagicSkill.SpellBookTypes;
+import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.content.skill.mining.Mining;
 import com.dark.rs2.content.skill.prayer.BoneBurying;
 import com.dark.rs2.content.skill.runecrafting.AbyssObjects;
@@ -131,6 +133,7 @@ import com.dark.rs2.entity.item.Item;
 import com.dark.rs2.entity.item.ItemCheck;
 import com.dark.rs2.entity.item.impl.GroundItemHandler;
 import com.dark.rs2.entity.mob.Mob;
+import com.dark.rs2.entity.mob.impl.Zulrah;
 import com.dark.rs2.entity.object.GameObject;
 import com.dark.rs2.entity.object.ObjectConstants;
 import com.dark.rs2.entity.object.ObjectManager;
@@ -1084,7 +1087,11 @@ public class WalkToActions {
 	if (Doors.isDoorJammed(player, x, y, z)) {
 		return;
 	}
-
+	if (id == 10068) {
+		//DialogueManager.sendStatement(player, "Welcome to Zulrah's shrine.");
+		player.start(new ZulrahDialogue(player));
+		return;
+	}
 	if ((id == 1738) && (x == 2839) && (y == 3537)) {
 		player.teleport(new Location(2839, 3537, 2));
 		return;
