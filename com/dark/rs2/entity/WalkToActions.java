@@ -2550,7 +2550,7 @@ public class WalkToActions {
                 if (mob.getSize() > 1) {
                     player.getMovementHandler().reset();
                 }
-
+                //FIX
                 WalkToActions.finishItemOnNpc(player, item, mob);
             }
         });
