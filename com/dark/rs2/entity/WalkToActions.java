@@ -163,7 +163,7 @@ public class WalkToActions {
     {5919, 3}, // Graceful store
     {22, 29}, // Merchant store
     {1758, 5}, // Pestcontrol store
-    {3984, 31}, // Packs
+    {3984, 31}, // Packs gg
 };
 
     /**
@@ -2550,7 +2550,7 @@ public class WalkToActions {
                 if (mob.getSize() > 1) {
                     player.getMovementHandler().reset();
                 }
-
+                //FIX
                 WalkToActions.finishItemOnNpc(player, item, mob);
             }
         });
