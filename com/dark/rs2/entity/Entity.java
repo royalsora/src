@@ -175,7 +175,7 @@ public abstract class Entity implements CombatInterface {
 	/**
 	 * the location of the entity
 	 */
-	private final Location location = new Location(0, 0, 0);
+	protected final Location location = new Location(0, 0, 0);
 
 	/**
 	 * Constructs an update flags instance

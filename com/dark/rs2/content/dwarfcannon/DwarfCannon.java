@@ -86,7 +86,8 @@ public class DwarfCannon extends RSObject {
 		super(x - 1, y - 1, z, 7, 10, 0);
 		this.cannonOwner = owner;
 		Region.getRegion(x, y).addObject(this);
-		ObjectManager.register(getGameObject());
+		//ObjectManager.register(getGameObject());
+		ObjectManager.getInstance().register(getGameObject());
 		cannonLocation = new Location(x - 1, y - 1, z);
 		ownerLocation = new Location(x, y, z);
 		cannonOwner.getUpdateFlags().sendAnimation(827, 0);
@@ -126,30 +127,36 @@ public class DwarfCannon extends RSObject {
 		if (stage == 1 && id == 8) {
 			cannonOwner.getInventory().remove(8);
 			stage = ((byte) (stage + 1));
-			ObjectManager.removeFromList(getGameObject());
+			//ObjectManager.removeFromList(getGameObject());
+		ObjectManager.getInstance().unregister(getGameObject());
 			setId(8);
 			Region.getRegion(getX(), getY()).addObject(this);
-			ObjectManager.register(getGameObject());
+			//ObjectManager.register(getGameObject());
+		ObjectManager.getInstance().register(getGameObject());
 			cannonOwner.getUpdateFlags().sendAnimation(827, 0);
 			return true;
 		}
 		if (stage == 2 && id == 10) {
 			cannonOwner.getInventory().remove(10);
 			stage = ((byte) (stage + 1));
-			ObjectManager.removeFromList(getGameObject());
+			//ObjectManager.removeFromList(getGameObject());
+                        ObjectManager.getInstance().unregister(getGameObject());
 			setId(9);
 			Region.getRegion(getX(), getY()).addObject(this);
-			ObjectManager.register(getGameObject());
+			//ObjectManager.register(getGameObject());
+                        ObjectManager.getInstance().register(getGameObject());
 			cannonOwner.getUpdateFlags().sendAnimation(827, 0);
 			return true;
 		}
 		if (stage == 3 && id == 12) {
 			cannonOwner.getInventory().remove(12);
 			stage = ((byte) (stage + 1));
-			ObjectManager.removeFromList(getGameObject());
+			//ObjectManager.removeFromList(getGameObject());
+                        ObjectManager.getInstance().unregister(getGameObject());
 			setId(6);
 			Region.getRegion(getX(), getY()).addObject(this);
-			ObjectManager.register(getGameObject());
+			//ObjectManager.register(getGameObject());
+                        ObjectManager.getInstance().register(getGameObject());
 			World.addCannon(this);
 			cannonOwner.getUpdateFlags().sendAnimation(827, 0);
 			return true;
@@ -253,7 +260,8 @@ public class DwarfCannon extends RSObject {
 			}
 			cannonOwner.getAttributes().remove("dwarfmulticannon");
 			Region.getRegion(getX(), getY()).removeObject(this);
-			ObjectManager.remove(getGameObject());
+			//ObjectManager.remove(getGameObject());
+                        ObjectManager.getInstance().unregister(getGameObject());
 		}
 	}
 
@@ -283,7 +291,8 @@ public class DwarfCannon extends RSObject {
 		player.getUpdateFlags().sendFaceToDirection(getGameObject().getLocation());
 		player.getInventory().add(getItemsForStage(), true);
 		Region.getRegion(x, y).removeObject(this);
-		ObjectManager.remove(getGameObject());
+		ObjectManager.getInstance().unregister(getGameObject());
+                //ObjectManager.remove(getGameObject());
 		player.getAttributes().remove("dwarfmulticannon");
 		cannonOwner.getUpdateFlags().sendAnimation(827, 0);
 		if (stage == 4) {

@@ -286,7 +286,7 @@ public class Compost {
 			finalObject = compostBinStages.getBinWithRottenTomatoes();
 		}
 
-		ObjectManager.send(new GameObject(finalObject, x, y, player.getZ(), 10, CompostBinLocations.forId(index).getObjectFace()));
+		ObjectManager.getInstance().register(new GameObject(finalObject, x, y, player.getZ(), 10, CompostBinLocations.forId(index).getObjectFace()));
 	}
 
 	/* handle what happens when the player close the compost bin */

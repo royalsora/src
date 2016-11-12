@@ -34,7 +34,7 @@ public class NetworkThread extends Thread {
 
 	public static void cycle() {
 		long start = System.nanoTime();
-
+/*
 		GameObject r;
 		while ((r = ObjectManager.getSend().poll()) != null) {
 			try {
@@ -42,7 +42,7 @@ public class NetworkThread extends Thread {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}*/
 
 		for (Player k : World.getPlayers()) {
 			try {
@@ -54,7 +54,7 @@ public class NetworkThread extends Thread {
 						}
 
 						k.getGroundItems().process();
-						k.getObjects().process();
+						//k.getObjects().process();
 						k.getClient().processOutgoingPackets();
 					} catch (Exception e) {
 						e.printStackTrace();

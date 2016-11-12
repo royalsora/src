@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.TimeZone;
 import java.util.logging.Logger;
 
-import org.Vote.MainLoader;
+//import org.Vote.MainLoader;
 
 import com.dark.core.GameThread;
 import com.dark.core.network.mysql.HiscoreUpdater;

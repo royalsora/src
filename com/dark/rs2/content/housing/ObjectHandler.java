@@ -16,11 +16,11 @@ public class ObjectHandler extends RSObject {
 	super(x, y, player.getZ() * 4, id, 10, face);
 	if (delete) {
 		Region.getRegion(getX(), getY()).removeObject(this);
-		ObjectManager.remove(getGameObject());
+		ObjectManager.getInstance().unregister(getGameObject());
 		return;
 	} else
 		Region.getRegion(x, y).addObject(this);
-	ObjectManager.register(getGameObject());
+	ObjectManager.getInstance().register(getGameObject());
 	return;
 
 	}

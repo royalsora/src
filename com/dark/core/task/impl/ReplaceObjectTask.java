@@ -25,8 +25,8 @@ public class ReplaceObjectTask extends Task {
 	@Override
 	public void execute() {
 		GameObject o = new GameObject(id, x, y, z, -1, -1);
-		ObjectManager.remove(o);
-		ObjectManager.register(o);
+		//bjectManager.remove(o);
+		ObjectManager.getInstance().register(o);
 	}
 
 	@Override

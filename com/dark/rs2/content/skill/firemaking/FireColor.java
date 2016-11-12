@@ -137,8 +137,8 @@ public class FireColor {
 		FIRE_TIME = 10;
 
 		for (Location position : FIRE_POSITIONS) {
-			ObjectManager.remove(new GameObject(position.getX(), position.getY(), position.getZ()));
-			ObjectManager.add(new GameObject(FIRE, position.getX(), position.getY(), position.getZ(), 10, 1));
+			ObjectManager.getInstance().unregister(new GameObject(position.getX(), position.getY(), position.getZ()));
+			ObjectManager.getInstance().register(new GameObject(FIRE, position.getX(), position.getY(), position.getZ(), 10, 1));
 		}
 
 		player.setCredits(player.getCredits() - 10);

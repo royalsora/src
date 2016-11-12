@@ -59,14 +59,14 @@ public class HarvestTask extends Task {
 			final RSObject o = Region.getObject(x, y, z);
 			final GameObject go = new GameObject(ObjectManager.BLANK_OBJECT_ID, x, y, z, o.getType(), 0);
 
-			ObjectManager.register(go);
+			ObjectManager.getInstance().register(go);
 			MapLoading.removeObject(object, x, y, z, o.getType(), o.getFace());
 
 			TaskQueue.queue(new Task(100) {
 				@Override
 				public void execute() {
-					ObjectManager.remove(go);
-					ObjectManager.register(new GameObject(object, x, y, z, o.getType(), o.getFace()));// /TODO:
+					ObjectManager.getInstance().unregister(go);
+					ObjectManager.getInstance().register(new GameObject(object, x, y, z, o.getType(), o.getFace()));// /TODO:
 																										// remove
 																										// this
 																										// on

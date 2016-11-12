@@ -375,7 +375,9 @@ public class WoodcuttingTask extends Task {
 		RSObject rsObject = new RSObject(replacement.getLocation().getX(), replacement.getLocation().getY(), replacement.getLocation().getZ(), object.getId(), 10, 0);
 		
 		if (rsObject != null) {
-			ObjectManager.register(replacement);
+			//ObjectManager.register(replacement);
+			//player.getObjects().register(object);
+			ObjectManager.getInstance().register(object);
 			Region.getRegion(rsObject.getX(), rsObject.getY()).removeObject(rsObject);
 			TaskQueue.queue(new StumpTask(object, treeId, tree.getRespawnTimer()));
 		}

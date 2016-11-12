@@ -11,7 +11,7 @@ import com.dark.rs2.entity.player.net.out.impl.SendSound;
 public class Doors {
 
 	public static final int[][] JAMMED_DOORS = { { 1852, 5212, 0 }, { 1832, 5224, 0 }, { 1832, 5225, 0 } };
-
+        private static GameObject blankObj1 = null,blankObj2 = null;
 	public static boolean clickDoor(int object, int x, int y, int z) {
 		for (int i = 0; i < Constants.BLOCKED_DOORS.length; i ++) {
 			if (object == Constants.BLOCKED_DOORS[i]) {
@@ -40,21 +40,21 @@ public class Doors {
 			boolean original = door.original();
 
 			if (original) {
-				ObjectManager.register(new GameObject(2376, x, y, z, door.getType(), door.getCurrentFace(), true));
+				ObjectManager.getInstance().registerWithoutClipping(new GameObject(2376, x, y, z, door.getType(), door.getCurrentFace(), true));
 			} else {
-				ObjectManager.remove(new GameObject(door.getCurrentId(), x, y, z, door.getType(), door.getCurrentFace(), true));
+				ObjectManager.getInstance().registerWithoutClipping(new GameObject(2376, x, y, z, door.getType(), door.getCurrentFace(), true));
 			}
 
 			Region.getRegion(x, y).appendDoor(door.getCurrentId(), x, y, z);
 
-			if (door.original()) {
-				ObjectManager.removeFromList(new GameObject(2376, door.getX(), door.getY(), z, door.getType(), door.getCurrentFace(), true));
-				ObjectManager.queueSend(new GameObject(door.getCurrentId(), door.getX(), door.getY(), z, door.getType(), door.getCurrentFace(), true));
+			if (original) {
+				ObjectManager.getInstance().unregister(new GameObject(2376, door.getX(), door.getY(), z, door.getType(), door.getCurrentFace(), false));
+				ObjectManager.getInstance().registerWithoutClipping(new GameObject(door.getCurrentId(), door.getX(), door.getY(), z, door.getType(), door.getCurrentFace(), true));
 			} else {
-				ObjectManager.register(new GameObject(door.getCurrentId(), door.getX(), door.getY(), z, door.getType(), door.getCurrentFace(), true));
-
+				ObjectManager.getInstance().registerWithoutClipping(new GameObject(door.getCurrentId(), door.getX(), door.getY(), z, door.getType(), door.getCurrentFace(), true));
+			
 				TaskQueue.queue(new TickDoorTask(door));
-			}
+                        }
 
 			return true;
 		}
@@ -78,19 +78,16 @@ public class Doors {
 				z %= 4;
 			}
 
-			ObjectManager.removeFromList(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), z, door.getType(), door.getCurrentFace1(), true));
-			ObjectManager.register(new GameObject(2376, door.getX1(), door.getY1(), z, door.getType(), door.getCurrentFace1(), true));
-
-			ObjectManager.removeFromList(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), z, door.getType(), door.getCurrentFace2(), true));
-			ObjectManager.register(new GameObject(2376, door.getX2(), door.getY2(), z, door.getType(), door.getCurrentFace2(), true));
+                        blankObj1 = new GameObject(2376, door.getX1(), door.getY1(), z, door.getType(), door.getCurrentFace1(), false);
+                        blankObj2 = new GameObject(2376, door.getX2(), door.getY2(), z, door.getType(), door.getCurrentFace2(), false);
+			
+                        ObjectManager.getInstance().registerWithoutClipping(blankObj1);
+                        ObjectManager.getInstance().registerWithoutClipping(blankObj2);
 
 			Region.getRegion(x, y).appendDoubleDoor(door.getCurrentId1(), door.getX1(), door.getY1(), z);
 
-			ObjectManager.removeFromList(new GameObject(2376, door.getX1(), door.getY1(), z, door.getType(), door.getCurrentFace1(), true));
-			ObjectManager.removeFromList(new GameObject(2376, door.getX2(), door.getY2(), z, door.getType(), door.getCurrentFace2(), true));
-
-			ObjectManager.register(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), z, door.getType(), door.getCurrentFace1(), true));
-			ObjectManager.register(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), z, door.getType(), door.getCurrentFace2(), true));
+			ObjectManager.getInstance().registerWithoutClipping(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), z, door.getType(), door.getCurrentFace1(), true));
+			ObjectManager.getInstance().registerWithoutClipping(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), z, door.getType(), door.getCurrentFace2(), true));
 
 			return true;
 		}

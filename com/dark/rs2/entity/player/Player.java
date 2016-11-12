@@ -108,7 +108,7 @@ import com.dark.rs2.entity.mob.MobConstants;
 import com.dark.rs2.entity.mob.RareDropEP;
 import com.dark.rs2.entity.movement.MovementHandler;
 import com.dark.rs2.entity.movement.PlayerMovementHandler;
-import com.dark.rs2.entity.object.LocalObjects;
+import com.dark.rs2.entity.object.ObjectManager;
 import com.dark.rs2.entity.player.controllers.Controller;
 import com.dark.rs2.entity.player.controllers.ControllerManager;
 import com.dark.rs2.entity.player.net.Client;
@@ -427,7 +427,7 @@ public class Player extends Entity {
 
 	private Skulling skulling = new Skulling();
 
-	private LocalObjects objects = new LocalObjects(this);
+	//private LocalObjects objects = new LocalObjects(this);
 
 	private Controller controller = ControllerManager.DEFAULT_CONTROLLER;
 
@@ -641,12 +641,15 @@ public class Player extends Entity {
 	getLocation().setZ(z);
 	needsPlacement = true;
 
-	objects.onRegionChange();
+	//objects.onRegionChange();
 	groundItems.onRegionChange();
 
 	getMovementHandler().reset();
 
 	send(new SendMapRegion(this));
+        if (location.getZ() != 0) {
+    		ObjectManager.getInstance().removeOnHeight(this);
+        }
 	}
 
 	@Override
@@ -1111,9 +1114,9 @@ public class Player extends Entity {
 	return npcAppearanceId;
 	}
 
-	public LocalObjects getObjects() {
-	return objects;
-	}
+	//public LocalObjects getObjects() {
+	//return objects;
+	//}
 
 	public String getPassword() {
 	return password;

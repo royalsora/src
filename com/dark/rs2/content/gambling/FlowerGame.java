@@ -148,12 +148,14 @@ public class FlowerGame {
 						GameObject obj = new GameObject(flower.getObject(), gambler.getLocation(), 10, 0);
 						@Override
 						public void execute() {
-							ObjectManager.addClippedObject(obj);
+							//ObjectManager.addClippedObject(obj);
+							ObjectManager.getInstance().register(obj);
 						}
 						
 						@Override
 						public void onStop() {
-							ObjectManager.remove(obj);
+							ObjectManager.getInstance().unregister(obj);
+							//ObjectManager.remove(obj);
 						}
 					});
 					break;

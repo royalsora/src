@@ -1,6 +1,7 @@
 package com.dark.rs2.entity.player.net.in.impl;
 
 import com.dark.core.network.StreamBuffer;
+import com.dark.rs2.entity.object.ObjectManager;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.in.IncomingPacket;
 import com.dark.rs2.entity.player.net.out.impl.SendDetails;
@@ -16,7 +17,8 @@ public class ChangeRegionPacket extends IncomingPacket {
 	public void handle(Player player, StreamBuffer.InBuffer in, int opcode, int length) {
 		player.getClient().queueOutgoingPacket(new SendDetails(player.getIndex()));
 		player.getGroundItems().onRegionChange();
-		player.getObjects().onRegionChange();
+		ObjectManager.getInstance().loadNewRegion(player);
+		//player.getObjects().onRegionChange();
 
 		if (player.getDueling().isStaking()) {
 			player.getDueling().decline();

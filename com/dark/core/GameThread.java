@@ -115,7 +115,7 @@ public class GameThread extends Thread {
 		try {
 			TaskQueue.process();
 			GroundItemHandler.process();
-			ObjectManager.process();
+			//ObjectManager.process();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

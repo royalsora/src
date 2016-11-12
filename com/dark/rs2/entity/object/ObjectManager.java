@@ -1,10 +1,12 @@
 package com.dark.rs2.entity.object;
 
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.logging.Logger;
 
@@ -15,35 +17,199 @@ import com.dark.rs2.content.skill.firemaking.FireColor;
 import com.dark.rs2.entity.Location;
 import com.dark.rs2.entity.World;
 import com.dark.rs2.entity.player.Player;
+import com.dark.rs2.entity.player.net.out.impl.SendMessage;
+import com.dark.rs2.entity.player.net.out.impl.SendObject;
+import com.dark.rs2.entity.player.net.out.impl.SendObjectRemove;
 
 @SuppressWarnings("all")
 public class ObjectManager {
-//k
-	public static final int BLANK_OBJECT_ID = 2376;
 
-	private static final List<GameObject> active = new LinkedList<GameObject>();
-	private static final Deque<GameObject> register = new LinkedList<GameObject>();
+    /**
+     * Our objects
+     */
+    private static Set<GameObject> objectSet = new HashSet<GameObject>();
 
-	private static final Queue<GameObject> send = new ConcurrentLinkedQueue<GameObject>();
+    /**
+     * Logger for the class.
+     */
+    private static Logger logger = Logger.getLogger(MapLoading.class.getSimpleName());
 
-	public static void add(GameObject o) {
-		active.add(o);
-	}
+    /**
+     * The instance of this class
+     */
+    private static ObjectManager instance;
+    public static final int BLANK_OBJECT_ID = 2376;
 
-	public static void addClippedObject(GameObject o) {
-		register.add(o);
-	}
+    /**
+     * Returns the instance of this class
+     *
+     * @return
+     */
+    public static ObjectManager getInstance() {
+        if (ObjectManager.instance == null) {
+            ObjectManager.instance = new ObjectManager();
+        }
+        return ObjectManager.instance;
+    }
 
-	public static void declare() {
+    public void removeOnHeight(Player player) {
+        for (final GameObject object : objectSet) {
+            if (player.getLocation().getZ() != object.getLocation().getZ()) {
+                player.getClient().queueOutgoingPacket(new SendObjectRemove(player, object));
+            }
+        }
+    }
 
-		for (GameObject i : active) {
-			send(getBlankObject(i.getLocation()));
-		}
+    public void removeOnPosition(Location position) {
+        for (Iterator<GameObject> iter = objectSet.iterator(); iter.hasNext();) {
+            GameObject object = iter.next();
 
-		active.clear();
-		
-		/** Home Area */
-    
+            if (object.getLocation().equals(position)) {
+                for (Player player : World.getPlayers()) {
+                    if (player == null) {
+                        continue;
+                    }
+
+                    player.getClient().queueOutgoingPacket(new SendObjectRemove(player, object));
+                }
+
+                iter.remove();
+            }
+        }
+    }
+
+    public void register(GameObject registerable) {
+        if(registerable == null)
+            return;
+        /**
+         * Check if an object is already on this position and if so it removes
+         * the object from the database before spawning the new one over it.
+         */
+        for (Iterator<GameObject> iter = objectSet.iterator(); iter.hasNext();) {
+            GameObject object = iter.next();
+
+            if (object.getLocation().equals(registerable.getLocation())) {
+                iter.remove();
+            }
+        }
+
+        /**
+         * Register object for future players.
+         */
+        objectSet.add(registerable);
+
+        /**
+         * Add object for existing players in the region.
+         */
+        for (Player player : World.getPlayers()) {
+            if (player == null) {
+                continue;
+            }
+
+            if (player.getLocation().withinDistance(registerable.getLocation(), 60)) {
+                player.getClient().queueOutgoingPacket(new SendObject(player, registerable));
+            }
+        }
+
+        MapLoading.addObject(false, registerable.getId(), registerable.getLocation().getX(), registerable.getLocation().getY(), registerable.getLocation().getZ(),
+                registerable.getType(), registerable.getFace());
+    }
+
+    public void registerWithoutClipping(GameObject registerable) {
+
+        /**
+         * Check if an object is already on this position and if so it removes
+         * the object from the database before spawning the new one over it.
+         */
+        for (Iterator<GameObject> iter = objectSet.iterator(); iter.hasNext();) {
+            GameObject object = iter.next();
+
+            if (object.getLocation().equals(registerable.getLocation())) {
+                iter.remove();
+            }
+        }
+
+        /**
+         * Register object for future players.
+         */
+        objectSet.add(registerable);
+
+        /**
+         * Add object for existing players in the region.
+         */
+        for (Player player : World.getPlayers()) {
+            if (player == null) {
+                continue;
+            }
+
+            if (player.getLocation().withinDistance(registerable.getLocation(), 60)) {
+                player.getClient().queueOutgoingPacket(new SendObject(player, registerable));
+            }
+        }
+    }
+
+    public void unregister(GameObject registerable) {
+
+        /**
+         * Can't remove an object that isn't there.
+         */
+        if (!objectSet.contains(registerable)) {
+            return;
+        }
+
+        /**
+         * Unregister object for future players.
+         */
+        for (Iterator<GameObject> iter = objectSet.iterator(); iter.hasNext();) {
+            GameObject object = iter.next();
+
+            if (object.equals(registerable)) {
+                iter.remove();
+            }
+        }
+        /**
+         * Remove object for all existing players.
+         */
+        for (Player player : World.getPlayers()) {
+            if (player == null) {
+                continue;
+            }
+            player.getClient().queueOutgoingPacket(new SendObjectRemove(player, registerable));
+        }
+
+        MapLoading.removeObject(registerable.getId(), registerable.getLocation().getX(), registerable.getLocation().getY(), registerable.getLocation().getZ(),
+                registerable.getType(), registerable.getFace());
+
+    }
+
+    public void loadNewRegion(Player player) {
+
+        /**
+         * Update existing objects for player in region.
+         */
+        for (GameObject object : objectSet) {
+            if (object == null) {
+                continue;
+            }
+
+            if (object.getLocation().withinDistance(player.getLocation(), 60)) {
+                player.getClient().queueOutgoingPacket(new SendObject(player, object));
+            }
+        }
+    }
+
+    /**
+     * Gets the set of {@link WorldObject}s.
+     *
+     * @return the set of objects.
+     */
+    public Set<GameObject> getObjects() {
+        return objectSet;
+    }
+
+    public static void declare() {
+
+      
 		/** Home Area */
 		spawnWithObject(410, 3444, 2898, 0, 10, 0);//Lunar Altar
 		spawnWithObject(6552, 3437, 2891, 0, 10, 3);//Ancient Altar
@@ -107,9 +273,9 @@ public class ObjectManager {
 		/** Rune ores at mining */
 		spawnWithObject(7494, 3051, 9765, 0, 10, 3);
 		spawnWithObject(7494, 3052, 9766, 0, 10, 3);
-		delete(3104, 3497, 0);
-		delete(3105, 3497, 0);
-		delete(3106, 3497, 0);
+		deleteWithObject(3104, 3497, 0);
+		deleteWithObject(3105, 3497, 0);
+		deleteWithObject(3106, 3497, 0);
 
 		/* Monkey */
 		spawnWithObject(18968, 2715, 9167, 1, 10, 0);//monkey barrier
@@ -534,9 +700,9 @@ public class ObjectManager {
 		spawnWithObject(11744, 1801, 3501, 0, 10, 1);
 		spawnWithObject(11744, 1808, 3513, 0, 10, 0);
 		/** Deleting Objects */
-		delete(3079, 3501, 0);//Home gate
-		delete(3080, 3501, 0);//Home gate
-		delete(3445, 3554, 2);//Slayer tower door
+		deleteWithObject(3079, 3501, 0);//Home gate
+		deleteWithObject(3080, 3501, 0);//Home gate
+		deleteWithObject(3445, 3554, 2);//Slayer tower door
 		
 		/** Remove objects */
 		deleteWithObject(3085, 3506, 0);
@@ -568,21 +734,21 @@ public class ObjectManager {
 		
 			
 		/** Webs */
-		delete(3105, 3958, 0);
-		delete(3106, 3958, 0);
-		delete(3093, 3957, 0);
-		delete(3095, 3957, 0);
-		delete(3092, 3957, 0);
-		delete(3158, 3951, 0);
+		deleteWithObject(3105, 3958, 0);
+		deleteWithObject(3106, 3958, 0);
+		deleteWithObject(3093, 3957, 0);
+		deleteWithObject(3095, 3957, 0);
+		deleteWithObject(3092, 3957, 0);
+		deleteWithObject(3158, 3951, 0);
 		deleteWithObject(2543, 4715, 0);
 		spawnWithObject(734, 3105, 3958, 0, 10, 3);
 		spawnWithObject(734, 3106, 3958, 0, 10, 3);
 		spawnWithObject(734, 3158, 3951, 0, 10, 1);
 		spawnWithObject(734, 3093, 3957, 0, 10, 0);
 		spawnWithObject(734, 3095, 3957, 0, 10, 0);	
-		delete(2543, 4715, 0);	
-		delete(2855, 3546, 0);
-		delete(2854, 3546, 0);
+		deleteWithObject(2543, 4715, 0);	
+		deleteWithObject(2855, 3546, 0);
+		deleteWithObject(2854, 3546, 0);
 
 		/** Clipping */
 		setClipToZero(3445, 3554, 2);
@@ -612,187 +778,121 @@ public class ObjectManager {
 		setClipToZero(3104, 3500, 0);
 		setClipToZero(3105, 3500, 0);
 
-		for (GameObject i : active) {
-			send(i);
-		}
+        //getInstance().register(new GameObject(2191, 3081, 3499, 0, 10, 3);//Crystal chest
+        logger.info("All object spawns have been loaded successfully.");
+    }
 
-		logger.info("All object spawns have been loaded successfully.");
-	}
-	
-	private static Logger logger = Logger.getLogger(MapLoading.class.getSimpleName());
+    public static boolean objectExists(Location location) {
+        for (GameObject object : objectSet) {
+            if (location.equals(object.getLocation())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	private static final void delete(int x, int y, int z) {
-		RSObject object = Region.getObject(x, y, z);
+    public static void setClipToZero(int x, int y, int z) {
+        Region region = Region.getRegion(x, y);
 
-		if (Region.getDoor(x, y, z) != null) {
-			Region.removeDoor(x, y, z);
-		}
+        region.setClipToZero(x, y, z);
+    }
 
-		if (object == null) {
-			if (z > 0)
-				active.add(new GameObject(2376, x, y, z, 10, 0));
-			return;
-		}
+    public static void setClipped(int x, int y, int z) {
+        Region region = Region.getRegion(x, y);
 
-		MapLoading.removeObject(object.getId(), x, y, z, object.getType(), object.getFace());
+        region.setClipping(x, y, z, 0x12801ff);
+    }
 
-		if ((object.getType() != 10) || (z > 0))
-			active.add(new GameObject(2376, x, y, z, object.getType(), 0));
-	}
+    public static void setProjecileClipToInfinity(int x, int y, int z) {
+        Region region = Region.getRegion(x, y);
 
-	private static final void deleteWithObject(int x, int y, int z) {
-		RSObject object = Region.getObject(x, y, z);
+        region.setProjecileClipToInfinity(x, y, z);
+    }
 
-		if (Region.getDoor(x, y, z) != null) {
-			Region.removeDoor(x, y, z);
-		}
+    private static final void spawn(int id, int x, int y, int z, int type, int face) {
+        MapLoading.addObject(false, id, x, y, z, type, face);
+    }
+    /*
+    Spawn an Object throught location
+    */
+    public static final void spawnWithObject(int id, Location location, int type, int face) {
+        getInstance().register(new GameObject(id, location.getX(), location.getY(), location.getZ(), type, face));
+    }
+    
+    public static final void spawnWithObject(int id, int x, int y, int z, int type, int face) {
+        getInstance().register(new GameObject(id, x, y, z, type, face));
+    }
+    
+    private static final void deleteWithObject(int x, int y, int z) {
+        getInstance().unregister(new GameObject(x, y, z));//Home gate
+    }
 
-		if (object == null) {
-			active.add(new GameObject(2376, x, y, z, 10, 0));
-			return;
-		}
-
-		MapLoading.removeObject(object.getId(), x, y, z, object.getType(), object.getFace());
-
-		active.add(new GameObject(2376, x, y, z, object.getType(), 0));
-	}
-	
-	private static final void remove(int x, int y, int z) {
-	RSObject object = Region.getObject(x, y, z);
-	
-	if (Region.getDoor(x, y, z) != null) {
-		Region.removeDoor(x, y, z);
-	}
-	
-	if (object == null) {
-		active.add(new GameObject(2376, x, y, z, 10, 0));
-		return;
-	}
-	
-	MapLoading.removeObject(object.getId(), x, y, z, object.getType(), object.getFace());
-	
-	active.add(new GameObject(2376, x, y, z, object.getType(), 0));
-	Region region = Region.getRegion(x, y);
-
-	region.setClipToZero(x, y, z);
-}
-	
-
-	private static final void deleteWithObject(int x, int y, int z, int type) {
-		active.add(new GameObject(2376, x, y, z, type, 0));
-	}
-
-	public static List<GameObject> getActive() {
-		return active;
-	}
-
-	public static final GameObject getBlankObject(Location p) {
-		return new GameObject(2376, p.getX(), p.getY(), p.getZ(), 10, 0, false);
-	}
-
-	public static GameObject getBlankObject(Location p, int type) {
-		return new GameObject(2376, p.getX(), p.getY(), p.getZ(), type, 0, false);
-	}
-
-	public static GameObject getGameObject(int x, int y, int z) {
-		int index = active.indexOf(new GameObject(x, y, z));
-
-		if (index == -1) {
-			return null;
-		}
-
-		return active.get(index);
-	}
-
-	public static Queue<GameObject> getSend() {
-		return send;
-	}
-
-	public static boolean objectExists(Location location) {
-		for (GameObject object : active) {
-			if (location.equals(object.getLocation())) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static void process() {
-		for (Iterator<GameObject> i = register.iterator(); i.hasNext();) {
-			GameObject reg = i.next();
-			active.remove(reg);
-			active.add(reg);
-			send.add(reg);
-
-			i.remove();
-		}
-	}
-
-	public static void queueSend(GameObject o) {
-		send.add(o);
-	}
-
-	public static void register(GameObject o) {
-		register.add(o);
-	}
-
-	public static void remove(GameObject o) {
-		removeFromList(o);
-		send.add(getBlankObject(o.getLocation(), o.getType()));
-	}
-
-	public static void remove2(GameObject o) {
-		send.add(getBlankObject(o.getLocation(), o.getType()));
-	}
-
-	public static void removeFromList(GameObject o) {
-		active.remove(o);
-	}
-
-	private static final void removeWithoutClip(int x, int y, int z, int type) {
-	}
-
-	public static void send(GameObject o) {
-		for (Player player : World.getPlayers())
-			if ((player != null) && (player.isActive())) {
-				if ((player.withinRegion(o.getLocation())) && (player.getLocation().getZ() % 4 == o.getLocation().getZ() % 4))
-					player.getObjects().add(o);
-			}
-	}
-
-	public static void setClipToZero(int x, int y, int z) {
-		Region region = Region.getRegion(x, y);
-
-		region.setClipToZero(x, y, z);
-	}
-
-	public static void setClipped(int x, int y, int z) {
-		Region region = Region.getRegion(x, y);
-
-		region.setClipping(x, y, z, 0x12801ff);
-	}
-
-	public static void setProjecileClipToInfinity(int x, int y, int z) {
-		Region region = Region.getRegion(x, y);
-
-		region.setProjecileClipToInfinity(x, y, z);
-	}
-
-	private static final void spawn(int id, int x, int y, int z, int type, int face) {
-		MapLoading.addObject(false, id, x, y, z, type, face);
-	}
-	
-	public static final void spawnWithObject(int id, Location location, int type, int face) {
-		active.add(new GameObject(id, location.getX(), location.getY(), location.getZ(), type, face));
-		MapLoading.addObject(false, id, location.getX(), location.getY(), location.getZ(), type, face);
-	
-		send(new GameObject(id, location.getX(), location.getY(), location.getZ(), type, face));
-	}
-
-	public static final void spawnWithObject(int id, int x, int y, int z, int type, int face) {
-		active.add(new GameObject(id, x, y, z, type, face));
-		MapLoading.addObject(false, id, x, y, z, type, face);
-
-		send(new GameObject(id, x, y, z, type, face));
-	}
+//	public static final void getInstance().register(new GameObject(int id, Location location, int type, int face) {
+//		active.add(new GameObject(id, location.getX(), location.getY(), location.getZ(), type, face));
+//		MapLoading.addObject(false, id, location.getX(), location.getY(), location.getZ(), type, face);
+//	
+//		send(new GameObject(id, location.getX(), location.getY(), location.getZ(), type, face));
+//	}
+//
+//	public static final void getInstance().register(new GameObject(int id, int x, int y, int z, int type, int face) {
+//		active.add(new GameObject(id, x, y, z, type, face));
+//		MapLoading.addObject(false, id, x, y, z, type, face);
+//
+//		send(new GameObject(id, x, y, z, type, face));
+//	}
+//	private static final void getInstance().unregisterint x, int y, int z) {
+//	RSObject object = Region.getObject(x, y, z);
+//
+//	if (Region.getDoor(x, y, z) != null) {
+//		Region.removeDoor(x, y, z);
+//	}
+//
+//	if (object == null) {
+//		if (z > 0)
+//			active.add(new GameObject(2376, x, y, z, 10, 0));
+//		return;
+//	}
+//
+//	MapLoading.removeObject(object.getId(), x, y, z, object.getType(), object.getFace());
+//
+//	if ((object.getType() != 10) || (z > 0))
+//		active.add(new GameObject(2376, x, y, z, object.getType(), 0));
+//}
+//
+//private static final void deleteWithObject(int x, int y, int z) {
+//	RSObject object = Region.getObject(x, y, z);
+//
+//	if (Region.getDoor(x, y, z) != null) {
+//		Region.removeDoor(x, y, z);
+//	}
+//
+//	if (object == null) {
+//		active.add(new GameObject(2376, x, y, z, 10, 0));
+//		return;
+//	}
+//
+//	MapLoading.removeObject(object.getId(), x, y, z, object.getType(), object.getFace());
+//
+//	//active.add(new GameObject(2376, x, y, z, object.getType(), 0));
+//}
+//
+//private static final void remove(int x, int y, int z) {
+//	RSObject object = Region.getObject(x, y, z);
+//	
+//	if (Region.getDoor(x, y, z) != null) {
+//		Region.removeDoor(x, y, z);
+//	}
+//	
+//	if (object == null) {
+//		active.add(new GameObject(2376, x, y, z, 10, 0));
+//		return;
+//	}
+//	
+//	MapLoading.removeObject(object.getId(), x, y, z, object.getType(), object.getFace());
+//	
+//	active.add(new GameObject(2376, x, y, z, object.getType(), 0));
+//	Region region = Region.getRegion(x, y);
+//
+//	region.setClipToZero(x, y, z);
+//}
 }
