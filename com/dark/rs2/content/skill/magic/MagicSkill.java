@@ -43,6 +43,7 @@ public class MagicSkill {
 		SPELL_BOOK,
 		TABLET,
 		TELE_OTHER,
+		FAIRY_RING,
 		FOUNTAIN_OF_RUNE,
 		OBELISK;
 	}
@@ -493,6 +494,9 @@ public class MagicSkill {
 	case TELE_OTHER:
 		player.getUpdateFlags().sendAnimation(1816, 0);
 		player.getUpdateFlags().sendGraphic(new Graphic(342, 0, false));
+		break;
+	case FAIRY_RING:
+		player.getUpdateFlags().sendGraphic(new Graphic(569, 0, false));
 		break;
 	case FOUNTAIN_OF_RUNE:
 		player.getUpdateFlags().sendAnimation(1816, 0);

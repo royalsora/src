@@ -250,6 +250,9 @@ public class WalkToActions {
 		// player.teleport(new Location(3090, 3475, 0));
 		return;
 	}
+	if (id == 10663) {
+		//TaskQueue.queue(new CrossStoneTask(player));
+	}
 	if (id == 27990) {
 		player.teleport(new Location(1776, 3880, 0));
 		player.send(new SendMessage("You jump over the bolder."));
@@ -1092,6 +1095,14 @@ public class WalkToActions {
 		player.start(new ZulrahDialogue(player));
 		return;
 	}
+	if (id == 14097) {
+		player.getMagic().teleport(2150, 3071, 0, TeleportTypes.FAIRY_RING);
+		return;
+	}
+	if (id == 11703) {
+		player.getMagic().teleport(3129, 3497, 0, TeleportTypes.FAIRY_RING);
+		return;
+	}
 	if ((id == 1738) && (x == 2839) && (y == 3537)) {
 		player.teleport(new Location(2839, 3537, 2));
 		return;
@@ -1219,6 +1230,7 @@ public class WalkToActions {
 		WoodcuttingTask.attemptWoodcutting(player, id, x, y);
 		switch (id) {
 
+		
 		case 26720:
 			if (player.getX() == 2358) {
 				player.teleport(new Location(player.getX() - 2, player.getY(), player.getZ()));
