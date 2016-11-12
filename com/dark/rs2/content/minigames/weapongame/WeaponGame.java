@@ -175,7 +175,7 @@ public class WeaponGame {
 		for (int index = 0; index < 5; index++) {
 			Location location = Utility.randomElement(WeaponGameConstants.CRATE_LOCATIONS);
 			GameObject object = new GameObject(2072, location, 10, 0);
-			ObjectManager.register(object);
+			ObjectManager.getInstance().register(object);
 			crates.add(object);			
 			World.sendStillGraphic(776, 10, location);
 		}
@@ -215,7 +215,7 @@ public class WeaponGame {
 	 */
 	public static void crateLoot(Player player, int x, int y, int z) {
 		int random = Utility.random(5);
-		GameObject object = ObjectManager.getGameObject(x, y, z);
+		GameObject object = new GameObject(x, y, z);
 		
 		if (object == null) {
 			return;
@@ -226,7 +226,7 @@ public class WeaponGame {
 		case 1:
 		case 2:
 		case 3:
-			ObjectManager.remove(object);
+			ObjectManager.getInstance().unregister(object);
 			crates.remove(object);
 			Item weapon = Utility.randomElement(WeaponGameConstants.CRATE_DATA);
 			player.getInventory().addItems(weapon);
@@ -236,14 +236,14 @@ public class WeaponGame {
 		case 4:
 			player.hit(new Hit(Utility.random(10)));
 			player.send(new SendMessage("@dre@...While searching you cut your hand on a sharp object!"));
-			ObjectManager.remove(object);
+			ObjectManager.getInstance().unregister(object);
 			crates.remove(object);
 			break;
 			
 		case 5:
 			player.teleport(Utility.randomElement(WeaponGameConstants.SPAWN_LOCATIONS));
 			player.send(new SendMessage("@dre@...While searching you feel a mysterious force move you!"));
-			ObjectManager.remove(object);
+			ObjectManager.getInstance().unregister(object);
 			crates.remove(object);
 			break;
 		}
@@ -289,7 +289,7 @@ public class WeaponGame {
 	 */
 	public static void endGame(boolean force) {
 		for (GameObject object : crates) {
-			ObjectManager.remove(object);
+			ObjectManager.getInstance().unregister(object);
 		}
 		crates.clear();
 		if (force) {

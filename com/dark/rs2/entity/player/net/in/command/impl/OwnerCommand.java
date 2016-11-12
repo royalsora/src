@@ -358,7 +358,7 @@ public class OwnerCommand implements Command {
 				}
 			}
 
-			ObjectManager.addClippedObject(new GameObject(id, player.getLocation(), 10, face));
+			ObjectManager.getInstance().register(new GameObject(id, player.getLocation(), 10, face));
 
 			player.send(new SendMessage("Spawned object \'" + ObjectDef.getObjectDef(id).name + "\' at " + player.getLocation() + " facing " + face));
 		}

@@ -77,14 +77,6 @@ public enum Agility {
 		if (obstacle.getType() == ObstacleType.ROPE_SWING) {
 			player.getAttributes().set("AGILITY_OBJ", obj);
 		}
-		if (Utility.random(300) == 1) {
-			player.getInventory().add(new Item(6199, 1));
-			player.send(new SendMessage("You Recieved a Mbox For Doing Agility!."));
-		}
-		if (Utility.random(150) == 1) {
-			player.getInventory().add(new Item(608, 1));
-			player.send(new SendMessage("You Recieved a Credit Scroll For Agility!."));
-		}
 		obstacle.execute(player);
 
 		return false;

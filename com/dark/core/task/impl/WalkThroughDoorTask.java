@@ -44,16 +44,19 @@ public class WalkThroughDoorTask extends Task {
 	public void execute() {
 		if (stage == 0) {
 			p.getClient().queueOutgoingPacket(new SendSound(326, 0, 0));
-			ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
+			//ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
+			ObjectManager.getInstance().register(new GameObject(door.getCurrentId(), door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
 			door.append();
-			ObjectManager.send(new GameObject(door.getCurrentId(), door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
+			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId(), door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
 		} else if (stage == 1) {
 			p.getMovementHandler().walkTo(xMod, yMod);
 			p.setController(start);
 		} else if (stage == 2) {
-			ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
+			//ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
+			ObjectManager.getInstance().register(new GameObject(door.getCurrentId(), door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
 			door.append();
-			ObjectManager.send(new GameObject(door.getCurrentId(), door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
+			//ObjectManager.send(new GameObject(door.getCurrentId(), door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
+			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId(), door.getX(), door.getY(), door.getZ(), door.getType(), door.getCurrentFace()));
 			stop();
 		}
 

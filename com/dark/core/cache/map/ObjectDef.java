@@ -178,7 +178,8 @@ public final class ObjectDef {
 		case 8554:
 		case 8555:
 		case 8556:
-		case 8557:	
+		case 8557:
+		case 20973:			
 		case 26606:
 		case 26611:
 		case 26613:
@@ -196,7 +197,6 @@ public final class ObjectDef {
 		case 26612:
 		case 26605:
 		case 26602:
-		case 1759:
 			class46.hasActions = true;
 			break;
 
@@ -235,12 +235,6 @@ public final class ObjectDef {
 			class46.actions[2] = "Info";
 			class46.hasActions = true;
 			break;
-        case 20973:
-        	class46.name = "Claim Chest";
-        	class46.actions = new String[5];
-        	class46.actions[0] = "Claim Reward";
-        	break;
-
 
 		case 9472:// Shop Exchange
 		case 9371:

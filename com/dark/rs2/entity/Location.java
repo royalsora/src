@@ -271,4 +271,20 @@ public class Location {
     public static boolean inWildernessCourse(Entity entity) {
     	return entity.getLocation().inLocation(new Location(2992, 3931), new Location(3007, 3961), true) && entity.getLocation().getZ() == 0;
     }
+        
+    /**
+     * Checks if this position is within distance of another position.
+     * 
+     * @param position
+     *        the position to check the distance for.
+     * @param distance
+     *        the distance to check.
+     * @return true if this position is within the distance of another position.
+     */
+    public boolean withinDistance(Location position, int distance) {
+        if (this.getZ() != position.getZ())
+            return false;
+
+        return Math.abs(position.getX() - this.getX()) <= distance && Math.abs(position.getY() - this.getY()) <= distance;
+    }
 }

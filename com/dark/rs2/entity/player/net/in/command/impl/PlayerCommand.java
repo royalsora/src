@@ -1,7 +1,7 @@
 package com.dark.rs2.entity.player.net.in.command.impl;
 
-import org.Vote.MainLoader;
-import org.Vote.VoteReward;
+//import org.Vote.MainLoader;
+//import org.Vote.VoteReward;
 
 import com.dark.Constants;
 import com.dark.core.network.mysql.Donation;
@@ -132,7 +132,7 @@ public class PlayerCommand implements Command {
 	case "checkvote":
 	case "voted":
 	case "claimvote":
-		handleVoteReward(player);
+		//handleVoteReward(player);
 		return true;
 
 	case "dzone":
@@ -347,7 +347,7 @@ public class PlayerCommand implements Command {
 	}
 	return false;
 	}
-
+/*
 	private void handleVoteReward(Player player) {
 	try {
 		VoteReward reward = MainLoader.hasVoted(player.getUsername().toLowerCase().replaceAll(" ", "_"));
@@ -376,7 +376,7 @@ public class PlayerCommand implements Command {
 		player.send(new SendMessage("error: " + e + "."));
 		e.printStackTrace();
 	}
-	}
+	}*/
 
 	@Override
 	public boolean meetsRequirements(Player player) {

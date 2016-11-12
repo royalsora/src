@@ -7,6 +7,7 @@ import com.dark.core.task.impl.TaskIdentifier;
 import com.dark.rs2.entity.object.GameObject;
 import com.dark.rs2.entity.object.ObjectManager;
 
+
 public class StumpTask extends Task {
 	private GameObject object;
 	private final int treeId;
@@ -19,12 +20,13 @@ public class StumpTask extends Task {
 
 	@Override
 	public void execute() {
-		ObjectManager.removeFromList(object);
 
 		RSObject rsObject = new RSObject(object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), treeId, 10, 0);
 		Region.getRegion(object.getLocation().getX(), object.getLocation().getY()).addObject(rsObject);
 
-		ObjectManager.send(new GameObject(treeId, object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), 10, 0));
+		
+		ObjectManager.getInstance().register(object);
+		//ObjectManager.send(new GameObject(treeId, object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), 10, 0));
 		stop();
 	}
 

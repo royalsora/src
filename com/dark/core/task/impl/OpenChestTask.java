@@ -35,8 +35,8 @@ public abstract class OpenChestTask extends Task {
 	public void execute() {
 		if (stage == 0) {
 			GameObject o = new GameObject(replace, x, y, z, type, face);
-			ObjectManager.removeFromList(o);
-			ObjectManager.register(o);
+			//ObjectManager.getInstance().unregister(o);
+			ObjectManager.getInstance().register(o);
 			Region.getRegion(x, y).addObject(new RSObject(x, y, z, replace, type, face));
 		} else if (stage == 2) {
 			stop();

@@ -51,23 +51,26 @@ public class WalkThroughDoubleDoorTask extends Task {
 	public void execute() {
 		if (stage == 0) {
 			p.getClient().queueOutgoingPacket(new SendSound(326, 0, 0));
-			ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+			//ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+			//ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
 			door.append();
-			ObjectManager.send(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			ObjectManager.send(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+			///ObjectManager.send(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+			//ObjectManager.send(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
 		} else if (stage == 1) {
 			p.getMovementHandler().walkTo(xMod, yMod);
 			p.setController(start);
 		} else if (stage == 2) {
-			ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+			//ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+			//ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
 			door.append();
-			ObjectManager.send(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			ObjectManager.send(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+			//ObjectManager.send(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+			//ObjectManager.send(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
 			stop();
 		}
-
 		stage++;
 	}
 

@@ -1315,23 +1315,7 @@ public class ItemPackets extends IncomingPacket {
 
 		case 12938:// Zulrah teleport
 			player.getInventory().remove(12938, 1);
-			player.getMagic().teleport(2268, 3070, player.getIndex() << 2, TeleportTypes.SPELL_BOOK);
-			TaskQueue.queue(new Task(5) {
-				@Override
-				public void execute() {
-				Zulrah mob = new Zulrah(player, new Location(2266, 3073, player.getIndex() << 2));
-				mob.face(player);
-				mob.getUpdateFlags().sendAnimation(new Animation(5071));
-				player.face(mob);
-				player.send(new SendMessage("Welcome to Zulrah's shrine."));
-				DialogueManager.sendStatement(player, "Welcome to Zulrah's shrine.");
-				stop();
-				}
-
-				@Override
-				public void onStop() {
-				}
-			});
+			player.getMagic().teleport(2197, 3056, 0, TeleportTypes.SPELL_BOOK);
 			break;
 
 		case 13249:// Cerberus teleport

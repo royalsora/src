@@ -65,7 +65,7 @@ public final class PlayerConstants {
 	/**
 	 * Home teleport
 	 */
-	public static Location HOME = new Location(3435, 2899, 0);
+	public static Location HOME = new Location(3088, 3500, 0);
 
 	/**
 	 * Edgeville teleport

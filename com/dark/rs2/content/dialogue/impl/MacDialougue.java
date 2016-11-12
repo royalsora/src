@@ -138,7 +138,7 @@ public class MacDialougue extends Dialogue {
 		next++;
 		break;
 	case 14:
-		DialogueManager.sendPlayerChat(player, Emotion.HAPPY, "How about 2277000 gold?");
+		DialogueManager.sendPlayerChat(player, Emotion.HAPPY, "How about 2,277,000 gold?");
 		next++;
 		break;
 	case 15:

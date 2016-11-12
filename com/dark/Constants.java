@@ -108,7 +108,7 @@ public class Constants {
 		"God! I wish I owned /s/!",
 		"Someone please give me /s/.",
 		"My only dream in life is to obtain /s/!",
-		"If I believe hard enough, goten will give me /s/! JK.",
+		"If I believe hard enough, Prickachu will give me /s/! JK.",
 		"Please... Please god... Give me /s/!",
 	};
 	

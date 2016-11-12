@@ -15,13 +15,13 @@ public class FireTask extends Task {
 	public FireTask(Player p, int cycles, GameObject object) {
 		super(cycles, false, Task.StackType.STACK, Task.BreakType.NEVER, TaskIdentifier.CURRENT_ACTION);
 		this.object = object;
-		ObjectManager.register(object);
+		ObjectManager.getInstance().register(object);
 		this.p = p;
 	}
 
 	@Override
 	public void execute() {
-		ObjectManager.remove(object);
+		ObjectManager.getInstance().unregister(object);
 		GroundItemHandler.add(new Item(592, 1), object.getLocation(), p, p.ironPlayer() ? p : null);
 		stop();
 	}
