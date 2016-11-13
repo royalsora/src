@@ -692,7 +692,7 @@ public enum ClueScrollManager {
     public boolean clickItem(Player player, int item) {
         ClueScroll scroll = CLUE_SCROLLS.get(item);
         if (player.getInventory().getFreeSlots() < 6) {
-            player.send(new SendMessage("You must have at least 6 free slots in your inventory to open the scroll."));
+            player.send(new SendMessage("You need least 6 free slots in your inventory to open the scroll."));
             return false;
         }
         if (scroll == null) {
