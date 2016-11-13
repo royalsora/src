@@ -1112,14 +1112,13 @@ public class ItemPackets extends IncomingPacket {
 		break;
 	case 122:
 
-		if (Constants.DEV_MODE) {
-			player.send(new SendMessage("Item packet 122"));
-		}
 
 		interfaceId = in.readShort(StreamBuffer.ValueType.A, StreamBuffer.ByteOrder.LITTLE);
 		slot = in.readShort(StreamBuffer.ValueType.A);
 		itemId = in.readShort(StreamBuffer.ByteOrder.LITTLE);
-
+		if (Constants.DEV_MODE) {
+			player.send(new SendMessage("Item packet 122 | Item id: " + itemId));
+		}
 		CleanHerbTask.attemptHerbCleaning(player, slot);
 		if (player.getDelay().elapsed() < 1000) {
 			return;

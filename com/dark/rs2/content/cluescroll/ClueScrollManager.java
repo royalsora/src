@@ -89,6 +89,7 @@ public enum ClueScrollManager {
 	CROSS_TRAILS.add(100, new Item(563, 745)); // Law rune
 	CROSS_TRAILS.add(100, new Item(564, 973)); // Cosmic rune
 	CROSS_TRAILS.add(100, new Item(565, 895)); // Blood rune
+	CROSS_TRAILS.add(75, new Item(995, 20000)); // coins
 	CROSS_TRAILS.add(25, new Item(3827, 1)); // Saradomin page 1
 	CROSS_TRAILS.add(25, new Item(3828, 1)); // Saradomin page 2
 	CROSS_TRAILS.add(25, new Item(3829, 1)); // Saradomin page 3
