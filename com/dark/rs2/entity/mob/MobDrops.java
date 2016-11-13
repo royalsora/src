@@ -541,9 +541,6 @@ public class MobDrops {
 			if (random == 26) {
 				GroundItemHandler.add(new Item(987, 1), dropLocation, p, p.ironPlayer() ? p : null);
 			}
-			if (random == 27) {
-				GroundItemHandler.add(new Item(608, 1), dropLocation, p, p.ironPlayer() ? p : null);
-			}
 			/*
 			 * if (random.nextInt(100) <= 5) { int seed = Plants.values()[Misc
 			 * .randomNumber(Plants.values().length)].seed;

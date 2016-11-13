@@ -35,7 +35,6 @@ public class TokkulShop extends Shop {
 			return 35000;
 		case 6524:
 		case 6528:
-		case 608:
 			return 80000;
 		case 6522:
 			return 350;
@@ -54,7 +53,6 @@ public class TokkulShop extends Shop {
 				new Item(6522, 1), 
 				new Item(6568, 1), 				
 				new Item(6524, 1), 
-				new Item(608, 1), 
 				new Item(6528, 1), 				
 				new Item(6571, 1), 
 				new Item(13103, 1), 				

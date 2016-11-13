@@ -308,14 +308,6 @@ public enum Fletching {
 				player.getSkill().addExperience(Skills.FLETCHING, item.getExperience());
 				player.getInventory().remove(fletchable.getIngediants(), true);
 				player.getInventory().add(item.getProduct());
-				if (Utility.random(300) == 1) {
-					player.getInventory().add(new Item(6199, 1));
-					player.send(new SendMessage("You Recieved a Mbox For Fletching!."));
-				}
-				if (Utility.random(150) == 1) {
-					player.getInventory().add(new Item(608, 1));
-					player.send(new SendMessage("You Recieved a Credit Scroll For Fletching!."));
-				}
 				if (fletchable.getProductionMessage() != null) {
 					player.send(new SendMessage(fletchable.getProductionMessage()));
 				}

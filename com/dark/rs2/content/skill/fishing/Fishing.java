@@ -211,14 +211,6 @@ public class Fishing {
 			int id = f.getRawFishId();
 			String name = Item.getDefinition(id).getName();
 			player.getInventory().add(new Item(id, 1));
-			if (Utility.random(300) == 1) {
-				player.getInventory().add(new Item(6199, 1));
-				player.send(new SendMessage("You Recieved a Mbox For Fishing!"));
-			}
-			if (Utility.random(150) == 1) {
-				player.getInventory().add(new Item(608, 1));
-				player.send(new SendMessage("You Recieved a Credit Scroll For Fishing!."));
-			}
 			if (Utility.random(4000) == 1) {
 				PetData petDrop = PetData.forItem(13320);
 				if (petDrop != null) {

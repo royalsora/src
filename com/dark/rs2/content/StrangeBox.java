@@ -34,7 +34,6 @@ public class StrangeBox {
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(7792, 1)), //Mining Tome
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(7786, 1)), //Thieving Tome
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(7780, 1)), //Fishing Tome
-			new WeightedChance<Item>(WeightedChance.COMMON, new Item(608, 2)), //Credit Scrolls
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(11335, 1)), //Dragon full helm
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(3140, 1)), //Dragon chainbody
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(12829, 1)), //Spirit shield

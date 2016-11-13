@@ -32,7 +32,7 @@ import com.dark.rs2.entity.player.net.out.impl.SendString;
 public class Barrows {
 
 	/** The items to be considered junk or barely useful. */
-	private static final Item[] JUNK_ITEM = { new Item(4740, 5), new Item(4740, 15), new Item(4740, 75), new Item(4740, 55), new Item(4740, 25), new Item(4740, 15), new Item(592), new Item(526), new Item(533, 150), new Item(554, 75), new Item(555, 75), new Item(556, 75), new Item(557, 75), new Item(558, 75), new Item(559, 75), new Item(608, 1), new Item(989, 1) };
+	private static final Item[] JUNK_ITEM = { new Item(4740, 5), new Item(4740, 15), new Item(4740, 75), new Item(4740, 55), new Item(4740, 25), new Item(4740, 15), new Item(592), new Item(526), new Item(533, 150), new Item(554, 75), new Item(555, 75), new Item(556, 75), new Item(557, 75), new Item(558, 75), new Item(559, 75), new Item(989, 1) };
 
 	/** The items considered relatively hard to get. */
 	private static final Item[] HARD_ITEM = { new Item(4740, 50), new Item(4740, 150), new Item(4740, 750), new Item(4740, 550), new Item(4740, 205), new Item(4740, 105), new Item(534, 200), new Item(562, 250), new Item(560, 250), new Item(561, 250), new Item(565, 250), new Item(7462, 1),new Item(566, 250), new Item(6199, 1) };

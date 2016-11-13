@@ -341,16 +341,6 @@ public class Mining {
 						AchievementHandler.activateAchievement(player, AchievementList.MINE_500_ROCKS, 1);
 					}	
 					
-					
-					if (Utility.random(300) == 1) {
-						//PetData petDrop = PetData.forItem(13321);
-							player.getInventory().add(new Item(6199, 1));
-							player.send(new SendMessage("You Recieved a Mbox for Mining"));
-					}
-					if (Utility.random(150) == 1) {
-						player.getInventory().add(new Item(608, 1));
-						player.send(new SendMessage("You Recieved a Credit Scroll For Mining!."));
-					}
 					if (Utility.random(4000) == 1) {
 						PetData petDrop = PetData.forItem(13321);
 						if (petDrop != null) {

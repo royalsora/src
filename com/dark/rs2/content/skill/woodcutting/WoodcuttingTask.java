@@ -292,14 +292,6 @@ public class WoodcuttingTask extends Task {
 		player.getInventory().add(new Item(tree.getReward(), 1));
 		player.getSkill().addExperience(Skills.WOODCUTTING, tree.getExperience());
 		player.send(new SendMessage("You get some logs."));
-		if (Utility.random(300) == 1) {
-			player.getInventory().add(new Item(6199, 1));
-			player.send(new SendMessage("You get a Mbox from Woodcutting!"));
-		}
-		if (Utility.random(150) == 1) {
-			player.getInventory().add(new Item(608, 1));
-			player.send(new SendMessage("You Recieved a Credit Scroll For Woodcutting!"));
-		}
 		if (Utility.random(4000) == 1) {
 			PetData petDrop = PetData.forItem(13322);
 			if (petDrop != null) {

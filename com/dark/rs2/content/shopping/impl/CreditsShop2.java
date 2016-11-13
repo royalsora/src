@@ -156,11 +156,6 @@ public class CreditsShop2 extends Shop {
 				new Item(989),
 				new Item(2944),	
 				new Item(7142),
-				new Item(748),		
-				new Item(292),
-				new Item(10872),
-				new Item(1499),
-				new Item(1580),
 
 		}, false, "Donator Shop");
 	}

@@ -37,14 +37,6 @@ public class Firemaking extends Task {
 
 		player.getUpdateFlags().sendAnimation(new Animation(733));
 		groundLog = new GroundItem(new Item(log.getId(), 1), new Location(player.getLocation()), player.getUsername());
-		if (Utility.random(300) == 1) {
-			player.getInventory().add(new Item(6199, 1));
-			player.send(new SendMessage("You Recieved a Mbox For Firemaking!."));
-		}
-		if (Utility.random(150) == 1) {
-			player.getInventory().add(new Item(608, 1));
-			player.send(new SendMessage("You Recieved a Credit Scroll For Firemaking!."));
-		}
 		GroundItemHandler.add(groundLog);
 		player.getInventory().remove(log);
 		TaskQueue.queue(new Firemaking(1, player, log, logData));

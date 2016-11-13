@@ -129,14 +129,6 @@ public class CookingTask extends Task {
 		player.getInventory().add(new Item(cookingData.getReplacement(), 1));
 		double experience = cookingData.getExperience();
 		player.getSkill().addExperience(7, experience);
-		if (Utility.random(200) == 1) {
-			player.getInventory().add(new Item(6199, 1));
-			player.send(new SendMessage("You Recieved a Mbox For Cooking!."));
-		}
-		if (Utility.random(150) == 1) {
-			player.getInventory().add(new Item(608, 1));
-			player.send(new SendMessage("You Recieved a Credit Scroll For Cooking!."));
-		}
 		player.getClient().queueOutgoingPacket(new SendMessage("You successfully cook the " + Item.getDefinition(used).getName() + "."));
 		AchievementHandler.activateAchievement(player, AchievementList.COOK_250_FOODS, 1);
 		AchievementHandler.activateAchievement(player, AchievementList.COOK_500_FOODS, 1);

@@ -75,10 +75,6 @@ public class BoneBurying {
 		player.getCombat().reset();
 		player.getUpdateFlags().sendAnimation(827, 0);
 		player.getClient().queueOutgoingPacket(new SendMessage("You bury the " + Item.getDefinition(bones.id).getName() + "."));
-		if (Utility.random(150) == 1) {
-			player.getInventory().add(new Item(608, 1));
-			player.send(new SendMessage("You Recieved a Credit Scroll For Training Prayer!"));
-		}
 		player.getInventory().clear(slot);
 		if (player.getEquipment().contains(9760) || player.getEquipment().contains(9759)) {
 			player.getSkill().addExperience(5, bones.experience * 0.2);

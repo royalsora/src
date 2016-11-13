@@ -84,10 +84,6 @@ public class Impling {
 			player.getInventory().remove(new Item(itemId));
 			player.getInventory().getItemSlot(itemId);
 			int r = random.nextInt(t.getLoot().length);
-			if (Utility.random(150) == 1) {
-				player.getInventory().add(new Item(608, 1));
-				player.send(new SendMessage("You Recieved a Credit Scroll For Hunting!."));
-			}
 			if (t.getLoot()[r].length == 3) {
 				int amount = t.getLoot()[r][1] + random.nextInt(t.getLoot()[r][2] - t.getLoot()[r][1]);
 				player.getInventory().add(new Item(t.getLoot()[r][0], amount));
