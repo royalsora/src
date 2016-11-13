@@ -35,7 +35,7 @@ public class MapConstants {
 	}
 
 	public static boolean isReverseOrientation(int id) {
-		return  id == 24306 || id == 24309 ||id == 6836 || id == 6837 || id == 6838 || id == 6839 || id == 6840 || id == 14234 || id == 14233 || id == 31841;
+		return  id == 1511 ||id == 1512 ||id == 1513 ||id == 1514 ||id == 24306 || id == 24309 ||id == 6836 || id == 6837 || id == 6838 || id == 6839 || id == 6840 || id == 14234 || id == 14233 || id == 31841;
 	}
         public static boolean isOneSideGate(int id) {
 		return id == 1558 ||id == 1560 ||id == 1558 || id == 7160 || id == 7158 || id == 4311;
