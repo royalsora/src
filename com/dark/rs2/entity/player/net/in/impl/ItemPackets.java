@@ -590,7 +590,6 @@ public class ItemPackets extends IncomingPacket {
 		case 2801:
 		case 2722:
 		case 2723:
-			DialogueManager.sendStatement(player, "?????????????!");
 		return;
 		case 4079:// YOYO
 			player.getUpdateFlags().sendAnimation(1458, 0);
