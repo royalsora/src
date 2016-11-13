@@ -100,24 +100,50 @@ public class DoubleDoor {
 	}
 
 	public void append() {
-		if (currentId1 == id1) {
+		if (currentId1 == id1 && currentId2 == id2) {
 			currentId1 = id3;
 			currentId2 = id4;
-		} else if (currentId2 == id3) {
+		} else if (currentId1 == id3 && currentId2 == id4) {
 			currentId1 = id1;
 			currentId2 = id2;
-		}
+		} else if (currentId1 == id1 && currentId2 == id3) {
+			currentId1 = id2;
+			currentId2 = id4;
+                } else if (currentId1 == id2 && currentId2 == id3) {
+			currentId1 = id1;
+			currentId2 = id3;
+		} else if(currentId1 == id1) {
+			currentId1 = id3;
+			currentId2 = id4;
+                } else if(currentId1 == id3) {
+			currentId1 = id1;
+			currentId2 = id2;
+                }
                 
-		if (currentFace1 == face1) {
+		if (currentFace1 == face1 && currentFace2 == face2) {
 			currentFace1 = face3;
 			currentFace2 = face4;
 			x += xMod;
 			y += yMod;
 			x2 += xMod;
 			y2 += yMod;
-		} else if (currentFace1 == face3) {
+		} else if (currentFace1 == face3 && currentFace2 == face4) {
 			currentFace1 = face1;
 			currentFace2 = face2;
+			x -= xMod;
+			y -= yMod;
+			x2 -= xMod;
+			y2 -= yMod;
+		} else if (currentFace1 == face1 && currentFace2 == face3) {
+			currentFace1 = face2;
+			currentFace2 = face4;
+			x += xMod;
+			y += yMod;
+			x2 += xMod;
+			y2 += yMod;
+		} else if (currentFace1 == face2 && currentFace2 == face4) {
+			currentFace1 = face1;
+			currentFace2 = face3;
 			x -= xMod;
 			y -= yMod;
 			x2 -= xMod;
