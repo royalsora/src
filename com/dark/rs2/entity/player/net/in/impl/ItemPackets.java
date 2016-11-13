@@ -574,7 +574,24 @@ public class ItemPackets extends IncomingPacket {
 		}
 
 		switch (itemId) {
-
+		case 2682:
+		case 2683:
+		case 2684:
+		case 2685:
+		case 2803:
+		case 2805:
+		case 2807:
+		case 2809:
+		case 2677:
+		case 2678:
+		case 2679:
+		case 2680:
+		case 2681:
+		case 2801:
+		case 2722:
+		case 2723:
+			DialogueManager.sendStatement(player, "?????????????!");
+		return;
 		case 4079:// YOYO
 			player.getUpdateFlags().sendAnimation(1458, 0);
 			return;
