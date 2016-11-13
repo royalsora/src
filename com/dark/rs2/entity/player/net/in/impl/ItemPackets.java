@@ -574,7 +574,7 @@ public class ItemPackets extends IncomingPacket {
 		}
 
 		switch (itemId) {
-		/*case 2682:
+		case 2682:
 		case 2683:
 		case 2684:
 		case 2685:
@@ -590,7 +590,7 @@ public class ItemPackets extends IncomingPacket {
 		case 2801:
 		case 2722:
 		case 2723:
-		return;*/
+		return;
 		case 4079:// YOYO
 			player.getUpdateFlags().sendAnimation(1458, 0);
 			return;
