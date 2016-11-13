@@ -124,10 +124,10 @@ public class HomeStalls extends Task {
 			if (player.inMemberZone()) {
 				player.teleport(new Location(2854, 3337, 0));
 			} else {
-				player.teleport(new Location(3087, 3492, 0));
+				player.teleport(new Location(3086, 3497, 0));
 			}
 			player.getUpdateFlags().sendAnimation(new Animation(4367));
-			player.getClient().queueOutgoingPacket(new SendMessage("Some mystical force drops you from the sky causing damage."));
+			player.getClient().queueOutgoingPacket(new SendMessage("Some mystical force drops you from the sky, causing damage."));
 			player.hit(new Hit(2, Hit.HitTypes.NONE));
 			player.getUpdateFlags().sendForceMessage(Utility.randomElement(FORCED_CHAT));
 			AchievementHandler.activateAchievement(player, AchievementList.FAIL_15_TIMES_THIEVING_STALLS, 1);

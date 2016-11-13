@@ -212,8 +212,8 @@ public class ObjectManager {
       
 		/** Home Area */
     	
-		spawnWithObject(410, 3444, 2898, 0, 10, 0);//Lunar Altar
-		spawnWithObject(6552, 3437, 2891, 0, 10, 3);//Ancient Altar
+		spawnWithObject(410, 3078, 3481, 0, 10, 0);//Lunar Altar
+		spawnWithObject(6552, 3087, 3483, 0, 10, 0);//Ancient Altar
 		spawnWithObject(409, 3084, 3483, 0, 10, 0);//Altar at edge	
 		spawnWithObject(409, 3439, 2898, 0, 10, 2);//Altar	
 		spawnWithObject(26254, 3410, 2894, 0, 10, 0);//depoist
@@ -726,7 +726,6 @@ public class ObjectManager {
 		deleteWithObject(1812, 3510, 0);
 		deleteWithObject(1812, 3509, 0);
 		
-		spawnWithObject(412, 3085, 3509, 0, 10, 1);// chaos alter
 		spawnWithObject(11744, 3083, 3514, 0, 10, 0);// Banks
 		spawnWithObject(11744, 3084, 3514, 0, 10, 0);// Banks
 		spawnWithObject(10517, 3426, 2892, 0, 10, 1);// Banks
