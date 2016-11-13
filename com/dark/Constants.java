@@ -130,7 +130,7 @@ public class Constants {
 	 * Holds all doors that can not be opened
 	 */
 	public static final int[] BLOCKED_DOORS = {
-		26502, 26503, 26504, 26505,/* 24306, 24309,*/ 26760, 2104, 
+		26502, 26503, 26504, 26505, 24306, 24309, 26760, 2104, 
 		2102, 2100, 26461, 4799, 7129, 4133, 4132, 4108
 	};
 	

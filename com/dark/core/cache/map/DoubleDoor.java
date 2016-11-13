@@ -4,190 +4,217 @@ import com.dark.core.util.GameDefinitionLoader;
 
 public class DoubleDoor {
 
-	private int currentId1;
-	private int currentId2;
+    private int currentId1;
+    private int currentId2;
 
-	private int currentFace1;
-	private int currentFace2;
+    private int currentFace1;
+    private int currentFace2;
 
-	private final byte type;
+    private final byte type;
 
-	private short x;
-	private short y;
-	private short x2;
-	private short y2;
-	private byte z;
+    private short x;
+    private short y;
+    private short x2;
+    private short y2;
+    private byte z;
 
-	private int id1;
-	private int id2;
-	private int id3;
-	private int id4;
+    private int id1;
+    private int id2;
+    private int id3;
+    private int id4;
 
-	private byte xMod;
-	private byte yMod;
+    private byte xMod;
+    private byte yMod;
+    private byte xMod2;
+    private byte yMod2;
 
-	private byte face1;
-	private byte face2;
-	private byte face3;
-	private byte face4;
+    private byte face1;
+    private byte face2;
+    private byte face3;
+    private byte face4;
 
-	public DoubleDoor(QueuedDoor door, RSObject other) {
-		this.type = (byte) door.getType();
+    public DoubleDoor(QueuedDoor door, RSObject other) {
+        this.type = (byte) door.getType();
 
-		currentId1 = door.getId();
-		currentId2 = other.getId();
+        currentId1 = door.getId();
+        currentId2 = other.getId();
 
-		id1 = currentId1;
-		id2 = currentId2;
-		id3 = GameDefinitionLoader.getAlternate(id1);
-		id4 = GameDefinitionLoader.getAlternate(id2);
+        id1 = currentId1;
+        id2 = currentId2;
+        id3 = GameDefinitionLoader.getAlternate(id1);
+        id4 = GameDefinitionLoader.getAlternate(id2);
 
-		if (id3 <= 0)
-			id3 = id1;
+        if (id3 <= 0) {
+            id3 = id1;
+        }
 
-		if (id4 <= 0)
-			id4 = id2;
+        if (id4 <= 0) {
+            id4 = id2;
+        }
 
-		x = (short) door.getX();
-		y = (short) door.getY();
-		z = (byte) door.getZ();
-		x2 = (short) other.getX();
-		y2 = (short) other.getY();
+        x = (short) door.getX();
+        y = (short) door.getY();
+        z = (byte) door.getZ();
+        x2 = (short) other.getX();
+        y2 = (short) other.getY();
 
-		// System.out.println("" + x + " " + y + " " + z);
+        // System.out.println("" + x + " " + y + " " + z);
+        currentFace1 = door.getFace();
+        currentFace2 = other.getFace();
+        face1 = (byte) currentFace1;
+        face2 = (byte) currentFace2;
 
-		currentFace1 = door.getFace();
-		currentFace2 = other.getFace();
-		face1 = (byte) currentFace1;
-		face2 = (byte) currentFace2;
+        // if (flag) {//closed
+        switch (face1) {
+            case 0:
+                xMod = -1;
+                xMod2 = -1;
+                face3 = 3;
+                face4 = 1;
+                break;
+            case 1:
+                yMod = 1;
+                yMod2 = 1;
+                face3 = 0;
+                face4 = 2;
+                break;
+            case 2:
+                xMod = 1;
+                xMod2 = 1;
+                face3 = 1;
+                face4 = 3;
+                break;
+            case 3:
+                // 5187
+                // 15642
+                yMod = -1;
+                yMod2 = -1;
+                face3 = 2;
+                face4 = 0;
+                break;
+        }
 
-		// if (flag) {//closed
-		switch (face1) {
-		case 0:
-			xMod = -1;
-			face3 = 3;
-			face4 = 1;
-			break;
-		case 1:
-			yMod = 1;
-			face3 = 0;
-			face4 = 2;
-			break;
-		case 2:
-			xMod = 1;
-			face3 = 1;
-			face4 = 3;
-			break;
-		case 3:
-			// 5187
-			// 15642
-			yMod = -1;
-			face3 = 2;
-			face4 = 0;
-			break;
-		}
+        if (MapConstants.isReverseOrientation(currentId1) //if the door opens in the mid add to reverseorientation
+                || MapConstants.isReverseOrientation(currentId2)) {
+            face3 -= 2;
+            face4 -= 2;
+        }
+        if (MapConstants.isOneSideGate(currentId1) //if its a gate add to this list
+                || MapConstants.isOneSideGate(currentId2)) {
+            switch (face1) {
+                case 0:
+                    xMod = -1;
+                    xMod2 = -2;
+                    yMod2 = -1;//extra
+                    face3 = 3;
+                    face4 = 1;
+                    break;
+                case 1:
+                    xMod2 = -1;//extra
+                    yMod = 1;
+                    yMod2 = 2;
+                    face3 = 0;
+                    face4 = 2;
+                    break;
+                case 2:
+                    xMod = 1;
+                    xMod2 = 2;
+                    yMod2 = 1; //extra
+                    face3 = 1;
+                    face4 = 3;
+                    break;
+                case 3:
+                    // 5187
+                    // 15642
+                    xMod2 = 1;//extra
+                    yMod = -1;
+                    yMod2 = -2;
+                    break;
+            }
+            face4 -= 2;
+        }
 
-		if (MapConstants.isReverseOrientation(currentId1)
-				|| MapConstants.isReverseOrientation(currentId2)) {
-			face3 -= 2;
-			face4 -= 2;
-		}
-
-		/*
+        /*
 		 * } else { switch (face1) { case 1: case 3: xMod = 1; face3 = 1; face4
 		 * = 1; break; case 2: yMod = -1; face3 = 1; face4 = 1; break; } }
-		 */
-	}
+         */
+    }
 
-	public void append() {
-		if (currentId1 == id1 && currentId2 == id2) {
-			currentId1 = id3;
-			currentId2 = id4;
-		} else if (currentId1 == id3 && currentId2 == id4) {
-			currentId1 = id1;
-			currentId2 = id2;
-		} else if (currentId1 == id1 && currentId2 == id3) {
-			currentId1 = id2;
-			currentId2 = id4;
-                } else if (currentId1 == id2 && currentId2 == id3) {
-			currentId1 = id1;
-			currentId2 = id3;
-		} else if(currentId1 == id1) {
-			currentId1 = id3;
-			currentId2 = id4;
-                } else if(currentId1 == id3) {
-			currentId1 = id1;
-			currentId2 = id2;
-                }
-                
-		if (currentFace1 == face1 && currentFace2 == face2) {
-			currentFace1 = face3;
-			currentFace2 = face4;
-			x += xMod;
-			y += yMod;
-			x2 += xMod;
-			y2 += yMod;
-		} else if (currentFace1 == face3 && currentFace2 == face4) {
-			currentFace1 = face1;
-			currentFace2 = face2;
-			x -= xMod;
-			y -= yMod;
-			x2 -= xMod;
-			y2 -= yMod;
-		} else if (currentFace1 == face1 && currentFace2 == face3) {
-			currentFace1 = face2;
-			currentFace2 = face4;
-			x += xMod;
-			y += yMod;
-			x2 += xMod;
-			y2 += yMod;
-		} else if (currentFace1 == face2 && currentFace2 == face4) {
-			currentFace1 = face1;
-			currentFace2 = face3;
-			x -= xMod;
-			y -= yMod;
-			x2 -= xMod;
-			y2 -= yMod;
-		}
-	}
+    public void append() {
+        if (currentId1 == id1 && currentId2 == id2) {
+            currentId1 = id3;
+            currentId2 = id4;
+        } else if (currentId1 == id3 && currentId2 == id4) {
+            currentId1 = id1;
+            currentId2 = id2;
+        } else if (currentId1 == id1 && currentId2 == id3) {
+            currentId1 = id2;
+            currentId2 = id4;
+        } else if (currentId1 == id2 && currentId2 == id3) {
+            currentId1 = id1;
+            currentId2 = id3;
+        } else if (currentId1 == id1) {
+            currentId1 = id3;
+            currentId2 = id4;
+        } else if (currentId1 == id3) {
+            currentId1 = id1;
+            currentId2 = id2;
+        }
 
-	public int getCurrentId1() {
-		return currentId1;
-	}
+        if (currentFace1 == face1 && currentFace2 == face2) {
+            currentFace1 = face3;
+            currentFace2 = face4;
+            x += xMod;
+            y += yMod;
+            x2 += xMod2;
+            y2 += yMod2;
+        } else if (currentFace1 == face3 && currentFace2 == face4) {
+            currentFace1 = face1;
+            currentFace2 = face2;
+            x -= xMod;
+            y -= yMod;
+            x2 -= xMod2;
+            y2 -= yMod2;
+        }
+    }
 
-	public int getCurrentId2() {
-		return currentId2;
-	}
+    public int getCurrentId1() {
+        return currentId1;
+    }
 
-	public int getCurrentFace1() {
-		return currentFace1;
-	}
+    public int getCurrentId2() {
+        return currentId2;
+    }
 
-	public int getCurrentFace2() {
-		return currentFace2;
-	}
+    public int getCurrentFace1() {
+        return currentFace1;
+    }
 
-	public int getX1() {
-		return x;
-	}
+    public int getCurrentFace2() {
+        return currentFace2;
+    }
 
-	public int getY1() {
-		return y;
-	}
+    public int getX1() {
+        return x;
+    }
 
-	public int getX2() {
-		return x2;
-	}
+    public int getY1() {
+        return y;
+    }
 
-	public int getY2() {
-		return y2;
-	}
+    public int getX2() {
+        return x2;
+    }
 
-	public int getZ() {
-		return z;
-	}
+    public int getY2() {
+        return y2;
+    }
 
-	public int getType() {
-		return type;
-	}
+    public int getZ() {
+        return z;
+    }
+
+    public int getType() {
+        return type;
+    }
 }

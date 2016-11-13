@@ -35,8 +35,12 @@ public class MapConstants {
 	}
 
 	public static boolean isReverseOrientation(int id) {
-		return id == 14234 || id == 14233 || id == 31841;
+		return  id == 24306 || id == 24309 ||id == 6836 || id == 6837 || id == 6838 || id == 6839 || id == 6840 || id == 14234 || id == 14233 || id == 31841;
 	}
+        public static boolean isOneSideGate(int id) {
+		return id == 1558 ||id == 1560 ||id == 1558 || id == 7160 || id == 7158 || id == 4311;
+	}
+
 
 	public static final int getZModifier(int id, int option) {
 		byte options = spiral.get((short) id);
