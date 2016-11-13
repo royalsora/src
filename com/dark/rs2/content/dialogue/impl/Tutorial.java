@@ -108,11 +108,10 @@ public class Tutorial extends Dialogue {
 			nChat(new String[] { "We have many different attractions such as", "Zulrah, Cerberus, Kraken.", "We also have unique content coming in daily!" });
 			break;
 		case 5:
-			tele(3441, 2895);
-			nChat(new String[] { "You can change your magic books over here." });
+			nChat(new String[] { "Welcome to your home area, the bane of all things Horizon." });
 			break;
 		case 6:
-			tele(3438, 2890);
+			tele(3098, 3484);
 			nChat(new String[] { "This is Vannaka; he can give you a slayer task.", "You may also get a co-op slayer task." });
 			break;
 		case 7:
@@ -120,34 +119,34 @@ public class Tutorial extends Dialogue {
 			nChat(new String[] { "Here are some of the monsters", "You'll be killing through slayer.", "Slayer is one of the best ways to make money!" });
 			break;
 		case 8:
-			tele(3414, 2916);
+			tele(3096, 3504);
 			nChat(new String[] { "These are the shops.", "They're spread out but everything you need is here." });
 			break;
 		case 9:
-			tele(2664, 3311);
+			tele(3101, 3490);
 			nChat(new String[] { "This is a good thieving area.", "Thieving is another good way to make money." });
 			break;
 		case 10:
-			tele(3093, 3504);
+			tele(3086, 3512);
 			nChat(new String[] { "This is the Emblem Trader.", "He will reward you for all your hard work from the", "Bounty Hunter." });
 			break;
 		case 11:
-			tele(3436, 2901);
-			nChat(new String[] { "Like mystery boxes?", "You can get them from many stores including the Trivia shop!" });
+			tele(3095, 3486);
+			nChat(new String[] { "Like mystery boxes?", "You can get them from many stores,", "including the Trivia shop!" });
 			break;
 		case 12:
 			tele(3567, 3298);
 			nChat(new String[] { "If you still need help making money.", "check out barrows!", "the drop rate is roughly 1 in 3" });
 			break;
 		case 13:
-			tele(3430, 2891);
+			tele(3088, 3499);
 			nChat(new String[] { "If you have any more questions please speak to a", "<img=0>@blu@ Moderator</col> or any other staff member." });
 			break;
 		case 14:
-			nChat(new String[] { "Also check out our forums! (@red@www.Horizon-OS.org</col>)", "Make sure to vote to keep the server active." });
+			nChat(new String[] { "Also check out our forums! (@red@www.Horizon-OS.com</col>)", "Make sure to vote to keep the server active." });
 			break;
 		case 15:
-			nChat(new String[] { "There are tons more of content to explore.", "Good luck with your adventurer!" });
+			nChat(new String[] { "There is tons more of content to explore.", "Good luck with your adventure!" });
 			break;
 		case 16:
 			end();

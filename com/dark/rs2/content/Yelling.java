@@ -23,7 +23,7 @@ public class Yelling {
 		} else if (rights == 2) {
 			send = "[<shad=0><col=FFFF00>Administrator</shad></col>]  <img=1>" + player.getUsername() + "</col>:<shad=0><col=FFFF00> " + message;
 		} else if (rights == 3) {
-			send = "[<shad=0>@mag@Owner</col></shad>] <img=2><shad=0>@bla@" + player.getUsername() + "</shad></col>:<shad=0>@mag@ " + message;
+			send = "[@red@Owner</col>] <img=2>@bla@" + player.getUsername() + "</col>:@red@ " + message;
 		} else if (rights == 4) {
 			send = "[@dre@Gambler</col>] <img=3>@dre@" + player.getUsername() + "</col>: " + message;
 		} else if (rights == 5) {

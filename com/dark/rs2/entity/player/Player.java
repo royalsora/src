@@ -1494,7 +1494,7 @@ public class Player extends Entity {
 	appearanceUpdateRequired = true;
 	needsPlacement = true;
 
-	send(new SendMessage("Welcome to Horizon-OS"));
+	send(new SendMessage("Welcome to Horizon."));
 	// send(new SendMessage("<shad=0>@gre@10% off all Donations in the webstore!
 	// Thanks for playing!"));
 	// send(new SendMessage("<shad=0>@gre@Double XP is on. Sorry for the

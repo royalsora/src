@@ -211,17 +211,18 @@ public class ObjectManager {
 
       
 		/** Home Area */
+    	
 		spawnWithObject(410, 3444, 2898, 0, 10, 0);//Lunar Altar
 		spawnWithObject(6552, 3437, 2891, 0, 10, 3);//Ancient Altar
-		spawnWithObject(409, 3090, 3508, 0, 10, 3);//Altar at edge	
+		spawnWithObject(409, 3084, 3483, 0, 10, 0);//Altar at edge	
 		spawnWithObject(409, 3439, 2898, 0, 10, 2);//Altar	
 		spawnWithObject(26254, 3410, 2894, 0, 10, 0);//depoist
-		//spawnWithObject(4875, 3422, 2914, 0, 10, 5);//Food stall
-		//spawnWithObject(4876, 3095, 3500, 0, 10, 5);//General stall
-		//spawnWithObject(4874, 3096, 3500, 0, 10, 5);//Crafting stall
-		//spawnWithObject(4877, 3097, 3500, 0, 10, 5);//Magic stall
-		//spawnWithObject(4878, 3098, 3500, 0, 10, 5);//Scimitar stall
-		spawnWithObject(2191, 3437, 2887, 0, 10, 3);//Crystal chest
+		spawnWithObject(4875, 3099, 3488, 0, 10, 5);//Food stall
+		spawnWithObject(4876, 3099, 3489, 0, 10, 5);//General stall
+		spawnWithObject(4874, 3099, 3490, 0, 10, 5);//Crafting stall
+		spawnWithObject(4877, 3099, 3491, 0, 10, 5);//Magic stall
+		spawnWithObject(4878, 3099, 3492, 0, 10, 5);//Scimitar stall
+		spawnWithObject(2191, 3090, 3492, 0, 10, 3);//Crystal chest
 		spawnWithObject(4277, 3430, 2919, 0, 10, 2);//fish stall
 		spawnWithObject(4278, 3431, 2910, 0, 10, 3);//fur stall
 		spawnWithObject(26796, 3429, 2889, 0, 10, 3);//vote booth
@@ -246,6 +247,8 @@ public class ObjectManager {
 		deleteWithObject(3080, 3510, 0);
 		deleteWithObject(3412, 2913, 0);
 		deleteWithObject(3081, 3510, 0);
+		
+		
 
 		deleteWithObject(2543, 3867, 0);
 		deleteWithObject(2545, 3865, 0);
@@ -777,6 +780,17 @@ public class ObjectManager {
 		setClipToZero(3105, 3499, 0);
 		setClipToZero(3104, 3500, 0);
 		setClipToZero(3105, 3500, 0);
+		setClipToZero(3100, 3491, 0);
+		setClipToZero(3100, 3492, 0);
+		
+		/*  edgeville furnace  */
+		setClipToZero(3107, 3501, 0); 
+		setClipToZero(3108, 3501, 0);
+		setClipToZero(3109, 3501, 0);
+		
+		setClipToZero(3107, 3502, 0);
+		setClipToZero(3108, 3502, 0);
+		setClipToZero(3109, 3502, 0);
 
         //getInstance().register(new GameObject(2191, 3081, 3499, 0, 10, 3);//Crystal chest
         logger.info("All object spawns have been loaded successfully.");

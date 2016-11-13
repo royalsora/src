@@ -42,12 +42,12 @@ public class PlayerCommand implements Command {
 	public boolean handleCommand(Player player, CommandParser parser) throws Exception {
 	switch (parser.getCommand()) {
 
-	case "war":
+	/*case "war":
 		if(WarHandler.CURRENT_WAR == null) 
 			return false;
 		
 		player.getWar().joinWar(player);
-		return true;
+		return true;*/
 	case "claim":
 	case "claimdonation":
 		Donation.checkDonation(player.getUsername(), player);
@@ -146,14 +146,6 @@ public class PlayerCommand implements Command {
 		}
 		break;		
 
-	case "shops":
-		player.getMagic().teleport(3415, 2915, 0, TeleportTypes.SPELL_BOOK);
-		break;
-
-	case "train":
-		player.getMagic().teleport(2674, 3712, 0, TeleportTypes.SPELL_BOOK);
-		break;
-
 	/*
 	 * Opens website page
 	 */
@@ -180,27 +172,10 @@ public class PlayerCommand implements Command {
 		player.send(new SendMessage("Loading voting page..."));
 		return true;
 
-	/*
-	 * Finds player to view profile
-	 */
-	case "find":
-		if (parser.hasNext()) {
-			String name = parser.nextString();
-
-			while (parser.hasNext()) {
-				name += " " + parser.nextString();
-			}
-
-			name = name.trim();
-
-			PlayerProfiler.search(player, name);
-		}
-		return true;
-
 	/**
 	 * Withdraw from pouch
 	 */
-	case "withdrawmp":
+	/*case "withdrawmp":
 		if (parser.hasNext()) {
 			try {
 				int amount = 1;
@@ -223,7 +198,7 @@ public class PlayerCommand implements Command {
 			}
 
 		}
-		return true;
+		return true;*/
 
 	/*
 	 * Change the password
@@ -317,13 +292,6 @@ public class PlayerCommand implements Command {
 		}, "Wait, nevermind!", p -> p.send(new SendRemoveInterfaces())));
 		return true;
 
-	case "edge":
-		if (player.getWildernessLevel() > 20 && player.inWilderness()) {
-			player.send(new SendMessage("You cannot teleport above 20 wilderness!"));
-			return true;
-		}
-		player.getMagic().teleport(3087, 3491, 0, TeleportTypes.SPELL_BOOK);
-		return true;
 		
 	case "lunar":
 		if (player.getWildernessLevel() > 20 && player.inWilderness()) {
