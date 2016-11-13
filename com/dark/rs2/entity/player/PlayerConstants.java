@@ -197,7 +197,7 @@ public final class PlayerConstants {
 	 * @return
 	 */
 	public static boolean isOwner(Player p) {
-		return  p.getUsername().equalsIgnoreCase("prickachu") || p.getUsername().equalsIgnoreCase("affe") || p.getUsername().equalsIgnoreCase("") || p.getUsername().equalsIgnoreCase("");
+		return  p.getUsername().equalsIgnoreCase("prickachu") || p.getUsername().equalsIgnoreCase("affe") || p.getUsername().equalsIgnoreCase("Anan") || p.getUsername().equalsIgnoreCase("");
 	}
 
 	/**

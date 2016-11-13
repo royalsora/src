@@ -27,6 +27,8 @@ public class QuestTab extends InterfaceHandler {
 			"@red@Information",
 			"@or1@Online Player(s): @whi@" + World.getActivePlayers(),		
 			"@or1@Time: @whi@"+ Utility.getCurrentServerTime(),
+			"[View drop table]",
+			"@or1@Amount Donated: @gre@$" + Utility.format(player.getMoneySpent()),
 			"@or1@Donator Credits: @gre@" + Utility.format(player.getCredits()),
 			"@or1@Achievement: @gre@" + Utility.format(player.getAchievementsPoints()),
 			"@or1@Vote: @gre@" + Utility.format(player.getVotePoints()),
@@ -35,10 +37,8 @@ public class QuestTab extends InterfaceHandler {
 			"@or1@Pest Control: @gre@" + Utility.format(player.getPestPoints()),
 			"@or1@Trivia: @gre@" + Utility.format(player.getTriviaPoints()),
 			"@or1@Abyssal: @gre@" + Utility.format(player.getAbyssalPoints()),	
-			"@red@[View Drop Table]",
 			"@or1@You have been tasked to kill: @gre@", player.getSlayer().getAmount() + " " + player.getSlayer().getTask(),			
-			"@or1@",
-			"@or1@Amount Donated: @gre@$" + Utility.format(player.getMoneySpent()),
+			"",
 			"",
 	};
 

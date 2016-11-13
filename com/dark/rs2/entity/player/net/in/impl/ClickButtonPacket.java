@@ -737,7 +737,8 @@ public class ClickButtonPacket extends IncomingPacket {
 		InterfaceHandler.writeText(new PointsInterface(player));
 		player.send(new SendInterface(8134));
 		break;
-	case 115072:
+	//case 115072:
+	case 115064:
 		player.send(new SendInterface(59800));
 		AchievementHandler.activateAchievement(player, AchievementList.VIEW_TABLE, 1);
 		break;
