@@ -160,14 +160,14 @@ public class PlayerCommand implements Command {
 	case "forum":
 	case "forums":
 	case "website":
-		player.send(new SendString("http://www.Horizon-OS.org/forums", 12000));
+		player.send(new SendString("http://www.Horizon-os.com/forum", 12000));
 		player.send(new SendMessage("Loading website page..."));
 		return true;
 	case "donate":
 	case "donation":
 	case "donating":
 	case "store":
-		player.send(new SendString("http://www.Horizon-OS.org/webstore/", 12000));
+		player.send(new SendString("http://www.Horizon-os.com/", 12000));
 		player.send(new SendMessage("Loading website page..."));
 		return true;
 
@@ -176,7 +176,7 @@ public class PlayerCommand implements Command {
 	 */
 	case "vote":
 	case "voting":
-		player.send(new SendString("http://www.Horizon-OS.org/vote", 12000));
+		player.send(new SendString("http://www.Horizon-os.com/", 12000));
 		player.send(new SendMessage("Loading voting page..."));
 		return true;
 

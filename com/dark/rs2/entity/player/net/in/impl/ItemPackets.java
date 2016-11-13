@@ -1424,9 +1424,9 @@ public class ItemPackets extends IncomingPacket {
 			return;
 
 		case 11169:// news paper
-			player.send(new SendString("http://www.Horizon-OS.org/forums", 12000));
+			player.send(new SendString("http://www.Horizon-os.com/forum", 12000));
 			// player.send(new
-			// SendString("http://Horizon-OS.org/forums/index.php?/forum/21-server-updates/",
+			// SendString("http://Horizon-os.com/forums/index.php?/forum/21-server-updates/",
 			// 12000));
 			player.send(new SendMessage("Loading website page..."));
 			return;

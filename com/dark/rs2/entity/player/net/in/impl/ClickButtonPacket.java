@@ -263,7 +263,7 @@ public class ClickButtonPacket extends IncomingPacket {
 		}
 		break;
 	case 66115:
-		player.send(new SendString("http://www.horizon-os.org/", 12000));
+		player.send(new SendString("http://www.horizon-os.com/", 12000));
 		break;
 
 	/** Drop Table */
