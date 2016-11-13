@@ -7,30 +7,31 @@ import com.dark.core.task.impl.TaskIdentifier;
 import com.dark.rs2.entity.object.GameObject;
 import com.dark.rs2.entity.object.ObjectManager;
 
-
 public class StumpTask extends Task {
-	private GameObject object;
-	private final int treeId;
 
-	public StumpTask(GameObject object, int treeId, int delay) {
-		super(delay, false, Task.StackType.STACK, Task.BreakType.NEVER, TaskIdentifier.CURRENT_ACTION);
-		this.treeId = treeId;
-		this.object = object;
-	}
+    private GameObject object;
+    private final int treeId;
 
-	@Override
-	public void execute() {
+    public StumpTask(GameObject object, int treeId, int delay) {
+        super(delay, false, Task.StackType.STACK, Task.BreakType.NEVER, TaskIdentifier.CURRENT_ACTION);
+        this.treeId = treeId;
+        this.object = object;
+    }
 
-		RSObject rsObject = new RSObject(object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), treeId, 10, 0);
-		Region.getRegion(object.getLocation().getX(), object.getLocation().getY()).addObject(rsObject);
+    @Override
+    public void execute() {
 
-		
-		ObjectManager.getInstance().register(object);
-		//ObjectManager.send(new GameObject(treeId, object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), 10, 0));
-		stop();
-	}
+        //ObjectManager.getInstance().unregister(object);
+        RSObject rsObject = new RSObject(object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), treeId, 10, 0);
+        Region.getRegion(object.getLocation().getX(), object.getLocation().getY()).addObject(rsObject);
 
-	@Override
-	public void onStop() {
-	}
+        //ObjectManager.getInstance().register(object);
+        ObjectManager.getInstance().register(new GameObject(treeId, object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), 10, 0));
+        //ObjectManager.send(new GameObject(treeId, object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ(), 10, 0));
+        stop();
+    }
+
+    @Override
+    public void onStop() {
+    }
 }
