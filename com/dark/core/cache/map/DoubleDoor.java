@@ -107,7 +107,7 @@ public class DoubleDoor {
 			currentId1 = id1;
 			currentId2 = id2;
 		}
-
+                
 		if (currentFace1 == face1) {
 			currentFace1 = face3;
 			currentFace2 = face4;
