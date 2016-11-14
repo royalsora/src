@@ -131,7 +131,7 @@ public final class PlayerConstants {
 	}
 	
 	public static boolean isHighClass(Player player) {
-		final int[] ranks = { 2, 3, 4 };
+		final int[] ranks = { 3, 4 };
 		for (int i = 0; i < ranks.length; i++) {
 			if (player.getRights() == ranks[i]) {
 				return true;
