@@ -32,7 +32,7 @@ public class QuestTab extends InterfaceHandler {
 			"@or1@ Online Staff: @whi@" + World.getStaff(),
 			"@or1@ Time: @whi@"+ Utility.getCurrentServerTime(),
 			"@or1@ Online Player Record: @whi@" + Constants.MOST_ONLINE,	
-			" [View]@or1@drop table",
+			" [View]@or1@Drop table",
 			"",
 			"@red@Player Information",	
 			"@or1@ Username: @whi@" + Utility.capitalizeFirstLetter(player.getUsername()),

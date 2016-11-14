@@ -18,7 +18,7 @@ public class Constants {
 	/**
 	 * The version of Vencillio
 	 */
-	public static final double VERSION = 2.4;
+	public static final double VERSION = 2.6;
 	
 	/**
 	 * Checks if in development mode
