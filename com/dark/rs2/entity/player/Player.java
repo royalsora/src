@@ -1935,6 +1935,8 @@ public class Player extends Entity {
 
 	public Object playerRunecrafting;
 
+	public boolean canTeleport = true;
+
 	public boolean isChestClicked() {
 	return chestClicked;
 	}

@@ -37,8 +37,13 @@ public class ZulrahDialogue extends Dialogue {
 		
 		//Creates hasta
 		case DialogueConstants.OPTIONS_2_1:
+			if (player.canTeleport == false || player.inZulrah()) {
+				return false;
+			}
+			
 			player.getMagic().teleport(2268, 3070, player.getIndex() << 2, TeleportTypes.SPELL_BOOK);
 			 DialogueManager.sendStatement(player, "The priestess rows you to Zulrah's shrine,", "then hurridly paddles away.");
+			 player.canTeleport = false;
             TaskQueue.queue(new Task(5) {
                 @Override
                 public void execute() {
@@ -53,6 +58,7 @@ public class ZulrahDialogue extends Dialogue {
 
                 @Override
                 public void onStop() {
+                player.canTeleport = true;
                 }
             });
 			
