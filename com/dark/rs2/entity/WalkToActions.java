@@ -77,6 +77,7 @@ import com.dark.rs2.content.dialogue.impl.StaffTitleDialogue;
 import com.dark.rs2.content.dialogue.impl.TzhaarMejKahDialogue;
 import com.dark.rs2.content.dialogue.impl.VannakaDialogue;
 import com.dark.rs2.content.dialogue.impl.WeaponGameDialogue;
+import com.dark.rs2.content.dialogue.impl.ZulrahDialogue;
 import com.dark.rs2.content.dialogue.impl.tokensDialogue;
 import com.dark.rs2.content.dialogue.impl.tokensDialogue2;
 import com.dark.rs2.content.dialogue.impl.teleport.SpiritTree;
@@ -1112,7 +1113,10 @@ public class WalkToActions {
             player.teleport(new Location(2840, 3539, 2));
             return;
         }
-
+        if (id == 10068) {
+        	player.start(new ZulrahDialogue(player));
+        return;
+        }
         if (id == 11834) {
             TzharrGame.finish(player, false);
             return;

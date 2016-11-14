@@ -82,12 +82,24 @@ public class ToxicBlowpipe {
 
 		switch (itemUsed.getId()) {
 		case 11230:
+		case 806:
+		case 807:
+		case 808:
+		case 809:
+		case 810:
+		case 811:
 			dart = new Item(itemUsed);
 		}
 
 		if (dart == null) {
 			switch (usedWith.getId()) {
 			case 11230:
+			case 806:
+			case 807:
+			case 808:
+			case 809:
+			case 810:
+			case 811:
 				dart = new Item(usedWith);
 			}
 		}

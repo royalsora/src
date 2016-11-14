@@ -521,18 +521,6 @@ public class Mob extends Entity {
 			new Kraken(getOwner(), new Location(3695, 5811, getOwner().getZ()));
 		}
 	}
-		//mob weapon method
-		if ((npcId == 319)) {
-				//if ((hit.getAttacker() != null) && (!hit.getAttacker().isNpc())) {
-					Player player = World.getPlayers()[hit.getAttacker().getIndex()];
-					Item weapon = player.getEquipment().getItems()[3];
-					if (((weapon != null) && (weapon.getId() == 11824) || ((weapon != null) && (weapon.getId() == 1249)) || ((weapon != null) && (weapon.getId() == 1247)))) {
-						hit.getDamage();
-					} else {
-						hit.setDamage(0);
-						player.send(new SendMessage("<shad=0>@yel@You can only damage Corporeal Beast with a Spear"));
-					}
-				}
 
 		if ((npcId == 1286)) {
 				//if ((hit.getAttacker() != null) && (!hit.getAttacker().isNpc())) {

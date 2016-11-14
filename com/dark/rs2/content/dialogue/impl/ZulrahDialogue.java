@@ -5,11 +5,13 @@ import com.dark.core.task.TaskQueue;
 import com.dark.rs2.content.dialogue.Dialogue;
 import com.dark.rs2.content.dialogue.DialogueConstants;
 import com.dark.rs2.content.dialogue.DialogueManager;
+import com.dark.rs2.content.dialogue.Emotion;
 import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.entity.Animation;
 import com.dark.rs2.entity.Location;
 import com.dark.rs2.entity.mob.impl.Zulrah;
 import com.dark.rs2.entity.player.Player;
+import com.dark.rs2.entity.player.PlayerConstants;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendRemoveInterfaces;
 
@@ -74,8 +76,11 @@ public class ZulrahDialogue extends Dialogue {
 	@Override
 	public void execute() {
 		switch (next) {
-			
 		case 0:
+			DialogueManager.sendNpcChat(player, 2033, Emotion.DISTRESSED_CONTINUED, "Hello sacrifice.", "I can use that boat to row you to Zulrah's Shrine.", "Would you like to go?");
+			next++;
+			break;
+		case 1:
 			DialogueManager.sendOption(player, "Yes.", "No.");
 			break;
 		
