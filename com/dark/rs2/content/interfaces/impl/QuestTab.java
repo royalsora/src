@@ -1,9 +1,12 @@
 package com.dark.rs2.content.interfaces.impl;
 
+import com.dark.Constants;
+import com.dark.Server;
 import com.dark.core.util.Utility;
 import com.dark.rs2.content.interfaces.InterfaceHandler;
 import com.dark.rs2.entity.World;
 import com.dark.rs2.entity.player.Player;
+import com.dark.rs2.entity.player.controllers.WildernessController;
 import com.dark.rs2.entity.player.net.out.impl.SendColor;
 
 /**
@@ -24,22 +27,30 @@ public class QuestTab extends InterfaceHandler {
 	}
 	
 	private final String[] text = {
-			"@red@Information",
-			"@or1@Online Player(s): @whi@" + World.getActivePlayers(),		
-			"@or1@Time: @whi@"+ Utility.getCurrentServerTime(),
-			"[View drop table]",
-			"@or1@Amount Donated: @gre@$" + Utility.format(player.getMoneySpent()),
-			"@or1@Donator Credits: @gre@" + Utility.format(player.getCredits()),
-			"@or1@Achievement: @gre@" + Utility.format(player.getAchievementsPoints()),
-			"@or1@Vote: @gre@" + Utility.format(player.getVotePoints()),
-			"@or1@Bounty: @gre@" + Utility.format(player.getBountyPoints()),
-			"@or1@Slayer: @gre@" + Utility.format(player.getSlayerPoints()),
-			"@or1@Pest Control: @gre@" + Utility.format(player.getPestPoints()),
-			"@or1@Trivia: @gre@" + Utility.format(player.getTriviaPoints()),
-			"@or1@Abyssal: @gre@" + Utility.format(player.getAbyssalPoints()),	
-			"@or1@You have been tasked to kill: @gre@", player.getSlayer().getAmount() + " " + player.getSlayer().getTask(),			
+			"@red@Game Information",
+			"@or1@ Online Players: @whi@" + World.getActivePlayers(),	
+			"@or1@ Online Staff: @whi@" + World.getStaff(),
+			"@or1@ Time: @whi@"+ Utility.getCurrentServerTime(),
+			"@or1@ Online Player Record: @whi@" + Constants.MOST_ONLINE,	
+			" [View]@or1@drop table",
 			"",
-			"",
+			"@red@Player Information",	
+			"@or1@ Username: @whi@" + Utility.capitalizeFirstLetter(player.getUsername()),
+			"@or1@ Rank: " + player.determineIcon(player) + player.determineRank(player) ,
+			"@or1@ Credits: @whi@" + Utility.format(player.getCredits()),
+			"@or1@ Amount donated: @whi@$" + Utility.format(player.getMoneySpent()),
+			"@or1@ Kills/Deaths/KDR: @whi@" + Utility.format(player.getKills()) + "/" + Utility.format(player.getDeaths()) + "/" + Utility.format((long) WildernessController.getKDR(player)),
+			"@or1@ Slayer task: @whi@"+ ((player.getSlayer().getAmount() == 0 ? "" : player.getSlayer().getAmount() + " ") + (player.getSlayer().getTask() == null ? "None" : player.getSlayer().getTask())),
+			" [View]@or1@Log Panel",
+			" [View]@or1@Point Statistics",
+			"@red@ [Points]",
+			"@or1@   -Vote: @whi@" + Utility.format(player.getVotePoints()),	
+                        "@or1@   -Slayer: @whi@" + Utility.format(player.getSlayerPoints()),	
+			"@or1@   -Trivia: @whi@" + Utility.format(player.getTriviaPoints()),
+			"@or1@   -Bounty: @whi@" + Utility.format(player.getBountyPoints()),
+			"@or1@   -Abyssal: @whi@" + Utility.format(player.getAbyssalPoints()),	
+			"@or1@   -Pest control: @whi@" + Utility.format(player.getPestPoints()),
+                        ""
 	};
 
 	@Override
