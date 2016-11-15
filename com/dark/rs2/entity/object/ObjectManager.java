@@ -786,31 +786,6 @@ public class ObjectManager {
 		setClipToZero(3108, 3502, 0);
 		setClipToZero(3109, 3502, 0);
 		
-		deleteWithObject(3092, 3496, 0);
-		setClipToZero(3092, 3496, 0);
-		deleteWithObject(3091, 3495, 0);
-		setClipToZero(3091, 3495, 0);
-		deleteWithObject(3090, 3494, 0);
-		setClipToZero(3090, 3494, 0);
-		deleteWithObject(3090, 3496, 0);
-		setClipToZero(3090, 3496, 0);
-
-		deleteWithObject(3095, 3498, 0);
-		setClipToZero(3095, 3498, 0);
-		deleteWithObject(3095, 3499, 0);
-		setClipToZero(3095, 3499, 0);
-
-		deleteWithObject(3079, 3510, 0);
-		setClipToZero(3079, 3510, 0);
-		deleteWithObject(3080, 3510, 0);
-		setClipToZero(3080, 3510, 0);
-		deleteWithObject(3082, 3510, 0);
-		setClipToZero(3082, 3510, 0);
-
-		deleteWithObject(3092, 3957, 0);
-		setClipToZero(3092, 3957, 0);
-		deleteWithObject(3093, 3957, 0);
-		setClipToZero(3093, 3957, 0);
 
         //getInstance().register(new GameObject(2191, 3081, 3499, 0, 10, 3);//Crystal chest
         logger.info("All object spawns have been loaded successfully.");
