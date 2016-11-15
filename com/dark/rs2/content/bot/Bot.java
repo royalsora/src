@@ -69,8 +69,8 @@ public class Bot {
 					assign();	
 					return;
 				}
-				sendMessage("[" + COLOR + "Trivia</col>]" + COLOR + " " + current.getQuestion());
-				sendNotification("[" + COLOR + "Trivia:</col>]" + COLOR + " " + current.getQuestion());
+				sendMessage( COLOR +"[" + COLOR + "Trivia]</col></shad>" + " " + current.getQuestion());
+				sendNotification("[" + COLOR + "Trivia:</col>]" + " " + current.getQuestion());
 			}
 			@Override
 			public void onStop() {
@@ -84,7 +84,7 @@ public class Bot {
 	private static void assign() {
 	
 		current = Utility.randomElement(BOT_DATA);
-		sendMessage("[" + COLOR + "Trivia</col>]" + COLOR + " " + current.getQuestion());
+		sendMessage(COLOR + "[Trivia]</col></shad>" + " " + current.getQuestion());
 	}
 	
 	/**
@@ -98,7 +98,7 @@ public class Bot {
 		}
 		for (int i = 0; i < Constants.BAD_STRINGS.length; i++) {
 			if (answer.contains(Constants.BAD_STRINGS[i])) {
-				player.send(new SendMessage("[" + COLOR + "Trivia</col>] That was an offensive answer! Contain yourself or be punished."));
+				player.send(new SendMessage(COLOR + "[Trivia]</col></shad> That was an offensive answer! Contain yourself or be punished."));
 				return;
 			}
 		}
@@ -108,7 +108,7 @@ public class Bot {
 				return;
 			}
 		}
-		player.send(new SendMessage("[" + COLOR + "Trivia</col>] Sorry, the answer you have entered is incorrect! Try again!"));
+		player.send(new SendMessage(COLOR + "[Trivia]</col></shad> Sorry, the answer you have entered is incorrect! Try again!"));
 		attempts.add(answer);
 	}
 	
@@ -118,7 +118,7 @@ public class Bot {
 	 * @param answer
 	 */
 	private static void answered(Player player, String answer) {
-		sendMessage("[" + COLOR + "Trivia</col>] " + COLOR + player.determineIcon(player) + " " + player.getUsername() + "</col>" + COLOR + " has answered the question correctly! Answer:" + COLOR + " " + Utility.capitalizeFirstLetter(answer) + "</col>.");
+		sendMessage(COLOR + "[Trivia]</col></shad> " + player.determineIcon(player) + " " + player.getUsername() + "</col>" + COLOR + " has answered the question correctly! Answer:" + COLOR + " " + Utility.capitalizeFirstLetter(answer) + "</col>.");
 		if (attempts.size() > 0) {
 			//sendMessage("[" + COLOR + "Trivia</col>] Attempted answers: " + COLOR + "" + attempts.toString() + "</col>!");
 		}

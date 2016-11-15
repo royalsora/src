@@ -399,7 +399,7 @@ public class PrayerBook {
 						}
 						
 						if (id == 2043) {
-							return hit.getDamage() / 4;
+							return hit.getDamage() / 2;
 						}
 
 						if (id == 8596) {
@@ -409,7 +409,7 @@ public class PrayerBook {
 							return hit.getDamage();
 						}
 
-						if ((id != 1677) && (id != 8133) && (id != 4067) && (id != 6379))
+						if ((id != 1677) && (id != 8133) && (id != 4067))
 							return 0;
 					} else {
 						Player otherPlayer = World.getPlayers()[target.getIndex()];
@@ -446,7 +446,11 @@ public class PrayerBook {
 					}
 					
 					if (mob.getId() == 2044) {
-						return hit.getDamage() / 4;
+						return hit.getDamage() / 2;
+					}
+					
+					if (mob.getId() == 6379) {
+						return hit.getDamage() / 2;
 					}
 
 					if (mob.getId() == 1286) {
@@ -478,7 +482,7 @@ public class PrayerBook {
 					int id = mob.getId();
 					
 					if (id == 2042) {
-						return hit.getDamage() / 4;
+						return hit.getDamage() / 2;
 					}
 
 					if (id == 8133) {
