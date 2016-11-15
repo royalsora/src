@@ -743,11 +743,6 @@ public class ObjectManager {
 		deleteWithObject(3092, 3957, 0);
 		deleteWithObject(3158, 3951, 0);
 		deleteWithObject(2543, 4715, 0);
-		spawnWithObject(734, 3105, 3958, 0, 10, 3);
-		spawnWithObject(734, 3106, 3958, 0, 10, 3);
-		spawnWithObject(734, 3158, 3951, 0, 10, 1);
-		spawnWithObject(734, 3093, 3957, 0, 10, 0);
-		spawnWithObject(734, 3095, 3957, 0, 10, 0);	
 		deleteWithObject(2543, 4715, 0);	
 		deleteWithObject(2855, 3546, 0);
 		deleteWithObject(2854, 3546, 0);
