@@ -301,8 +301,8 @@ public class ClickButtonPacket extends IncomingPacket {
 					player.getMagic().teleport(TeleportationData.LAVA_DRAGONS.getPosition(), TeleportTypes.SPELL_BOOK);
 				}, "Mithril Dragons", p3 -> {
 					player.getMagic().teleport(TeleportationData.MITHRIL_DRAGONS.getPosition(), TeleportTypes.SPELL_BOOK);
-				}, "Smoke Devils", p3 -> {
-					player.getMagic().teleport(TeleportationData.SMOKES.getPosition(), TeleportTypes.SPELL_BOOK);
+				}, "Stronghold Dungeon", p3 -> {
+					player.getMagic().teleport(TeleportationData.STRONGHOLD_DUNGEON.getPosition(), TeleportTypes.SPELL_BOOK);
 				}, "Skeletal Wyverns", p3 -> {
 					player.getMagic().teleport(TeleportationData.SKELETAL_WYVERNS.getPosition(), TeleportTypes.SPELL_BOOK);
 				}));

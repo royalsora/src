@@ -45,7 +45,8 @@ public class MagicSkill {
 		TELE_OTHER,
 		FAIRY_RING,
 		FOUNTAIN_OF_RUNE,
-		OBELISK;
+		OBELISK,
+		SCROLL;
 	}
 
 	public static final String MAGIC_ITEM_KEY = "magicitem";
@@ -502,6 +503,10 @@ public class MagicSkill {
 		player.getUpdateFlags().sendAnimation(1816, 0);
 		player.getUpdateFlags().sendGraphic(new Graphic(283, 0, false));
 		break;
+	case SCROLL:
+		player.getUpdateFlags().sendAnimation(MagicConstants.SCROLL_TELEPORT_ANIMATION);
+		player.getUpdateFlags().sendGraphic(MagicConstants.SCROLL_TELEPORT_GRAPHIC);
+		break;
 	default:
 		switch (spellBookType) {
 		case ANCIENT:
@@ -551,8 +556,10 @@ public class MagicSkill {
 			}
 			break;
 		case TABLET:
+		case SCROLL:
 			player.getUpdateFlags().sendAnimation(MagicConstants.TABLET_TELEPORT_END_ANIMATION);
 			break;
+	
 		default:
 			break;
 		}

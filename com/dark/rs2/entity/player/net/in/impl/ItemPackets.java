@@ -1328,7 +1328,7 @@ public class ItemPackets extends IncomingPacket {
 
 		case 12938:// Zulrah teleport
 			player.getInventory().remove(12938, 1);
-			player.getMagic().teleport(2197, 3056, 0, TeleportTypes.SPELL_BOOK);
+			player.getMagic().teleport(2197, 3056, 0, TeleportTypes.SCROLL);
 			break;
 
 		case 13249:// Cerberus teleport

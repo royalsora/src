@@ -52,6 +52,7 @@ public class TeleportHandler {
 		DGORILLA(250059, 1500, "High combat", "", 230, new Location(2124, 5660, 0), false, false),
 		VENENTIS(250059, 1500, "High combat", "", 230, new Location(3332, 3738, 0), false, false),
 		SMOKES(250061, 1500, "High combat", "", 230, new Location(3748, 5761, 0), false, false),
+		STRONGHOLD_DUNGEON(250061, 1500, "High combat", "", 230, new Location(2444, 9825, 0), false, false),
 		LIZARD(250060, 1500, "High combat", "", 230, new Location(3376, 9811, 0), true, true),
 		
 		/** Training */

@@ -289,11 +289,8 @@ public class WalkToActions {
             player.teleport(new Location(3090, 3475, 0));
             player.send(new SendMessage("You pull the lever, bringing you to safety."));
         }
-        if (id == 154) { // smoke
-            player.teleport(new Location(3478, 5761, 0));
-            player.send(new SendMessage("You enter the smokey crevice."));
-        }
-
+       
+        
         if (id == 27980) {
             int amount = player.getEssenceFragments();
             player.incrementEssenseFragment(-amount);
@@ -1080,6 +1077,41 @@ public class WalkToActions {
         if (Farming.inspectObject(player, x, y)) {
             return;
         }
+        if (id == 154) { // to smoke devils
+            player.teleport(new Location(3748, 5761, 0));
+            player.send(new SendMessage("You enter the smokey crevice."));
+            return;
+        }
+        if (id == 534) { // from smoke devils to main caves
+            player.teleport(new Location(2356, 9782, 0));
+            player.send(new SendMessage("You enter the smokey crevice."));
+            return;
+        }
+        if (id == 26711) { // from main caves to kalphite..
+            player.teleport(new Location(3748, 5849, 0));
+            player.send(new SendMessage("You enter the crevice."));
+            return;
+        }
+        if (id == 26712) { // from kalphite to main caves
+            player.teleport(new Location(2436, 9824, 0));
+            player.send(new SendMessage("You enter the crevice."));
+            return;
+        }
+        if (id == 535) { // from smoke devils to thermonuclear smoke devils
+            player.teleport(new Location(3677, 5755, 0));
+            player.send(new SendMessage("You enter the crevice."));
+            return;
+        }
+        if (id == 536) { // from thermonuclear smoke devils to smoke devils
+            player.teleport(new Location(3723, 5798, 0));
+            player.send(new SendMessage("You enter the crevice."));
+            return;
+        }
+        if (id == 26710) { // from caves to home
+            player.teleport(new Location(PlayerConstants.HOME));
+            player.send(new SendMessage("You leave the cave.."));
+            return;
+        }
 
         /*if (Doors.isDoorJammed(player, x, y, z)) {
             return;
@@ -1224,9 +1256,9 @@ public class WalkToActions {
                         break;
                     case 26724:
                         if (player.getY() == 9767) {
-                            player.teleport(new Location(player.getY() - 5, player.getY(), player.getZ()));
+                            player.teleport(new Location(player.getX(), player.getY() - 5, player.getZ()));
                         } else {
-                            player.teleport(new Location(player.getY() + 5, player.getY(), player.getZ()));
+                            player.teleport(new Location(player.getX(), player.getY() + 5, player.getZ()));
                         }
                         break;
                     case 22472:// Tab Creation
