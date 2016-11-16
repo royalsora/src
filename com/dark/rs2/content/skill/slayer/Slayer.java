@@ -134,7 +134,7 @@ public class Slayer {
 				AchievementHandler.activateAchievement(p, AchievementList.COMPLETE_10_SLAYER_TASKS, 1);
 				AchievementHandler.activateAchievement(p, AchievementList.COMPLETE_100_SLAYER_TASKS, 1);
 				if (current != null) {
-					p.addSlayerPoints(current == SlayerDifficulty.BOSS ? 20 + 0 : current == SlayerDifficulty.LOW ? 5 + 0 : current == SlayerDifficulty.MEDIUM ? 8 + 0 : current == SlayerDifficulty.HIGH ? 10 + 0 : 0);
+					p.addSlayerPoints(current == SlayerDifficulty.BOSS ? 50 + 0 : current == SlayerDifficulty.LOW ? 5 + 0 : current == SlayerDifficulty.MEDIUM ? 15 + 0 : current == SlayerDifficulty.HIGH ? 25 + 0 : 0);
 				}
 
 			} else {
