@@ -747,7 +747,7 @@ public class OwnerCommand implements Command {
 			}
 			for (Player players : World.getPlayers()) {
 				if (players != null && players.isActive()) {
-					players.send(new SendBanner(Utility.formatPlayerName(message), 0x1C889E));
+					players.send(new SendBanner((message), 0x1C889E));
 
 				}
 			}
