@@ -642,6 +642,22 @@ public class ObjectManager {
         spawnWithObject(11744, 3056, 3311, 0, 10, 0);// Banks
         spawnWithObject(11744, 2662, 3375, 0, 10, 0);// Banks
 
+        deleteWithObject(2381, 9764, 0);
+        deleteWithObject(2392, 9788, 0);
+        deleteWithObject(2410, 9755, 0);
+        deleteWithObject(2392, 9788, 0);
+        deleteWithObject(2358, 9759, 0);
+        deleteWithObject(2367, 9746, 0);
+        deleteWithObject(2395, 9766, 0);
+        deleteWithObject(2393, 9763, 0);
+        deleteWithObject(2423, 9745, 0);
+        deleteWithObject(2357, 9778, 0);
+        deleteWithObject(2356, 9765, 0);
+        deleteWithObject(2353, 9751, 0);
+        deleteWithObject(2383, 9752, 0);
+        deleteWithObject(2379, 9738, 0);
+
+        
         /**
          * Mining banks
          */
@@ -756,6 +772,20 @@ public class ObjectManager {
         /**
          * Clipping
          */
+        setClipToZero(2381, 9764, 0);
+        setClipToZero(2392, 9788, 0);
+        setClipToZero(2410, 9755, 0);
+        setClipToZero(2392, 9788, 0);
+        setClipToZero(2358, 9759, 0);
+        setClipToZero(2367, 9746, 0);
+        setClipToZero(2395, 9766, 0);
+        setClipToZero(2393, 9763, 0);
+        setClipToZero(2423, 9745, 0);
+        setClipToZero(2357, 9778, 0);
+        setClipToZero(2356, 9765, 0);
+        setClipToZero(2353, 9751, 0);
+        setClipToZero(2383, 9752, 0);
+        setClipToZero(2379, 9738, 0);
         setClipToZero(3445, 3554, 2);
         setClipToZero(3119, 9850, 0);
         setClipToZero(3002, 3961, 0);

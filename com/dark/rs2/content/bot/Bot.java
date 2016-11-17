@@ -62,7 +62,7 @@ public class Bot {
 	 * Initializes the VencillioBot task
 	 */
 	public static void initialize() {
-		TaskQueue.queue(new Task(450, false) {
+		TaskQueue.queue(new Task(1000, false) {
 			@Override
 			public void execute() {
 				if (current == null) {
