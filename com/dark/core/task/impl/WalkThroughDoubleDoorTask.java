@@ -13,70 +13,68 @@ import com.dark.rs2.entity.player.net.out.impl.SendSound;
 
 public class WalkThroughDoubleDoorTask extends Task {
 
-	protected final Player p;
-	protected final DoubleDoor door;
-	protected final int xMod;
-	protected final int yMod;
-	protected byte stage = 0;
-	protected final Controller start;
+    protected final Player p;
+    protected final DoubleDoor door;
+    protected final int xMod;
+    protected final int yMod;
+    protected byte stage = 0;
+    protected final Controller start;
 
-	public WalkThroughDoubleDoorTask(Player p, int x, int y, int z, Location dest) {
-		super(p, 1, true);
-		this.p = p;
-		this.door = Region.getDoubleDoor(x, y, z);
-		start = p.getController();
-		p.setController(ControllerManager.FORCE_MOVEMENT_CONTROLLER);
-		
-		int xDiff = dest.getX() - p.getLocation().getX();
-		int yDiff = dest.getY() - p.getLocation().getY();
+    public WalkThroughDoubleDoorTask(Player p, int x, int y, int z, Location dest) {
+        super(p, 1, true);
+        this.p = p;
+        this.door = Region.getDoubleDoor(x, y, z);
+        start = p.getController();
+        p.setController(ControllerManager.FORCE_MOVEMENT_CONTROLLER);
 
-		if (xDiff != 0)
-			xMod = (xDiff < 0 ? 1 : -1);
-		else
-			xMod = 0;
-		if (yDiff != 0)
-			yMod = (yDiff < 0 ? 1 : -1);
-		else
-			yMod = 0;
+        int xDiff = dest.getX() - p.getLocation().getX();
+        int yDiff = dest.getY() - p.getLocation().getY();
 
-		if (door == null) {
-			p.setController(start);
-			stop();
-		}
-		
-		p.getMovementHandler().setForceMove(true);
-	}
+        if (xDiff != 0) {
+            xMod = (xDiff < 0 ? 1 : -1);
+        } else {
+            xMod = 0;
+        }
+        if (yDiff != 0) {
+            yMod = (yDiff < 0 ? 1 : -1);
+        } else {
+            yMod = 0;
+        }
 
-	@Override
-	public void execute() {
-		if (stage == 0) {
-			p.getClient().queueOutgoingPacket(new SendSound(326, 0, 0));
-			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
-			//ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			//ObjectManager.remove2(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
-			door.append();
-			///ObjectManager.send(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			//ObjectManager.send(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
-		} else if (stage == 1) {
-			p.getMovementHandler().walkTo(xMod, yMod);
-			p.setController(start);
-		} else if (stage == 2) {
-			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			ObjectManager.getInstance().unregister(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
-			//ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			//ObjectManager.send(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
-			door.append();
-			//ObjectManager.send(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
-			//ObjectManager.send(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
-			stop();
-		}
-		stage++;
-	}
+        if (door == null) {
+            p.setController(start);
+            stop();
+        }
 
-	@Override
-	public void onStop() {
-		p.getMovementHandler().setForceMove(false);
-		p.setController(start);
-	}
+        p.getMovementHandler().setForceMove(true);
+    }
+
+    @Override
+    public void execute() {
+        if (stage == 0) {
+            p.getClient().queueOutgoingPacket(new SendSound(326, 0, 0));
+            ObjectManager.getInstance().register(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+            ObjectManager.getInstance().register(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+            door.append();
+            ObjectManager.getInstance().register(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+            ObjectManager.getInstance().register(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+        } else if (stage == 1) {
+            p.getMovementHandler().walkTo(-xMod, -yMod);
+            p.setController(start);
+        } else if (stage == 2) {
+            ObjectManager.getInstance().register(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+            ObjectManager.getInstance().register(new GameObject(ObjectManager.BLANK_OBJECT_ID, door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+            door.append();
+            ObjectManager.getInstance().register(new GameObject(door.getCurrentId1(), door.getX1(), door.getY1(), door.getZ(), door.getType(), door.getCurrentFace1()));
+            ObjectManager.getInstance().register(new GameObject(door.getCurrentId2(), door.getX2(), door.getY2(), door.getZ(), door.getType(), door.getCurrentFace2()));
+            stop();
+        }
+        stage++;
+    }
+
+    @Override
+    public void onStop() {
+        p.getMovementHandler().setForceMove(false);
+        p.setController(start);
+    }
 }

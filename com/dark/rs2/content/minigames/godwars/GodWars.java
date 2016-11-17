@@ -75,7 +75,7 @@ public class GodWars {
 					}
 				} else {
 					int req = 0 - player.getMinigames().getGWKC()[Allegiance.BANDOS.ordinal()];
-					DialogueManager.sendStatement(player, "You need " + req + " more kill" + (req > 1 ? "s" : "") + " to enter this room.");
+					//DialogueManager.sendStatement(player, "You need " + req + " more kill" + (req > 1 ? "s" : "") + " to enter this room.");
 				}
 			}
 			return true;

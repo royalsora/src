@@ -55,7 +55,7 @@ public class ObjectPacket extends IncomingPacket {
 
 			WalkToActions.itemOnObject(player, itemId, id, x, y);
 			break;
-		case 132:
+		case FIRST_CLICK:
 			x = in.readShort(true, StreamBuffer.ValueType.A, StreamBuffer.ByteOrder.LITTLE);
 			id = in.readShort();
 			y = in.readShort(StreamBuffer.ValueType.A);
@@ -70,7 +70,7 @@ public class ObjectPacket extends IncomingPacket {
 
 			WalkToActions.clickObject(player, 1, id, x, y);
 			break;
-		case 252:
+		case SECOND_CLICK:
 			id = in.readShort(StreamBuffer.ValueType.A, StreamBuffer.ByteOrder.LITTLE);
 			y = in.readShort(true, StreamBuffer.ByteOrder.LITTLE);
 			x = in.readShort(StreamBuffer.ValueType.A);
@@ -83,7 +83,7 @@ public class ObjectPacket extends IncomingPacket {
 
 			WalkToActions.clickObject(player, 2, id, x, y);
 			break;
-		case 70:
+		case THIRD_CLICK:
 			x = in.readShort(true, StreamBuffer.ByteOrder.LITTLE);
 			y = in.readShort();
 			id = in.readShort(StreamBuffer.ValueType.A, StreamBuffer.ByteOrder.LITTLE);
@@ -96,7 +96,7 @@ public class ObjectPacket extends IncomingPacket {
 
 			WalkToActions.clickObject(player, 3, id, x, y);
 			break;
-		case 234:
+		case FOURTH_CLICK:
 			x = in.readShort(StreamBuffer.ValueType.A, StreamBuffer.ByteOrder.LITTLE);
 			id = in.readShort(StreamBuffer.ValueType.A);
 			y = in.readShort(StreamBuffer.ValueType.A, StreamBuffer.ByteOrder.LITTLE);
@@ -109,7 +109,7 @@ public class ObjectPacket extends IncomingPacket {
 
 			WalkToActions.clickObject(player, 4, id, x, y);
 			break;
-		case 35:
+		case CAST_SPELL:
 			x = in.readShort(StreamBuffer.ByteOrder.LITTLE);
 
 			int magicId = in.readShort(StreamBuffer.ValueType.A, StreamBuffer.ByteOrder.BIG);

@@ -1081,9 +1081,9 @@ public class WalkToActions {
             return;
         }
 
-        if (Doors.isDoorJammed(player, x, y, z)) {
+        /*if (Doors.isDoorJammed(player, x, y, z)) {
             return;
-        }
+        }*/
 
         if ((id == 1738) && (x == 2839) && (y == 3537)) {
             player.teleport(new Location(2839, 3537, 2));
