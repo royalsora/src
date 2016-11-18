@@ -223,7 +223,7 @@ public class Equipment {
 		player.getInventory().update();
 		player.setAppearanceUpdateRequired(true);
 		player.getCombat().reset();
-                player.getClient().queueOutgoingPacket(new SendSound(404, 1, 0));
+                player.getClient().queueOutgoingPacket(new SendSound(230, 1, 0));
 
 		if (item.getId() == 7927) {
 			EasterRing.init(player);
@@ -385,7 +385,7 @@ public class Equipment {
 			player.updateCombatType();
 		}
 
-                player.getClient().queueOutgoingPacket(new SendSound(404, 1, 0));
+                player.getClient().queueOutgoingPacket(new SendSound(230, 1, 0));
 		player.getClient().queueOutgoingPacket(new SendEquipment(slot, -1, -1));
 
 		player.setAppearanceUpdateRequired(true);

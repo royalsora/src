@@ -74,6 +74,7 @@ public class BoneBurying {
 		player.getSkill().lock(4);
 		player.getCombat().reset();
 		player.getUpdateFlags().sendAnimation(827, 0);
+                player.getClient().queueOutgoingPacket(new SendSound(380, 1, 0));
 		player.getClient().queueOutgoingPacket(new SendMessage("You bury the " + Item.getDefinition(bones.id).getName() + "."));
 		player.getInventory().clear(slot);
 		if (player.getEquipment().contains(9760) || player.getEquipment().contains(9759)) {
@@ -109,6 +110,7 @@ public class BoneBurying {
 
 		player.getSkill().lock(2);
 
+                player.getClient().queueOutgoingPacket(new SendSound(442, 1, 0));
 		player.getClient().queueOutgoingPacket(new SendMessage("You sacrifice the " + Item.getDefinition(bones.id).getName() + " at the altar."));
 
 		player.getUpdateFlags().sendAnimation(896, 5);

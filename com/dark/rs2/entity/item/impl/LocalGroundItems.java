@@ -129,7 +129,7 @@ public class LocalGroundItems {
 				
 				if ((player.getInventory().hasSpaceFor(g.getItem())) && (GroundItemHandler.remove(g))) {
 					player.getInventory().add(g.getItem());
-                                        player.getClient().queueOutgoingPacket(new SendSound(2582, 1, 0));
+                                        player.getClient().queueOutgoingPacket(new SendSound(356, 1, 0));
 				} else {
 					player.getClient().queueOutgoingPacket(new SendMessage("You do not have enough inventory space to pick that up."));
 				}
