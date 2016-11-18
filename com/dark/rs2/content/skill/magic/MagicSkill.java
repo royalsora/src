@@ -370,10 +370,10 @@ public class MagicSkill {
 
 		switch (type) {
 		case SPELL_BOOK:
-			player.getUpdateFlags().sendAnimation(MagicConstants.MODERN_TELEPORT_END_ANIMATION);
 			switch (spellBookType) {
 			case MODERN:
-				player.getUpdateFlags().sendGraphic(MagicConstants.MODERN_TELEPORT_END_GRAPHIC);
+                            player.getUpdateFlags().sendAnimation(MagicConstants.MODERN_TELEPORT_END_ANIMATION);
+                            //player.getUpdateFlags().sendGraphic(MagicConstants.MODERN_TELEPORT_END_GRAPHIC);
 				break;
 			default:
 				break;

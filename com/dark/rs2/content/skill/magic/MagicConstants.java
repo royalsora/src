@@ -65,9 +65,9 @@ public class MagicConstants {
 	/** Modern teleporting */
 	public static final Animation MODERN_TELEPORT_ANIMATION = new Animation(714, 0);
 
-	public static final Graphic MODERN_TELEPORT_GRAPHIC = Graphic.lowGraphic(308, 0);
+	public static final Graphic MODERN_TELEPORT_GRAPHIC = Graphic.highGraphic(308, 50);
 
-	public static final Graphic MODERN_TELEPORT_END_GRAPHIC = Graphic.lowGraphic(308, 0);
+	public static final Graphic MODERN_TELEPORT_END_GRAPHIC = Graphic.highGraphic(309, 0);
 
 	public static final Animation MODERN_TELEPORT_END_ANIMATION = new Animation(715, 0);
 	
