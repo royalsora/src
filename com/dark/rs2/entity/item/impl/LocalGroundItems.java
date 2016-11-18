@@ -16,6 +16,7 @@ import com.dark.rs2.entity.player.net.out.impl.SendGroundItem;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendRemoveGroundItem;
 import com.dark.rs2.entity.player.net.out.impl.SendRemoveInterfaces;
+import com.dark.rs2.entity.player.net.out.impl.SendSound;
 
 public class LocalGroundItems {
 	private final Player player;
@@ -51,6 +52,7 @@ public class LocalGroundItems {
 
 		Item drop = player.getInventory().get(slot);
 
+                player.getClient().queueOutgoingPacket(new SendSound(2581, 1, 0));
 		GroundItemHandler.add(drop, new Location(player.getLocation()), player, player.ironPlayer() ? player : null);
 		
 		player.getInventory().clear(slot);
@@ -127,6 +129,7 @@ public class LocalGroundItems {
 				
 				if ((player.getInventory().hasSpaceFor(g.getItem())) && (GroundItemHandler.remove(g))) {
 					player.getInventory().add(g.getItem());
+                                        player.getClient().queueOutgoingPacket(new SendSound(2582, 1, 0));
 				} else {
 					player.getClient().queueOutgoingPacket(new SendMessage("You do not have enough inventory space to pick that up."));
 				}

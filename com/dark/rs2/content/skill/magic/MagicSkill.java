@@ -549,7 +549,8 @@ public class MagicSkill {
 			player.getUpdateFlags().sendAnimation(MagicConstants.MODERN_TELEPORT_END_ANIMATION);
 			switch (spellBookType) {
 			case MODERN:
-				player.getUpdateFlags().sendGraphic(MagicConstants.MODERN_TELEPORT_END_GRAPHIC);
+                            player.getClient().queueOutgoingPacket(new SendSound(201, 1, 0));
+				//player.getUpdateFlags().sendGraphic(MagicConstants.MODERN_TELEPORT_END_GRAPHIC);
 				break;
 			default:
 				break;

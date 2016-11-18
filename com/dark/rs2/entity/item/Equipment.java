@@ -22,6 +22,7 @@ import com.dark.rs2.entity.player.net.out.impl.SendConfig;
 import com.dark.rs2.entity.player.net.out.impl.SendEquipment;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendSidebarInterface;
+import com.dark.rs2.entity.player.net.out.impl.SendSound;
 import com.dark.rs2.entity.player.net.out.impl.SendString;
 
 public class Equipment {
@@ -222,6 +223,7 @@ public class Equipment {
 		player.getInventory().update();
 		player.setAppearanceUpdateRequired(true);
 		player.getCombat().reset();
+                player.getClient().queueOutgoingPacket(new SendSound(404, 1, 0));
 
 		if (item.getId() == 7927) {
 			EasterRing.init(player);
@@ -383,6 +385,7 @@ public class Equipment {
 			player.updateCombatType();
 		}
 
+                player.getClient().queueOutgoingPacket(new SendSound(404, 1, 0));
 		player.getClient().queueOutgoingPacket(new SendEquipment(slot, -1, -1));
 
 		player.setAppearanceUpdateRequired(true);

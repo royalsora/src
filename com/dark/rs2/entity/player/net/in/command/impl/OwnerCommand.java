@@ -53,6 +53,7 @@ import com.dark.rs2.entity.player.net.out.impl.SendInterface;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 import com.dark.rs2.entity.player.net.out.impl.SendRemoveInterfaces;
 import com.dark.rs2.entity.player.net.out.impl.SendSidebarInterface;
+import com.dark.rs2.entity.player.net.out.impl.SendSound;
 import com.dark.rs2.entity.player.net.out.impl.SendString;
 
 /**
@@ -401,6 +402,19 @@ public class OwnerCommand implements Command {
 			try {
 				int id = parser.nextInt();
 				player.getUpdateFlags().sendGraphic(new Graphic(id, 0, true));
+			} catch (Exception e) {
+				player.getClient().queueOutgoingPacket(new SendMessage("Invalid format!"));
+			}
+		}
+		return true;
+                	/*
+	 * Opens a graphic
+	 */
+	case "sound":
+		if (parser.hasNext()) {
+			try {
+				int id = parser.nextInt();
+				player.getClient().queueOutgoingPacket(new SendSound(id, 0, 0));
 			} catch (Exception e) {
 				player.getClient().queueOutgoingPacket(new SendMessage("Invalid format!"));
 			}
