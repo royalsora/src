@@ -100,7 +100,7 @@ public class PlayerSounds {
             if (other == null) {
                 continue;
             }
-            if (other == player) {
+            if (other == player || other.getLocation().withinDistance(soundLocation, 1)) {
                 other.getClient().queueOutgoingPacket(new SendSound(soundId, soundType, soundDelay, SendSound.REAL));
             } else if (other.getLocation().withinDistance(soundLocation, 3)) {
                 other.getClient().queueOutgoingPacket(new SendSound(soundId, soundType, soundDelay, SendSound.HIGH));
@@ -120,7 +120,7 @@ public class PlayerSounds {
                 continue;
             }
 
-            if (other == player) {
+            if (other == player || other.getLocation().withinDistance(soundLocation, 1)) {
                 other.getClient().queueOutgoingPacket(new SendSound(sound, SendSound.REAL));
             } else if (other.getLocation().withinDistance(soundLocation, 3)) {
                 other.getClient().queueOutgoingPacket(new SendSound(sound, SendSound.HIGH));
