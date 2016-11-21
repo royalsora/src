@@ -777,6 +777,7 @@ public class ClickButtonPacket extends IncomingPacket {
                 InterfaceHandler.writeText(new QuestTab(player));
                 break;
             case 415074:
+            case 115076:
                 player.send(new SendString("@blu@" + player.getUsername() + "'s tracked points.", 8144));
                 InterfaceHandler.writeText(new PointsInterface(player));
                 player.send(new SendInterface(8134));
