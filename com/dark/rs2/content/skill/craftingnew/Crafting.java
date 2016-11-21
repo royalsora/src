@@ -46,8 +46,8 @@ public enum Crafting {
 		if (craftable == null) {
 			return false;
 		}
-                if(!(use == craftable.getUse() && with == craftable.getWith())
-                        || !(use == craftable.getWith() && with == craftable.getUse())) {
+                if(!(use.getId() == craftable.getUse().getId() && with.getId() == craftable.getWith().getId())
+                        && !(use.getId() == craftable.getWith().getId() && with.getId() == craftable.getUse().getId())) {
                     return false;
                     
                 }
