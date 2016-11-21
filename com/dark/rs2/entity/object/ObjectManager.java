@@ -244,10 +244,10 @@ public class ObjectManager {
         spawnWithObject(27014, 2986, 4751, 0, 10, 0);//tendrils	
         spawnWithObject(27014, 2986, 4750, 0, 10, 0);//tendrils	
         spawnWithObject(27014, 2986, 4749, 0, 10, 0);//tendrils	
-        /*deleteWithObject(3078, 3510, 0);
+        deleteWithObject(3078, 3510, 0);
         deleteWithObject(3080, 3510, 0);
         deleteWithObject(3412, 2913, 0);
-        deleteWithObject(3081, 3510, 0);*/
+        deleteWithObject(3081, 3510, 0);
 
         deleteWithObject(2543, 3867, 0);
         deleteWithObject(2545, 3865, 0);
@@ -724,9 +724,6 @@ public class ObjectManager {
         /**
          * Deleting Objects
          */
-        //deleteWithObject(3079, 3501, 0);//Home gate
-        //deleteWithObject(3080, 3501, 0);//Home gate
-        //deleteWithObject(3445, 3554, 2);//Slayer tower door
 
         /**
          * Remove objects

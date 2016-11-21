@@ -46,6 +46,12 @@ public enum Crafting {
 		if (craftable == null) {
 			return false;
 		}
+                if(!(use == craftable.getUse() && with == craftable.getWith())
+                        || !(use == craftable.getWith() && with == craftable.getUse())) {
+                    return false;
+                    
+                }
+                    
 
 		switch (craftable.getCraftableItems().length) {
 		case 1:
