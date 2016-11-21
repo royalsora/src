@@ -1497,6 +1497,9 @@ public class Player extends Entity {
         needsPlacement = true;
 
         send(new SendMessage("Welcome to Horizon."));
+        send(new SendMessage("@red@Beta sound system released 11/18/2016."));
+        send(new SendMessage("@red@Commands for sounds; ::disablesounds , ::maxsound, ::highsound, ::mediumsound , ::lowsound"));
+        
         // send(new SendMessage("<shad=0>@gre@10% off all Donations in the webstore!
         // Thanks for playing!"));
         // send(new SendMessage("<shad=0>@gre@Double XP is on. Sorry for the
