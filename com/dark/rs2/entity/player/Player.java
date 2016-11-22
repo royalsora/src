@@ -1370,7 +1370,9 @@ public class Player extends Entity {
             setMuted(true);
             setMuteLength(-1);
         }
-
+        if (this.getZ() > (3)) {
+            this.teleport(PlayerConstants.HOME);
+        }
         if (this.inCyclops()) {
             this.teleport(PlayerConstants.HOME);
         }
@@ -1498,7 +1500,8 @@ public class Player extends Entity {
 
         send(new SendMessage("Welcome to Horizon."));
         send(new SendMessage("@red@Beta sound system released 11/18/2016."));
-        send(new SendMessage("@red@Commands for sounds; ::disablesounds , ::maxsound, ::highsound, ::mediumsound , ::lowsound"));
+        send(new SendMessage("@red@Commands for sounds; ::disablesounds , ::maxsound, ::highsound,"));
+        send(new SendMessage("@red@::mediumsound, ::lowsound."));
         
         // send(new SendMessage("<shad=0>@gre@10% off all Donations in the webstore!
         // Thanks for playing!"));

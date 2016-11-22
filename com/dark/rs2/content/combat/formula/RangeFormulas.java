@@ -136,6 +136,7 @@ public class RangeFormulas {
 	}
 
 	public static int getRangedMaxHit(Player player) {
+	Entity defending = player.getCombat().getAttacking();
 		double pBonus = 1.0D;
 		int vBonus = 0;
 		int sBonus = 0;
@@ -181,7 +182,7 @@ public class RangeFormulas {
 		
 		Item amulet = player.getEquipment().getItems()[2];
 
-		if ((helm != null) && (helm.getId() == 11865) && (player.getCombat().getAttacking().isNpc()) && (player.getSlayer().hasTask())) {
+		if (((helm != null) && (helm.getId() == 11864)) || ((helm != null) && (helm.getId() == 19641)) || ((helm != null) && (helm.getId() == 19645)) || ((helm != null) && (helm.getId() == 19649)) || ((helm != null) && (helm.getId() == 15492)) || ((helm != null) && (helm.getId() == 11865) && (defending.isNpc()) && (player.getSlayer().hasTask()))) {
 		    Mob m = com.dark.rs2.entity.World.getNpcs()[player.getCombat().getAttacking().getIndex()];
 			if ((m != null) && (Slayer.isSlayerTask(player, m))) {
 				base += base * 0.15D;

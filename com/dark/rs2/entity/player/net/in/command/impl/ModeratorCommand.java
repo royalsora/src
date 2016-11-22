@@ -157,7 +157,7 @@ public class ModeratorCommand implements Command {
 
 				Player target = World.getPlayerByName(name);
 				if (PlayerConstants.isOwner(target)) {
-					DialogueManager.sendStatement(player, "Fuck off Pleb.");
+					DialogueManager.sendStatement(player, "Error #141679: You're a fucking idiot.");
 					target.send(new SendMessage(player.getUsername() + " has just tried to '" + parser.getCommand() + "' you."));
 					return true;
 				}
@@ -185,7 +185,7 @@ public class ModeratorCommand implements Command {
 					player.send(new SendMessage("Player not found."));
 				} else {
 					if (PlayerConstants.isOwner(p)) {
-						DialogueManager.sendStatement(player, "Fuck off Pleb.");
+						DialogueManager.sendStatement(player, "Error #141679: You're a fucking idiot..");
 						p.send(new SendMessage(player.getUsername() + " has just tried to '" + parser.getCommand() + "' you."));
 						return true;
 					}
@@ -214,7 +214,7 @@ public class ModeratorCommand implements Command {
 					player.send(new SendMessage("Player not found."));
 				} else {
 					if (PlayerConstants.isOwner(p)) {
-						DialogueManager.sendStatement(player, "Fuck off Pleb.");
+						DialogueManager.sendStatement(player, "Error #141679: You're a fucking idiot..");
 						p.send(new SendMessage(player.getUsername() + " has just tried to '" + parser.getCommand() + "' you."));
 						return true;
 					}
@@ -252,7 +252,7 @@ public class ModeratorCommand implements Command {
 				}
 
 				if (PlayerConstants.isOwner(target)) {
-					DialogueManager.sendStatement(player, "Fuck off Pleb.");
+					DialogueManager.sendStatement(player, "Error #141679: You're a fucking idiot..");
 					target.send(new SendMessage(player.getUsername() + " has just tried to '" + parser.getCommand() + "' you."));
 					return true;
 				}
@@ -310,7 +310,7 @@ public class ModeratorCommand implements Command {
 				}
 
 				if (PlayerConstants.isOwner(target)) {
-					DialogueManager.sendStatement(player, "Fuck off Pleb.");
+					DialogueManager.sendStatement(player, "Error #141679: You're a fucking idiot..");
 					target.send(new SendMessage(player.getUsername() + " has just tried to '" + parser.getCommand() + "' you."));
 					return true;
 				}
@@ -362,7 +362,7 @@ public class ModeratorCommand implements Command {
 				}
 
 				if (PlayerConstants.isOwner(target)) {
-					DialogueManager.sendStatement(player, "Fuck off Pleb.");
+					DialogueManager.sendStatement(player, "Error #141679: You're a fucking idiot..");
 					target.send(new SendMessage(player.getUsername() + " has just tried to '" + parser.getCommand() + "' you."));
 					return true;
 				}
@@ -563,7 +563,7 @@ public class ModeratorCommand implements Command {
 					player.send(new SendMessage("Player not found."));
 				} else {
 					if (PlayerConstants.isOwner(target)) {
-						DialogueManager.sendStatement(player, "Fuck off Pleb.");
+						DialogueManager.sendStatement(player, "Error #141679: You're a fucking idiot..");
 						target.send(new SendMessage(player.getUsername() + " has just tried to '" + parser.getCommand() + "' you."));
 						return true;
 					}
