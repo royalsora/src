@@ -345,7 +345,7 @@ public class Bank extends ItemContainer {
 			if (remove(new Item(old, added), true) > 0) {
 				if (added == bankAmount) {
 					int tab = getData(bankSlot, 0);
-					changeTabAmount(tab, -1, tab == 0 && tabAmounts[0] == 1);
+					changeTabAmount(tab, -1,/* tab != 0 &&*/tabAmounts[tab] == 1); //fixed
 				}
 			}
 		}
