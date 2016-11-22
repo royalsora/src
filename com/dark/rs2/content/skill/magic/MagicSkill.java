@@ -42,6 +42,7 @@ public class MagicSkill {
 
     public static enum TeleportTypes {
         SPELL_BOOK,
+        GLORY,
         TABLET,
         TELE_OTHER,
         FAIRY_RING,
@@ -94,8 +95,15 @@ public class MagicSkill {
             return false;
         }
         if (player.inWilderness() && player.getWildernessLevel() >= 20) {
-            player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport above level 20 Wilderness."));
-            return false;
+            if (type == MagicSkill.TeleportTypes.GLORY) {
+                if (player.getWildernessLevel() >= 30) {
+                    player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport above level 30 Wilderness."));
+                    return false;
+                }
+            } else {
+                player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport above level 20 Wilderness."));
+                return false;
+            }
         }
         if (player.getController().equals(ControllerManager.FIGHT_PITS_CONTROLLER) || player.getController().equals(ControllerManager.FIGHT_PITS_WAITING_CONTROLLER)) {
             player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport from here."));
@@ -375,6 +383,7 @@ public class MagicSkill {
 
                 switch (type) {
                     case SPELL_BOOK:
+                    case GLORY:
                         switch (spellBookType) {
                             case MODERN:
                                 player.getUpdateFlags().sendAnimation(MagicConstants.MODERN_TELEPORT_END_ANIMATION);
@@ -555,6 +564,7 @@ public class MagicSkill {
 
                 switch (type) {
                     case SPELL_BOOK:
+                    case GLORY:
                         player.getUpdateFlags().sendAnimation(MagicConstants.MODERN_TELEPORT_END_ANIMATION);
                         switch (spellBookType) {
                             case MODERN:

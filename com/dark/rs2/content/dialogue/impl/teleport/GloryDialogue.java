@@ -21,7 +21,7 @@ public class GloryDialogue extends Dialogue {
 
 	@Override
 	public boolean clickButton(int id) {
-		if (!player.getPlayer().getMagic().canTeleport(TeleportTypes.SPELL_BOOK)) {
+		if (!player.getPlayer().getMagic().canTeleport(TeleportTypes.GLORY)) {
 			player.getDialogue().end();
 			return false;
 		}
@@ -32,7 +32,7 @@ public class GloryDialogue extends Dialogue {
 		
 		switch (id) {
 		case 9178:
-			getPlayer().getMagic().teleport(3086, 3489, 0, MagicSkill.TeleportTypes.SPELL_BOOK);
+			getPlayer().getMagic().teleport(3086, 3489, 0, MagicSkill.TeleportTypes.GLORY);
 			if (operate == true) {
 				if (itemId - 2 != 1702) {
 					player.getEquipment().getItems()[2].setId(itemId - 2);
@@ -50,7 +50,7 @@ public class GloryDialogue extends Dialogue {
 			player.getDialogue().end();
 			break;
 		case 9179:
-			getPlayer().getMagic().teleport(3093, 3244, 0, MagicSkill.TeleportTypes.SPELL_BOOK);
+			getPlayer().getMagic().teleport(3093, 3244, 0, MagicSkill.TeleportTypes.GLORY);
 			if (operate == true) {
 				if (itemId - 2 != 1702) {
 					player.getEquipment().getItems()[2].setId(itemId - 2);
@@ -68,7 +68,7 @@ public class GloryDialogue extends Dialogue {
 			player.getDialogue().end();
 			break;
 		case 9180:
-			getPlayer().getMagic().teleport(2909, 3151, 0, MagicSkill.TeleportTypes.SPELL_BOOK);
+			getPlayer().getMagic().teleport(2909, 3151, 0, MagicSkill.TeleportTypes.GLORY);
 			if (operate == true) {
 				if (itemId - 2 != 1702) {
 					player.getEquipment().getItems()[2].setId(itemId - 2);
@@ -86,7 +86,7 @@ public class GloryDialogue extends Dialogue {
 			player.getDialogue().end();
 			break;
 		case 9181:
-			getPlayer().getMagic().teleport(3091, 3476, 0, MagicSkill.TeleportTypes.SPELL_BOOK);
+			getPlayer().getMagic().teleport(3091, 3476, 0, MagicSkill.TeleportTypes.GLORY);
 			if (operate == true) {
 				if (itemId - 2 != 1702) {
 					player.getEquipment().getItems()[2].setId(itemId - 2);
