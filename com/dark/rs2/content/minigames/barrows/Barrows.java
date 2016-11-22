@@ -248,11 +248,15 @@ public class Barrows {
 		}
 
 		for (int i = 0; i < barrowsReward.length; i++) {
-			switch (Utility.RANDOM.nextInt(6)) {
+			switch (Utility.RANDOM.nextInt(35)) {
+			case 0:
 			case 1:
+			case 2:
 				barrowsReward[i] = Utility.randomElement(HARD_ITEM);
 				break;
-			case 6:
+			case 8:
+			case 9:
+			case 10:
 				barrowsReward[i] = Utility.randomElement(RARE_ITEM);
 				break;
 			default:

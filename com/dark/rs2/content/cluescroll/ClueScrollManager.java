@@ -594,11 +594,6 @@ public enum ClueScrollManager {
      * @param difficulty - The rewards table.
      */
     public static void reward(Player player, int item, ClueDifficulty difficulty) {
-        if (player.getInventory().getFreeSlots() < 6) {
-            player.send(new SendMessage("You need at least 6 free slots to open this casket."));
-            return;
-        }
-
         player.getInventory().remove(item, 1);
         player.send(new SendRemoveInterfaces());
 
@@ -647,7 +642,7 @@ public enum ClueScrollManager {
                 amount = Utility.randomNumber(amount) + 1;
             }
 
-            player.getInventory().add(reward.getId(), amount, false);
+            player.getInventory().addOrCreateGroundItem(reward.getId(), amount, false);
         }
 
         items.update();
@@ -691,10 +686,6 @@ public enum ClueScrollManager {
      */
     public boolean clickItem(Player player, int item) {
         ClueScroll scroll = CLUE_SCROLLS.get(item);
-        if (player.getInventory().getFreeSlots() < 6) {
-            player.send(new SendMessage("You need at least 6 free slots in your inventory to open the scroll."));
-            return false;
-        }
         if (scroll == null) {
             switch (item) {
                 case CASKET_EASY:

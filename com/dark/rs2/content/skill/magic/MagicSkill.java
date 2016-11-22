@@ -10,6 +10,7 @@ import com.dark.core.util.Utility;
 import com.dark.rs2.content.combat.impl.Attack;
 import com.dark.rs2.content.minigames.war.WarHandler;
 import com.dark.rs2.content.skill.Skills;
+import com.dark.rs2.content.skill.magic.spells.BonesToPeaches;
 import com.dark.rs2.content.skill.magic.spells.Charge;
 import com.dark.rs2.content.skill.magic.spells.HighAlchemy;
 import com.dark.rs2.content.skill.magic.spells.LowAlchemy;
@@ -93,7 +94,7 @@ public class MagicSkill {
             player.send(new SendMessage("You are jailed and can not do this!"));
             return false;
         }
-        if (player.inWilderness() && player.getWildernessLevel() >= 20) {
+        if (player.inWilderness() && player.getWildernessLevel() > 20) {
             player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport above level 20 Wilderness."));
             return false;
         }
@@ -127,6 +128,49 @@ public class MagicSkill {
         }
         return true;
     }
+    public boolean canGloryTeleport(TeleportTypes type) {
+    if (player.isInWar() && WarHandler.CURRENT_WAR.warPlayer().size() % 2 == 0) {
+        player.send(new SendMessage("You can not teleport out of the war with an even amount of players in war."));
+        return false;
+    }
+    if (player.isJailed()) {
+        player.send(new SendMessage("You are jailed and can not do this!"));
+        return false;
+    }
+    if (player.inWilderness() && player.getWildernessLevel() > 30) {
+        player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport above level 20 Wilderness."));
+        return false;
+    }
+    if (player.getController().equals(ControllerManager.FIGHT_PITS_CONTROLLER) || player.getController().equals(ControllerManager.FIGHT_PITS_WAITING_CONTROLLER)) {
+        player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport from here."));
+        return false;
+    }
+    if (player.getController().equals(ControllerManager.PEST_WAITING_ROOM_CONTROLLER)) {
+        player.getClient().queueOutgoingPacket(new SendMessage("Please Exit the boat via the ladder."));
+        return false;
+    } else if (player.getController().equals(ControllerManager.PEST_CONTROLLER)) {
+        player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport whilst in pest control."));
+        player.getClient().queueOutgoingPacket(new SendMessage("If you wish to leave speak with the squire back at the boat."));
+        return false;
+    }
+    if (player.induelarena() && player.getDueling().isDueling()) {
+        return false;
+    }
+    if (player.isBusyNoInterfaceCheck()) {
+        player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport right now."));
+        return false;
+    }
+    if (player.isTeleblocked()) {
+        player.getClient().queueOutgoingPacket(new SendMessage("A magical force blocks you from teleporting."));
+        return false;
+    } else if (teleporting) {
+        return false;
+    } else if (!player.getController().canTeleport()) {
+        player.getClient().queueOutgoingPacket(new SendMessage("You can't teleport right now."));
+        return false;
+    }
+    return true;
+}
 
     public boolean clickMagicButtons(int buttonId) {
         if (buttonId == 26010) {
@@ -152,6 +196,9 @@ public class MagicSkill {
             case 118098:
                 player.getMagic().getSpellCasting().cast(new Vengeance());
                 return true;
+            case 62005:
+            	player.getMagic().getSpellCasting().cast(new BonesToPeaches());
+            	return true;
 
         }
         return false;
@@ -761,6 +808,20 @@ public class MagicSkill {
         }
         initTeleport(x, y, z, type);
     }
+    public void gloryTeleport(int x, int y, int z, TeleportTypes type) {
+    if (player.isInHouse()) {
+        player.getHouseManager().resetHouse(player);
+    }
+    if (!canGloryTeleport(type) || player.isDead()) {
+        player.getClient().queueOutgoingPacket(new SendRemoveInterfaces());
+        return;
+    }
+    if (player.isInWar()) {
+        WarHandler.CURRENT_WAR.warPlayer().remove(player);
+        player.setInWar(false);
+    }
+    initTeleport(x, y, z, type);
+}
 
     public void teleport(Location location, TeleportTypes teleportType) {
         teleport(location.getX(), location.getY(), location.getZ(), teleportType);

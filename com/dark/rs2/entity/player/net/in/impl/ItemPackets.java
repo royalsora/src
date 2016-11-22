@@ -821,6 +821,10 @@ public class ItemPackets extends IncomingPacket {
 			player.getInventory().remove(10561, 1);
 			player.getInventory().add(10537, 1);
 		}
+		if ((usedWith.getId() == 10537 && itemUsed.getId() == 1755) || (usedWith.getId() == 1755 && itemUsed.getId() == 10537)) {
+			player.getInventory().remove(10537, 1);
+			OmegaEgg.open(player);
+		}
 		if ((usedWith.getId() == 13446 && itemUsed.getId() == 1755) || (usedWith.getId() == 1755 && itemUsed.getId() == 13446)) {
 			player.getInventory().remove(13446, 1);
 			player.incrementEssenseFragment(4);

@@ -33,7 +33,7 @@ public class OmegaEgg {
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(10552, 1)), //Runner Boots
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(10553, 1)), //Penance Gloves
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(10555, 1)), //Penance Skirt
-			new WeightedChance<Item>(WeightedChance.COMMON, new Item(13124, 1)), //Ardougne Cloak
+			new WeightedChance<Item>(WeightedChance.UNCOMMON, new Item(13124, 1)), //Ardougne Cloak
 			//Very Rare Items
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(12703, 1)) //Penance Queen Pet
 	));
