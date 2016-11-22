@@ -10,6 +10,7 @@ import com.dark.core.util.Utility;
 import com.dark.rs2.content.combat.impl.Attack;
 import com.dark.rs2.content.minigames.war.WarHandler;
 import com.dark.rs2.content.skill.Skills;
+import com.dark.rs2.content.skill.magic.spells.BonesToPeaches;
 import com.dark.rs2.content.skill.magic.spells.Charge;
 import com.dark.rs2.content.skill.magic.spells.HighAlchemy;
 import com.dark.rs2.content.skill.magic.spells.LowAlchemy;
@@ -135,7 +136,7 @@ public class MagicSkill {
         }
         return true;
     }
-
+        
     public boolean clickMagicButtons(int buttonId) {
         if (buttonId == 26010) {
             spellCasting.disableAutocast();
@@ -160,6 +161,9 @@ public class MagicSkill {
             case 118098:
                 player.getMagic().getSpellCasting().cast(new Vengeance());
                 return true;
+            case 62005:
+            	player.getMagic().getSpellCasting().cast(new BonesToPeaches());
+            	return true;
 
         }
         return false;
