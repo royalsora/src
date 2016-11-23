@@ -82,11 +82,11 @@ public class EquipmentConstants {
 		4955, 4732, 4928, 4929, 4930, 4931, 7534, 11718, 6109, 3748, 3749, 3751, 3753, 3755, 11663, 11664, 
 		11665, 4753, 4976, 4977, 4978, 4979, 4709, 4856, 4857, 4858, 4859, 10828, 3057, 7594, 6188, 1149, 10548,
 		10547, 16711, 5574, 4502, 11021, 10334, 10392, 10398, 13876, 15492, 10589, 1053, 1055, 1057, 17061, 13263, 
-		14116, 1167, 12673, 12675, 12677, 12679, 12681, 2631, 11826, 1167, 1169, 13359, 6335, 13379,
+		14116, 1167, 12673, 12675, 12677, 12679, 12681, 11826, 1167, 1169, 13359, 13379,
 	};
 
 	private static final int[] FULL_MASK_IDS = { 
-		12417, 12371, 8464, 8466, 8468, 8470, 8472, 8474, 8476, 8478, 8480, 8482, 8484, 8486, 8488, 8490, 8492, 4745, 
+		12417, 12371, 1506, 5554, 11847, 8464, 8466, 8468, 8470, 8472, 8474, 8476, 8478, 8480, 8482, 8484, 8486, 8488, 8490, 8492, 4745, 
 		4724, 1153, 1155, 1157, 1159, 1161, 1163, 1165, 2587, 2595, 2605, 2613, 2619, 2627, 2657, 2665, 2673, 3486, 6623,
 		10350, 11335, 4979, 4978, 4977, 4976, 4753, 3057, 7594, 6188, 5574, 15492, 1053, 1055, 1057, 13263, 11850, 11864, 11865, 19641, 19645, 19649, 12931, 13140, 4551, 9672, 12283, 13330
 	};
@@ -223,6 +223,7 @@ public class EquipmentConstants {
 		FULL_HELM[1050] = 2;
 		FULL_HELM[14499] = 2;
 		FULL_HELM[6858] = 2;
+		FULL_HELM[2631] = 0;
 		for (int i = 0; i < 20145; i++) {
 			ItemBonusDefinition def1 = GameDefinitionLoader.getItemBonusDefinition(i);
 			ItemDefinition def2 = GameDefinitionLoader.getItemDef(i);
@@ -230,7 +231,7 @@ public class EquipmentConstants {
 				if ((def2.getName().contains("beret")) || (def2.getName().contains("cavalier")) || (def2.getName().contains("headband"))) {
 					FULL_HELM[i] = 2;
 				}
-				if ((def2.getName() != null) && (def2.getName().contains("hood")) && (!def2.getName().contains("Robin")) || def2.getName().contains("mask")) {
+				if ((def2.getName() != null) && (def2.getName().contains("hood")) && (!def2.getName().contains("Robin") || def2.getName().contains("mask"))) {
 					FULL_HELM[i] = 1;
 				}
 				for (int k = 0; k < def1.getBonuses().length; k++)

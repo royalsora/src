@@ -116,6 +116,7 @@ import com.dark.rs2.content.skill.herblore.PotionDecanting;
 import com.dark.rs2.content.skill.hunter.Impling.ImplingRewards.Implings;
 import com.dark.rs2.content.skill.magic.MagicSkill;
 import com.dark.rs2.content.skill.magic.MagicSkill.SpellBookTypes;
+import com.dark.rs2.content.skill.magic.MagicSkill.TeleportTypes;
 import com.dark.rs2.content.skill.mining.Mining;
 import com.dark.rs2.content.skill.prayer.BoneBurying;
 import com.dark.rs2.content.skill.runecrafting.AbyssObjects;
@@ -171,6 +172,7 @@ public class WalkToActions {
      * Default dialogues for npcs
      */
     public final static String[] DEFAULT_DIALOGUES = {"This server hides a dark secret", "Stay! STAY! STAY! HEAR THE SCREAMS! STAY!", "He won't let us GO! FREE US! HELP US!"};
+
 
     public static void clickNpc(final Player player, final int option, int slot) {
         if (player.getMagic().isTeleporting()) {
@@ -1085,6 +1087,10 @@ public class WalkToActions {
         if (id == 534) { // from smoke devils to main caves
             player.teleport(new Location(2356, 9782, 0));
             player.send(new SendMessage("You enter the smokey crevice."));
+            return;
+        }
+        if (id == 14097) { // Fairy ring
+            player.getMagic().teleport(2160, 3072, 0, TeleportTypes.FAIRY_RING);
             return;
         }
         if (id == 26711) { // from main caves to kalphite..
