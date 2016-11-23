@@ -28,7 +28,7 @@ public class LoginDecoder extends FrameDecoder {
 	/**
 	 * Client version
 	 */
-	public static final int CLIENT_VERSION = 13;
+	public static final int CLIENT_VERSION = 14;
 
 	/**
 	 * Connected login state
