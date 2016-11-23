@@ -38,7 +38,7 @@ public class ObjectManager {
      * The instance of this class
      */
     private static ObjectManager instance;
-    public static final int BLANK_OBJECT_ID = -1;
+    public static final int BLANK_OBJECT_ID = 2376;
 
     /**
      * Returns the instance of this class
@@ -213,6 +213,7 @@ public class ObjectManager {
         /**
          * Home Area
          */
+        spawnWithObject(2936, 3090, 3496, 0, 10, 3);//exchange
         spawnWithObject(410, 3078, 3481, 0, 10, 0);//Lunar Altar
         spawnWithObject(6552, 3087, 3483, 0, 10, 0);//Ancient Altar
         spawnWithObject(409, 3084, 3483, 0, 10, 0);//Altar at edge	
@@ -408,7 +409,7 @@ public class ObjectManager {
         spawnWithObject(10517, 2816, 3351, 0, 10, 3);//Banks		
         spawnWithObject(10517, 2809, 3347, 0, 10, 0);//Banks				
         spawnWithObject(10517, 2827, 3355, 0, 10, 0);//Banks		
-        spawnWithObject(9472, 2818, 3351, 0, 10, 5);//Shop Exchange
+        spawnWithObject(2936, 2818, 3351, 0, 10, 5);//Shop Exchange
         spawnWithObject(10517, 2857, 3338, 0, 10, 0);//Banks
         spawnWithObject(4875, 2863, 3338, 0, 10, 5);//Food stall
         spawnWithObject(4876, 2862, 3338, 0, 10, 5);//General stall
@@ -742,7 +743,7 @@ public class ObjectManager {
         deleteWithObject(3092, 3496, 0);
         deleteWithObject(3091, 3495, 0);
         deleteWithObject(3090, 3494, 0);
-        deleteWithObject(3090, 3496, 0);
+        //deleteWithObject(3090, 3496, 0);
         deleteWithObject(1812, 3510, 0);
         deleteWithObject(1812, 3509, 0);
 
