@@ -1448,9 +1448,13 @@ public class WalkToActions {
                     case 10230:// Dagganoth Kings
                         player.teleport(new Location(2900, 4449, 0));
                         break;
-                    case 9472:// Exchange
-                    case 9741:
-                    case 9371:
+                    //case 9472:// Exchange
+                    //case 9741:
+                    //case 9371:
+                    case 2936:
+                    case 2937:
+                    case 2938:
+                    case 2939:
                         player.start(new ShopExchangeDialogue(player));
                         break;
                     case 24306:// Warrior Guild door
