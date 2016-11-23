@@ -10,6 +10,7 @@ import com.dark.rs2.entity.item.Item;
 import com.dark.rs2.entity.mob.Mob;
 import com.dark.rs2.content.achievements.AchievementHandler;
 import com.dark.rs2.content.achievements.AchievementList;
+import com.dark.rs2.content.skill.Skills;
 import com.dark.rs2.entity.player.Player;
 import com.dark.rs2.entity.player.net.out.impl.SendMessage;
 
@@ -187,17 +188,17 @@ public class Impling {
 					return;
 				}
 				if (Utility.randomNumber(25) == 0) {
-					player.getUpdateFlags().sendAnimation(new Animation(828));
+					player.getUpdateFlags().sendAnimation(new Animation(6605));
 					player.getClient().queueOutgoingPacket(new SendMessage("You fail to catch the impling."));
 				} else {
-					player.getUpdateFlags().sendAnimation(new Animation(828));
+					player.getUpdateFlags().sendAnimation(new Animation(6606));
 					player.getClient().queueOutgoingPacket(new SendMessage("You catch the impling and place it in the jar."));
 					player.getInventory().add(t.getJar(), 1);
 					player.getInventory().remove(11260, 1);
 					AchievementHandler.activateAchievement(player, AchievementList.CATCH_25_IMPLINGS, 1);
 					AchievementHandler.activateAchievement(player, AchievementList.CATCH_100_IMPLINGS, 1);
-					player.getSkill().addExperience(22, t.getXp());
-					player.getSkill().update();
+					player.getSkill().addExperience(Skills.HUNTER, t.getXp());
+					//player.getSkill().update();
 					teleportImpling(impling);
 				}
 			}

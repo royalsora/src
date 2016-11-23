@@ -886,7 +886,7 @@ public class ObjectManager {
         if ((object.getType() != 10) || (z > 0)) {
             getInstance().registerWithoutClipping(new GameObject(2376, x, y, z, object.getType(), 0));
         } else {
-            getInstance().register(new GameObject(2376, x, y, z, object.getType(), 0));
+            getInstance().registerWithoutClipping(new GameObject(2376, x, y, z, object.getType(), 0));
         }
     }
 

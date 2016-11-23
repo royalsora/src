@@ -117,7 +117,7 @@ public class ToxicBlowpipe {
 		}
 
 		if (usedWith.getId() == 12924 || usedWith.getId() == 12926 || itemUsed.getId() == 12924 || itemUsed.getId() == 12926) {
-			if (player.getToxicBlowpipe().blowpipeAmmo == null) {
+			if (player.getToxicBlowpipe().blowpipeAmmo != null) {
 				player.getToxicBlowpipe().blowpipeAmmo.add(dart.getAmount());
 			} 
 			if (dart.getAmount() > FULL) {
