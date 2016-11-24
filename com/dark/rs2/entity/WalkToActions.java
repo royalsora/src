@@ -22,6 +22,7 @@ import com.dark.core.task.impl.HopDitchTask;
 import com.dark.core.task.impl.ObeliskTick;
 import com.dark.core.task.impl.PullLeverTask;
 import com.dark.core.task.impl.ShearingTask;
+import com.dark.core.task.impl.TeleOtherTask;
 import com.dark.core.task.impl.WalkThroughDoorTask;
 import com.dark.core.task.impl.WalkThroughDoubleDoorTask;
 import com.dark.core.task.impl.WalkToTask;
@@ -58,6 +59,7 @@ import com.dark.rs2.content.dialogue.impl.KolodionDialogue;
 import com.dark.rs2.content.dialogue.impl.KrakenDialogue;
 import com.dark.rs2.content.dialogue.impl.MacDialougue;
 import com.dark.rs2.content.dialogue.impl.MakeoverMage;
+import com.dark.rs2.content.dialogue.impl.MembershipDialogue;
 import com.dark.rs2.content.dialogue.impl.NeiveDialogue;
 import com.dark.rs2.content.dialogue.impl.OttoGodblessed;
 import com.dark.rs2.content.dialogue.impl.OziachDialogue;
@@ -173,7 +175,6 @@ public class WalkToActions {
      * Default dialogues for npcs
      */
     public final static String[] DEFAULT_DIALOGUES = {"This server hides a dark secret", "Stay! STAY! STAY! HEAR THE SCREAMS! STAY!", "He won't let us GO! FREE US! HELP US!"};
-
 
     public static void clickNpc(final Player player, final int option, int slot) {
         if (player.getMagic().isTeleporting()) {
@@ -292,8 +293,7 @@ public class WalkToActions {
             player.teleport(new Location(3090, 3475, 0));
             player.send(new SendMessage("You pull the lever, bringing you to safety."));
         }
-       
-        
+
         if (id == 27980) {
             int amount = player.getEssenceFragments();
             player.incrementEssenseFragment(-amount);
@@ -608,6 +608,9 @@ public class WalkToActions {
                             player.getShopping().open(33);
                         }));
                         break;
+                    case 5523:// Swagster
+                        player.start(new MembershipDialogue(player));
+                        break;
                     case 3189:// brian
                         player.getShopping().open(90);
                         break;
@@ -672,7 +675,7 @@ public class WalkToActions {
                     case 1325:// Npc guide
                         player.start(new HariDialogue(player));
                         break;
-                    case 1082:// Prestige nob face
+                    case 606:// Prestige nob face
                         player.start(new PrestigeDialogue(player));
                         break;
                     case 6481:// Mac
@@ -791,6 +794,19 @@ public class WalkToActions {
                          */));
 
                         break;
+                    case 5523:// Swagster
+                        player.start(new OptionDialogue("Credit Shop 1", p -> {
+                            player.getShopping().open(94);
+                        }, "Credit Store 2", p -> {
+                            player.getShopping().open(90);
+                        }, "Credit Store 3", p -> {
+                            player.getShopping().open(87);
+                        }));
+
+                        break;
+                    case 606:// Prestige
+                        player.getShopping().open(93);
+                        break;
                     case 5885:// abyssal
                         player.getShopping().open(93);
                         break;
@@ -872,12 +888,13 @@ public class WalkToActions {
                         player.getInventory().remove(new Item(995, 10000));
                         player.send(new SendInterface(3559));
                         break;
-                    case 3189:// Swagster
+
+                    case 5523:// Swagster
                         if (PlayerConstants.isPlayer(player)) {
-                            DialogueManager.sendNpcChat(player, 3189, Emotion.DEFAULT, "You need to be a <img=4>@red@member </col>to do this!");
+                            DialogueManager.sendNpcChat(player, 5523, Emotion.DEFAULT, "You need to be a <img=4>@red@member </col>to do this!");
                             return;
                         }
-                        player.teleport(new Location(PlayerConstants.MEMEBER_AREA));
+                        TaskQueue.queue(new TeleOtherTask(mob, player, PlayerConstants.MEMEBER_AREA));
                         break;
                     case 4936:// Mage of zamorak
                         player.start(new OptionDialogue("Abyss", p -> {
@@ -893,7 +910,7 @@ public class WalkToActions {
                     case 1325:// Npc guide
                         DropTable.open(player);
                         break;
-                    case 2127:// Prestige
+                    case 606:// Prestige
                         Prestige.update(player);
                         player.send(new SendInterface(51000));
                         break;
@@ -1128,7 +1145,6 @@ public class WalkToActions {
         /*if (Doors.isDoorJammed(player, x, y, z)) {
             return;
         }*/
-
         if ((id == 1738) && (x == 2839) && (y == 3537)) {
             player.teleport(new Location(2839, 3537, 2));
             return;
@@ -1158,18 +1174,18 @@ public class WalkToActions {
             return;
         }
         if (id == 10068) {
-        	player.start(new ZulrahDialogue(player));
-        return;
-        
+            player.start(new ZulrahDialogue(player));
+            return;
+
         }
         if (id == 537) {
-        	if (player.getSkill().getLevels()[Skills.SLAYER] < 87) {
-        	DialogueManager.sendStatement(player, "You need a slayer level of 87 to enter this cave.");
-        	return;
-        	}
-        	player.start(new KrakenDialogue(player));
-        return;
-        
+            if (player.getSkill().getLevels()[Skills.SLAYER] < 87) {
+                DialogueManager.sendStatement(player, "You need a slayer level of 87 to enter this cave.");
+                return;
+            }
+            player.start(new KrakenDialogue(player));
+            return;
+
         }
         if (id == 11834) {
             TzharrGame.finish(player, false);

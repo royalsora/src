@@ -198,7 +198,7 @@ public class Impling {
 					AchievementHandler.activateAchievement(player, AchievementList.CATCH_25_IMPLINGS, 1);
 					AchievementHandler.activateAchievement(player, AchievementList.CATCH_100_IMPLINGS, 1);
 					player.getSkill().addExperience(Skills.HUNTER, t.getXp());
-					//player.getSkill().update();
+					player.getSkill().update();
 					teleportImpling(impling);
 				}
 			}
