@@ -2224,6 +2224,7 @@ public class WalkToActions {
                     case 9472:// Exchange
                     case 9741:
                     case 9371:
+                    case 2936:
                         player.start(new ShopExchangeDialogue2(player));
                         break;
                     case 2030:
@@ -2304,6 +2305,7 @@ public class WalkToActions {
                     case 9371:
                     case 9472:// Exchange
                     case 9741:
+                    case 2936:
                         player.getClient().queueOutgoingPacket(new SendInterface(53500));
                         player.getClient().queueOutgoingPacket(new SendString("Shops Exchange | @red@0</col> Active Shops", 53505));
                         List<Player> available = Arrays.stream(World.getPlayers()).filter(p -> p != null && p.isActive() && p.getPlayerShop().hasAnyItems()).collect(Collectors.toList());

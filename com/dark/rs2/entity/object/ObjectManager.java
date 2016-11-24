@@ -213,7 +213,7 @@ public class ObjectManager {
         /**
          * Home Area
          */
-        spawnWithObject(2936, 3090, 3496, 0, 10, 3);//exchange
+        spawnWithObject(2936, 3090, 3495, 0, 10, 3);//exchange
         spawnWithObject(410, 3078, 3481, 0, 10, 0);//Lunar Altar
         spawnWithObject(6552, 3087, 3483, 0, 10, 0);//Ancient Altar
         spawnWithObject(409, 3084, 3483, 0, 10, 0);//Altar at edge	
@@ -249,7 +249,8 @@ public class ObjectManager {
         deleteWithObject(3080, 3510, 0);
         deleteWithObject(3412, 2913, 0);
         deleteWithObject(3081, 3510, 0);
-
+       
+        deleteWithObject(3090, 3496, 0);
         deleteWithObject(2543, 3867, 0);
         deleteWithObject(2545, 3865, 0);
         deleteWithObject(2541, 3869, 0);
