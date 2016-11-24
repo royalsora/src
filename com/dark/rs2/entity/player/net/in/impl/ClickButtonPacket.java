@@ -388,27 +388,8 @@ public class ClickButtonPacket extends IncomingPacket {
                         player.getMagic().teleport(TeleportationData.GOD_WARS.getPosition(), TeleportTypes.SPELL_BOOK);
                     }, "Ancient Gorilla", p2 -> {
                         player.getMagic().teleport(TeleportationData.GORILLA.getPosition(), TeleportTypes.SPELL_BOOK);
-                    }, "Kraken", p2 -> {
-                        player.getMagic().teleport(3696, 5807, player.getIndex() << 2, TeleportTypes.SPELL_BOOK);
-                        TaskQueue.queue(new Task(5) {
-                            @Override
-                            public void execute() {
-                                int[][] DATA = {{493, 3691, 5810}, {493, 3691, 5814}, {493, 3700, 5810}, {493, 3700, 5814}, {496, 3694, 5811}};
-                                for (int i = 0; i < DATA.length; i++) {
-                                    Mob mob = new Mob(player, DATA[i][0], false, false, false, new Location(DATA[i][1], DATA[i][2], player.getZ()));
-                                    mob.setCanAttack(false);
-                                    player.face(mob);
-                                }
-                                stop();
-                            }
-
-                            @Override
-                            public void onStop() {
-                                player.whirlpoolsHit = 0;
-                                player.send(new SendMessage("Welcome to Kraken's cave."));
-                            }
-                        });
-
+                    }, "Asyn Shades", p2 -> {
+                        player.getMagic().teleport(3503, 3283, 0, TeleportTypes.SPELL_BOOK);
                     }, "Next Page", p2 -> {
                         player.start(new OptionDialogue("Giant Mole", p3 -> {
                             player.getMagic().teleport(TeleportationData.GIANT_MOLE.getPosition(), TeleportTypes.SPELL_BOOK);

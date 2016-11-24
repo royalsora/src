@@ -49,6 +49,7 @@ public class MagicSkill {
         FAIRY_RING,
         FOUNTAIN_OF_RUNE,
         OBELISK,
+        CRAWL,
         SCROLL;
     }
 
@@ -345,6 +346,7 @@ public class MagicSkill {
                 player.getUpdateFlags().sendAnimation(1816, 0);
                 player.getUpdateFlags().sendGraphic(new Graphic(342, 0, false));
                 break;
+            
             default:
                 switch (spellBookType) {
                     case ANCIENT:
@@ -517,6 +519,9 @@ public class MagicSkill {
                 break;
             case FAIRY_RING:
                 player.getUpdateFlags().sendGraphic(new Graphic(569, 0, false));
+                break;
+            case CRAWL:
+                player.getUpdateFlags().sendAnimation(844, 0);
                 break;
             case FOUNTAIN_OF_RUNE:
                 player.getUpdateFlags().sendAnimation(1816, 0);

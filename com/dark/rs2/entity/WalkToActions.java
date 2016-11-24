@@ -55,6 +55,7 @@ import com.dark.rs2.content.dialogue.impl.JarDialogue;
 import com.dark.rs2.content.dialogue.impl.imbueDialogue;
 import com.dark.rs2.content.dialogue.impl.KamfreeDialogue;
 import com.dark.rs2.content.dialogue.impl.KolodionDialogue;
+import com.dark.rs2.content.dialogue.impl.KrakenDialogue;
 import com.dark.rs2.content.dialogue.impl.MacDialougue;
 import com.dark.rs2.content.dialogue.impl.MakeoverMage;
 import com.dark.rs2.content.dialogue.impl.NeiveDialogue;
@@ -1113,6 +1114,11 @@ public class WalkToActions {
             player.send(new SendMessage("You enter the crevice."));
             return;
         }
+        if (id == 538) { // from Kraken to kraken entrance
+            player.teleport(new Location(2486, 9797, 0));
+            player.send(new SendMessage("You leave the lair."));
+            return;
+        }
         if (id == 26710) { // from caves to home
             player.teleport(new Location(PlayerConstants.HOME));
             player.send(new SendMessage("You leave the cave.."));
@@ -1154,6 +1160,16 @@ public class WalkToActions {
         if (id == 10068) {
         	player.start(new ZulrahDialogue(player));
         return;
+        
+        }
+        if (id == 537) {
+        	if (player.getSkill().getLevels()[Skills.SLAYER] < 87) {
+        	DialogueManager.sendStatement(player, "You need a slayer level of 87 to enter this cave.");
+        	return;
+        	}
+        	player.start(new KrakenDialogue(player));
+        return;
+        
         }
         if (id == 11834) {
             TzharrGame.finish(player, false);
