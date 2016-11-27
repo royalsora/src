@@ -1452,7 +1452,7 @@ public class ItemPackets extends IncomingPacket {
 			}
 			player.isEating = true;
 			int currentHitpoints = player.getLevels()[Skills.HITPOINTS];
-			if (currentHitpoints < 5 && currentHitpoints != 1) {
+			if (currentHitpoints < 6 && currentHitpoints != 1) {
 				player.hit(new Hit(currentHitpoints - 1));
 				player.isEating = false;
 				player.getDelay().reset();
