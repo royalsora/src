@@ -56,14 +56,11 @@ public class GodWars {
 				TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(x - 1, y, z)));
 			} else {
 				if (player.getInventory().hasItemId(ECUMENICAL_KEY)) {
-					player.getInventory().remove(ECUMENICAL_KEY, 1);
 					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(x + 1, y, z)));
-					player.send(new SendMessage("You have used your Ecumencial key to enter the room."));
 					return true;
 				}
 				if (player.getInventory().hasItemId(ELITE_CLOAK)) {
 					TaskQueue.queue(new WalkThroughDoorTask(player, x, y, z, new Location(x + 1, y, z)));
-					player.send(new SendMessage("You have used your Ecumencial key to enter the room."));
 					return true;
 				}
 				if (player.getMinigames().getGWKC()[Allegiance.BANDOS.ordinal()] >= POINTS_TO_ENTER) {

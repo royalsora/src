@@ -149,6 +149,8 @@ public class BoneBurying {
 					p.getUpdateFlags().sendAnimation(896, 5);
 					p.getUpdateFlags().sendGraphic(new Graphic(113, true));
 					p.getInventory().remove(item);
+					AchievementHandler.activateAchievement(p, AchievementList.BURY_150_BONES, 1);
+					AchievementHandler.activateAchievement(p, AchievementList.BURY_500_BONES, 1);
 					if (p.getEquipment().contains(1050)) {
 						p.getSkill().addExperience(5, bones.experience * 0.1);
 					}

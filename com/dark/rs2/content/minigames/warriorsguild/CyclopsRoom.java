@@ -48,8 +48,7 @@ public final class CyclopsRoom {
 				DialogueManager.sendStatement(player, "100 tokens are required to enter! You have " + player.getInventory().getItemAmount(8851) + ".");
 				return true;
 			}
-			player.getInventory().remove(8851, 100);
-			player.getClient().queueOutgoingPacket(new SendMessage("You pay 100 tokens to enter the cyclops arena."));
+			player.getClient().queueOutgoingPacket(new SendMessage("You to enter the cyclops arena."));
 			executeTimer(player);
 			int defender = DEFENDERS[getDefenderIndex(player)];
 			player.getAttributes().set("cyclopsdefenderdrop", Integer.valueOf(defender));

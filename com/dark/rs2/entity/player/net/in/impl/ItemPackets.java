@@ -1439,7 +1439,16 @@ public class ItemPackets extends IncomingPacket {
 			return;
 
 		case 7509:// rock cake
-			// player.getUpdateFlags().sendAnimation(new Animation(827));
+			int currentHitpoints = player.getLevels()[Skills.HITPOINTS];
+			if (currentHitpoints < 5 && currentHitpoints != 1) {
+				player.hit(new Hit(currentHitpoints - 1));
+				return;
+			}
+			if (currentHitpoints == 1) {
+				player.send(new SendMessage("I don't think I should eat this right now."));
+				return;
+			}
+			player.getUpdateFlags().sendAnimation(new Animation(827));
 			player.hit(new Hit(5));
 			return;
 

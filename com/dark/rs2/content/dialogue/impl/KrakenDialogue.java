@@ -88,7 +88,7 @@ public class KrakenDialogue extends Dialogue {
 	public void execute() {
 		switch (next) {
 		case 0:
-			DialogueManager.sendStatement(player, "Do you wish to enter the Kraken Lair?", "This will cost a one time fee of 25k.");
+			DialogueManager.sendStatement(player, "Do you wish to enter the Kraken Lair?", "This will have a cost of 25k.");
 			next++;
 			break;
 		case 1:

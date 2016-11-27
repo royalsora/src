@@ -30,7 +30,7 @@ public class WarHandler {
 			if (CURRENT_WAR == null)
 				CURRENT_WAR = new War();
 			checkforEnd();
-			World.sendGlobalMessage("@blu@War has started! Do ::war to join. It will end at 6PM [SERVER TIME]. ");
+			//World.sendGlobalMessage("@blu@War has started! Do ::war to join. It will end at 6PM [SERVER TIME]. ");
 			stop();
 		}
 
@@ -52,7 +52,7 @@ public class WarHandler {
 		cal.setTime(new Date());
 		double hour = cal.get(Calendar.HOUR_OF_DAY);
 		if (hour >= 18.00 && hour <= 18.99) {
-			World.sendGlobalMessage("@blu@War has ended! Be ready again at 12PM [SERVER TIME]");
+			//World.sendGlobalMessage("@blu@War has ended! Be ready again at 12PM [SERVER TIME]");
 			endWar();
 			stop();
 		}
