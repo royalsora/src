@@ -67,11 +67,11 @@ public class SpecialAttack {
 	}
 
 	public void tick() {
-		TaskQueue.queue(new Task(player, 50, false, Task.StackType.NEVER_STACK, Task.BreakType.NEVER, TaskIdentifier.SPECIAL_RESTORE) {
+		TaskQueue.queue(new Task(player, 25, false, Task.StackType.NEVER_STACK, Task.BreakType.NEVER, TaskIdentifier.SPECIAL_RESTORE) {
 			@Override
 			public void execute() {
 				if (amount < 100) {
-					amount += 10;
+					amount += 5;
 					if (amount > 100) {
 						amount = 100;
 					}
