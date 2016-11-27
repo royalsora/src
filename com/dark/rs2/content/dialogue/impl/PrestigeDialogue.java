@@ -47,18 +47,18 @@ public class PrestigeDialogue extends Dialogue {
 	public void execute() {
 		switch(next) {
 		case 0:
-			DialogueManager.sendNpcChat(player, 1082, Emotion.HAPPY, "Hello "+player.getUsername()+".", "I am the prestige master.", "How may I help you?");
+			DialogueManager.sendNpcChat(player, 606, Emotion.HAPPY, "Hello "+player.getUsername()+".", "I am the prestige master.", "How may I help you?");
 			next++;
 			break;
 		case 1:
 			DialogueManager.sendOption(player, "Tell me more about prestiges", "I would like to trade", "I would like to prestige", "Nevermind");
 			break;
 		case 5:
-			DialogueManager.sendNpcChat(player, 1082, Emotion.HAPPY, "The prestiging system is quite simple.");
+			DialogueManager.sendNpcChat(player, 606, Emotion.HAPPY, "The prestiging system is quite simple.");
 			next ++;
 			break;
 		case 6:
-			DialogueManager.sendNpcChat(player, 1082, Emotion.HAPPY, "When you have reached the level 99 in any skill", "you will have the ability to Prestige it.");
+			DialogueManager.sendNpcChat(player, 606, Emotion.HAPPY, "When you have reached the level 99 in any skill", "you will have the ability to Prestige it.");
 			next ++;
 			break;
 		case 7:

@@ -88,7 +88,7 @@ public class NPCPacket extends IncomingPacket {
 				return;
 			}
 
-			if (mob.getId() == 5527 || mob.getId() == 2127 || mob.getId() == 1603 || mob.getId() == 2130 || mob.getId() == 2131 || mob.getId() == 2132 || mob.getId() == 5860 || mob.getId() == 3189 || mob.getId() == 5860 || mob.getId() == 403 || mob.getId() == 490 || mob.getId() == 4936 || mob.getId() == 315) {
+			if (mob.getId() == 5527 || mob.getId() == 606 || mob.getId() == 2127 || mob.getId() == 1603 || mob.getId() == 2130 || mob.getId() == 2131 || mob.getId() == 2132 || mob.getId() == 5860 || mob.getId() == 3189 || mob.getId() == 5860 || mob.getId() == 403 || mob.getId() == 490 || mob.getId() == 4936 || mob.getId() == 315) {
 				WalkToActions.clickNpc(player, 2, slot);
 				return;
 			}

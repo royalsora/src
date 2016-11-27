@@ -745,6 +745,19 @@ public class WalkToActions {
                     case 1815:// trivia
                         player.getShopping().open(95);
                         break;
+                    case 5523:// Swagster
+                        player.start(new OptionDialogue("Credit Shop 1", p -> {
+                            player.getShopping().open(94);
+                        }, "Credit Store 2", p -> {
+                            player.getShopping().open(90);
+                        }, "Credit Store 3", p -> {
+                            player.getShopping().open(87);
+                        }));
+
+                        break;
+                    case 606:// Prestige
+                        player.getShopping().open(93);
+                        break;
                     case 2130:// Snakelings
                     case 2131:
                     case 2132:
@@ -793,19 +806,6 @@ public class WalkToActions {
 			 * } , "Credit Store 3", p -> { player.getShopping().open(87); }
                          */));
 
-                        break;
-                    case 5523:// Swagster
-                        player.start(new OptionDialogue("Credit Shop 1", p -> {
-                            player.getShopping().open(94);
-                        }, "Credit Store 2", p -> {
-                            player.getShopping().open(90);
-                        }, "Credit Store 3", p -> {
-                            player.getShopping().open(87);
-                        }));
-
-                        break;
-                    case 606:// Prestige
-                        player.getShopping().open(93);
                         break;
                     case 5885:// abyssal
                         player.getShopping().open(93);
