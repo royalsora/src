@@ -167,7 +167,7 @@ public class AchievementShop extends Shop {
 		if (amount > get(slot).getAmount()) {
 			amount = get(slot).getAmount();
 		}
-                if(player.getPA().achievementCompleted() > 10) {
+                if(player.getPA().achievementCompleted() < 10) {
 			player.getClient().queueOutgoingPacket(new SendMessage("You need to complete at least 10 achievements before buying an item."));
                         return;
                 }
