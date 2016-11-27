@@ -32,13 +32,13 @@ public class AchievementShop extends Shop {
 			return 10;
 
 		case 989:
-			return 2;
+			return 4;
 
 		case 2944:
 			return 15;
 
 		case 405:
-			return 2;
+			return 4;
 
 		case 2682:
 			return 10;
@@ -167,7 +167,10 @@ public class AchievementShop extends Shop {
 		if (amount > get(slot).getAmount()) {
 			amount = get(slot).getAmount();
 		}
-
+                if(player.getPA().achievementCompleted() > 10) {
+			player.getClient().queueOutgoingPacket(new SendMessage("You need to complete at least 10 achievements before buying an item."));
+                        return;
+                }
 		Item buying = new Item(id, amount);
 
 		if (!player.getInventory().hasSpaceFor(buying)) {

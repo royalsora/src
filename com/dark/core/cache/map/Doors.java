@@ -3,27 +3,29 @@ package com.dark.core.cache.map;
 import com.dark.Constants;
 import com.dark.core.task.TaskQueue;
 import com.dark.core.task.impl.TickDoorTask;
+import com.dark.rs2.content.sounds.PlayerSounds;
 import com.dark.rs2.entity.object.GameObject;
 import com.dark.rs2.entity.object.ObjectManager;
 import com.dark.rs2.entity.player.Player;
-import com.dark.rs2.entity.player.net.out.impl.SendSound;
 
 public class Doors {
 
     public static final int[][] JAMMED_DOORS = {
         {2847, 3541, 2}, {2847, 3540, 2} //wariorguild 3rd floor
-            ,{2839, 5295, 2},{2908, 5265, 0},{2925, 5332, 2},{2863, 5354, 2} //godwarsdoors
-            ,{2839, 5295, 2}
-            
+        ,
+         {2839, 5295, 2}, {2908, 5265, 0}, {2925, 5332, 2}, {2863, 5354, 2} //godwarsdoors
+        ,
+         {2839, 5295, 2}
+
     };
     private static GameObject blankObj1 = null, blankObj2 = null;
 
     public static boolean clickDoor(int object, int x, int y, int z) {
-        for (int i = 0; i < Constants.BLOCKED_DOORS.length; i ++) {
-			if (object == Constants.BLOCKED_DOORS[i]) {
-				return false;
-			}
-		}
+        for (int i = 0; i < Constants.BLOCKED_DOORS.length; i++) {
+            if (object == Constants.BLOCKED_DOORS[i]) {
+                return false;
+            }
+        }
         if (isDoorJammed(x, y, z)) {
             return false;
         }
@@ -107,7 +109,8 @@ public class Doors {
     public static boolean clickDoor(Player player, int object, int x, int y, int z) {
 
         if (clickDoor(object, x, y, z)) {
-            player.getClient().queueOutgoingPacket(new SendSound(326, 0, 0));
+            PlayerSounds.sendRegionSound(player, player.getLocation(), 326, 0, 0);
+            //player.getClient().queueOutgoingPacket(new SendSound(326, 0, 0));
             return true;
         }
         return false;
