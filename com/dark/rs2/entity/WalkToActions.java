@@ -77,6 +77,7 @@ import com.dark.rs2.content.dialogue.impl.SecurityDialogue;
 import com.dark.rs2.content.dialogue.impl.ShopExchangeDialogue;
 import com.dark.rs2.content.dialogue.impl.ShopExchangeDialogue2;
 import com.dark.rs2.content.dialogue.impl.StaffTitleDialogue;
+import com.dark.rs2.content.dialogue.impl.TafaniDialogue;
 import com.dark.rs2.content.dialogue.impl.TzhaarMejKahDialogue;
 import com.dark.rs2.content.dialogue.impl.VannakaDialogue;
 import com.dark.rs2.content.dialogue.impl.WeaponGameDialogue;
@@ -678,6 +679,13 @@ public class WalkToActions {
                     case 606:// Prestige nob face
                         player.start(new PrestigeDialogue(player));
                         break;
+                 
+                    case 3343:
+                            player.start(new TafaniDialogue(player)); //here
+                            
+                			break;
+                    
+
                     case 6481:// Mac
                         player.start(new MacDialougue(player));
                         break;
@@ -755,6 +763,28 @@ public class WalkToActions {
                         }));
 
                         break;
+                    case 3343:
+               
+                    	int hitpointsLevel = player.getMaxLevels()[3];
+                		//do shit here
+                			if (player.getRights() > 0) {
+                				player.getSpecialAttack().setSpecialAmount(100);
+                				player.getSpecialAttack().update();
+                				player.getSkill().setLevel(3, hitpointsLevel);
+                				player.getSkill().update(3);
+                				player.getUpdateFlags().sendGraphic(new Graphic(436));
+                				
+                				break;
+                			}
+                			
+                			player.getSkill().setLevel(3, hitpointsLevel);
+                			player.getSkill().update(3);
+                			player.getUpdateFlags().sendGraphic(new Graphic(436));
+                			
+                			//for donator
+                			
+                			break;
+                 
                     case 606:// Prestige
                         player.getShopping().open(93);
                         break;

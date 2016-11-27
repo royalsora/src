@@ -1947,6 +1947,8 @@ public class Player extends Entity {
 
     public boolean canTeleport = true;
 
+	public boolean isEating;
+
     public boolean isChestClicked() {
         return chestClicked;
     }

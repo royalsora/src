@@ -80,7 +80,7 @@ public class BoltSpecials {
 			attacking.hit(new Hit(max_hit));
 			player.hit(new Hit(self_inflict_damage));
 			
-			player.getClient().queueOutgoingPacket(new SendMessage("You drain 10% of your hitpoints and 20% of your opponent's hitpoints."));
+			//player.getClient().queueOutgoingPacket(new SendMessage("You drain 10% of your hitpoints and 20% of your opponent's hitpoints."));
 			player.getRanged().setBloodForfeitEffectActive(false);
 			break;
 		}

@@ -72,6 +72,7 @@ import com.dark.rs2.content.skill.melee.SerpentineHelmet;
 import com.dark.rs2.content.skill.prayer.BoneBurying;
 import com.dark.rs2.content.skill.ranged.ToxicBlowpipe;
 import com.dark.rs2.content.skill.smithing.SmithingTask;
+import com.dark.rs2.content.skill.thieving.WallSafes;
 import com.dark.rs2.content.wilderness.TargetSystem;
 import com.dark.rs2.entity.Animation;
 import com.dark.rs2.entity.Graphic;
@@ -101,7 +102,12 @@ import com.dark.tools.RandomUtils;
  *
  */
 public class ItemPackets extends IncomingPacket {
-
+	public static boolean can(Player player) {
+	if (player.isEating) {
+		return false;
+	}
+	return true;
+}
 	@Override
 	public int getMaxDuplicates() {
 	return 40;
@@ -113,6 +119,7 @@ public class ItemPackets extends IncomingPacket {
 	if (player.isStunned() || player.isDead() || !player.getController().canClick()) {
 		return;
 	}
+	
 	int x;
 	int magicId;
 	int z;
@@ -1439,17 +1446,28 @@ public class ItemPackets extends IncomingPacket {
 			return;
 
 		case 7509:// rock cake
+			if (!can(player) || player.getDelay().elapsed() < 200) {
+				player.send(new SendMessage("WORKING!!!?!?!?!?!?!?."));
+				return;
+			}
+			player.isEating = true;
 			int currentHitpoints = player.getLevels()[Skills.HITPOINTS];
 			if (currentHitpoints < 5 && currentHitpoints != 1) {
 				player.hit(new Hit(currentHitpoints - 1));
+				player.isEating = false;
+				player.getDelay().reset();
 				return;
 			}
 			if (currentHitpoints == 1) {
 				player.send(new SendMessage("I don't think I should eat this right now."));
+				player.isEating = false;
+				player.getDelay().reset();
 				return;
 			}
-			player.getUpdateFlags().sendAnimation(new Animation(827));
+			player.getUpdateFlags().sendAnimation(829, 0);
 			player.hit(new Hit(5));
+			player.isEating = false;
+			player.getDelay().reset();
 			return;
 
 		case 11169:// news paper
