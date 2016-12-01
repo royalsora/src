@@ -31,7 +31,6 @@ public class MysteryBox {
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(7979, 1)), //Abyssal Demon head
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(7980, 1)), //KBD Heads
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(7981, 1)), //KQ Head
-			new WeightedChance<Item>(WeightedChance.COMMON, new Item(2724, 1)), //Hard Clue Casket
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(2714, 1)), //Easy Clue Casket
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(2802, 1)), //Medium Clue Casket
 			new WeightedChance<Item>(WeightedChance.COMMON, new Item(19484, 500)), //Dragon Javelin
@@ -105,10 +104,6 @@ public class MysteryBox {
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(11931, 1)), //Malediction shard 1
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(11932, 1)), //Malediction shard 2
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(11933, 1)), //Malediction shard 3
-			new WeightedChance<Item>(WeightedChance.RARE, new Item(13190, 1)), //$5 Bond
-			new WeightedChance<Item>(WeightedChance.RARE, new Item(749, 1)), //Zul-Andra Totem
-			new WeightedChance<Item>(WeightedChance.RARE, new Item(19607, 1)), //Unstrung Heavy Ballista
-			new WeightedChance<Item>(WeightedChance.RARE, new Item(19610, 1)), //Monkey Tail
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(12528, 1)), //Light Infinity Kit
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(12530, 1)), //Dark Infinity kit
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(6731, 1)), //Seer's ring
@@ -116,10 +111,16 @@ public class MysteryBox {
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(6735, 1)), //Warrior's ring
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(6737, 1)), //Berserker's ring
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(12938, 50)), //Zul-Andra Teleports
-			new WeightedChance<Item>(WeightedChance.RARE, new Item(13092, 1)), //Crystal halberd
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(11898, 1)), //Decorative Hat
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(11896, 1)), //Decorative Robetop
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(11897, 1)), //Decorative Robelegs
+			new WeightedChance<Item>(WeightedChance.RARE, new Item(12873, 1)), //Guthans Set
+			new WeightedChance<Item>(WeightedChance.RARE, new Item(12875, 1)), //Veracs set
+			new WeightedChance<Item>(WeightedChance.RARE, new Item(12877, 1)), //Dharoks Set
+			new WeightedChance<Item>(WeightedChance.RARE, new Item(12879, 1)), //Torags set
+			new WeightedChance<Item>(WeightedChance.RARE, new Item(12881, 1)), //Ahrims Set
+			new WeightedChance<Item>(WeightedChance.RARE, new Item(12883, 1)), //Karils set
+			new WeightedChance<Item>(WeightedChance.RARE, new Item(2724, 1)), //Hard Clue Casket
 			
 			//Very Rare Items
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(19529, 1)), //Zenyte shard
@@ -136,13 +137,11 @@ public class MysteryBox {
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(11900, 1)), //Decorative Legs
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(11899, 1)), //Decorative Top
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(11901, 1)), //Decorative Quiver
-			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(12873, 1)), //Guthans Set
-			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(12875, 1)), //Veracs set
-			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(12877, 1)), //Dharoks Set
-			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(12879, 1)), //Torags set
-			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(12881, 1)), //Ahrims Set
-			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(12883, 1)), //Karils set
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(8942, 1)) //Monkey Pet
+			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(749, 1)), //Zul-Andra Totem
+			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(13092, 1)), //Crystal halberd
+			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(19607, 1)), //Unstrung Heavy Ballista
+			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(19610, 1)), //Monkey Tail
 	));
 	
 	/**
