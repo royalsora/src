@@ -78,7 +78,6 @@ public class SlayerShop extends Shop {
 		case 6949:
 			return 45;
 
-		case 4283:
 		case 12785:
 			return 200;
 
@@ -126,7 +125,6 @@ new Item(10551),
 new Item(10555),   
 new Item(2944),
 new Item(6949),
-new Item(4283),
 new Item(6),
 new Item(8),
 new Item(10),
