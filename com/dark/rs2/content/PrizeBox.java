@@ -64,7 +64,6 @@ public class PrizeBox {
 			new WeightedChance<Item>(WeightedChance.RARE, new Item(6818, 1)), //Bowsword
 			
 			//Very Rare Items
-			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(6858, 1)), //Jester Scarf
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(7807, 1)), //Anger Baxe
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(7806, 1)), //Anger sword
 			new WeightedChance<Item>(WeightedChance.VERY_RARE, new Item(7808, 1)), //Anger mace
