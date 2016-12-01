@@ -1,6 +1,7 @@
 package com.dark.rs2.entity.player.net.in.impl;
 
 import java.math.BigInteger;
+import com.dark.rs2.entity.mob.impl.Cerberus;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Locale;
@@ -407,17 +408,17 @@ public class ClickButtonPacket extends IncomingPacket {
                                 TaskQueue.queue(new Task(5) {
                                     @Override
                                     public void execute() {
-                                        int[][] DATA = {{5862, 1239, 1246}};
-                                        for (int i = 0; i < DATA.length; i++) {
-                                            new Mob(player, DATA[i][0], false, false, false, new Location(DATA[i][1], DATA[i][2], player.getZ()));
-                                        }
-                                        stop();
-                                    }
-
-                                    @Override
-                                    public void onStop() {
-                                        player.send(new SendMessage("Welcome to Cerberus Lair."));
-                                    }
+                        			Cerberus mob = new Cerberus(player, new Location(1241, 1254, player.getIndex() << 2));
+                        			mob.face(player);
+                        			player.face(mob);
+                        				player.send(new SendMessage("Welcome to Cerberus"));
+                        				DialogueManager.sendStatement(player, "Welcome to Cerberus");
+                        				stop();
+                        			}
+                        					
+                        			@Override
+                        			public void onStop() {
+                        			}
 
                                 });
                             }, "[@red@Crazy archaeologist</col>]", p4 -> {

@@ -401,6 +401,9 @@ public class PrayerBook {
 						if (id == 2043) {
 							return hit.getDamage() / 2;
 						}
+						if (id == 5862) {
+							return hit.getDamage() / 2;
+						}
 
 						if (id == 8596) {
 							return hit.getDamage();
@@ -452,7 +455,9 @@ public class PrayerBook {
 					if (mob.getId() == 6379) {
 						return hit.getDamage() / 2;
 					}
-
+					if (mob.getId() == 5862) {
+						return hit.getDamage() / 2;
+					}
 					if (mob.getId() == 1286) {
 						return hit.getDamage() / 2;
 					}
@@ -484,7 +489,9 @@ public class PrayerBook {
 					if (id == 2042) {
 						return hit.getDamage() / 2;
 					}
-
+					if (id == 5862) {
+						return hit.getDamage() / 2;
+					}
 					if (id == 8133) {
 						return (int) (hit.getDamage() * 0.8D);
 					}

@@ -47,13 +47,15 @@ public class SlayerShop extends Shop {
 			return 50;
 
 		case 11864:
+		case 8650:
+		case 8656:
+		case 8662:
+		case 8664:
+		case 8666:
 			return 150;
 
 		case 11865:
 			return 185;
-
-		case 10952:
-			return 50;
 
 		case 7462:
 			return 40;
@@ -76,12 +78,27 @@ public class SlayerShop extends Shop {
 		case 6949:
 			return 45;
 
-		case 13190:
-			return 500;
-
 		case 4283:
+		case 12785:
 			return 200;
 
+		case 6:
+		case 8:
+		case 10:
+		case 12:
+			return 250;
+		
+		case 290:
+			return 1000;
+
+		case 12897:
+			return 600;
+
+		case 13116:
+			return 500;
+
+		case 13128:
+			return 2000;
 
 		}
 		return 2147483647;
@@ -99,18 +116,31 @@ new Item(989),
 new Item(7789),
 new Item(12938),
 new Item(2572),
-new Item(11866), 
+new Item(12785),
 new Item(11864), 
-new Item(11865), 
-new Item(10952), 
+new Item(11865),
+new Item(11866), 
 new Item(7462), 
 new Item(10548), 
 new Item(10551), 
 new Item(10555),   
 new Item(2944),
-new Item(13190),
 new Item(6949),
 new Item(4283),
+new Item(6),
+new Item(8),
+new Item(10),
+new Item(12),
+new Item(8650),
+new Item(8656),
+new Item(8662),
+new Item(8664),
+new Item(8666),
+new Item(290),
+new Item(12897),
+new Item(13116),
+new Item(13128),
+
 
 		}, false, "Slayer Shop");
 	}

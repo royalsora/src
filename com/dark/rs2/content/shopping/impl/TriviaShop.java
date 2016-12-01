@@ -29,13 +29,13 @@ public class TriviaShop extends Shop {
 		switch (id) {
 
 		case 6199: 
-			return 5;
+			return 6;
 
 		case 989:  
 			return 2;
 
 		case 405: 
-			return 1;
+			return 2;
 
 		case 12938: 
 			return 1;
@@ -52,22 +52,31 @@ public class TriviaShop extends Shop {
 		case 3832: 
 		case 3833: 
 		case 3834: 
-			return 5;
+			return 3;
 
 		case 12428: 
 		case 12361: 
 		case 12355: 
-			return 3;
+			return 15;
 
 		case 12337: 
-		case 7803: 	
-			return 5;
+		case 7803:
+		case 6856:
+		case 6857:
+		case 6858:
+		case 6859:
+		case 6860:
+		case 6861:
+		case 6862:
+		case 6863: 	
+			return 10;
 
 		case 12351: 
 		case 12249: 
 		case 12245: 
-		case 1506: 
-			return 2;
+		case 1506:
+		case 12359:
+			return 15;
 
 		case 7451: 
 			return 8;
@@ -79,10 +88,7 @@ public class TriviaShop extends Shop {
 			return 8;
 
 		case 7462: 
-			return 15;
-
-		case 13190: 
-			return 50;
+			return 12;
 
 
 
@@ -123,7 +129,16 @@ public class TriviaShop extends Shop {
 			new Item(3836), 
 			new Item(3837), 
 			new Item(3838),
-			new Item(13190),
+			new Item(6856),
+			new Item(6857),
+			new Item(6858),
+			new Item(6859),
+			new Item(6860),
+			new Item(6861),
+			new Item(6862),
+			new Item(6863),
+			new Item(12359),
+
 
 	 
 		}, false, "Trivia Store");

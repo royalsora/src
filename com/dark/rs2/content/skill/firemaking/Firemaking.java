@@ -123,6 +123,7 @@ public class Firemaking extends Task {
 		GroundItemHandler.remove(groundLog);
 
 		player.getUpdateFlags().sendAnimation(65535, 0);
+		
 
 		GameObject object = new GameObject(FireColor.FIRE, new Location(player.getLocation()), 10, 0);
 

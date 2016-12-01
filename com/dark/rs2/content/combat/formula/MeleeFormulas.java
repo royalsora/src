@@ -305,6 +305,7 @@ public class MeleeFormulas {
 		case 1434:
 			return 1.35;
 		case 11802:
+			return 2.0;
 		case 13576:
 			return 1.55;
 		case 11804:
