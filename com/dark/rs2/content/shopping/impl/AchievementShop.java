@@ -74,6 +74,7 @@ public class AchievementShop extends Shop {
 		case 11990:
 			return 10;
 
+		case 11919;
 		case 12956:
 		case 12957:
 		case 12958:
@@ -99,9 +100,6 @@ public class AchievementShop extends Shop {
 		case 12637:
 		case 12638:
 		case 12639:
-			return 100;
-
-		case 13190:
 			return 100;
 
 		}
@@ -134,6 +132,7 @@ public class AchievementShop extends Shop {
 			new Item(6548),
 			new Item(11990), 
 
+			new Item(11919),
 			new Item(12956), 
 			new Item(12957), 
 			new Item(12958), 
@@ -152,7 +151,6 @@ public class AchievementShop extends Shop {
 			new Item(12637), 
 			new Item(12638), 
 			new Item(12639),
-			new Item(13190), 
 
 			
 		}, false, "Achievement Store");
