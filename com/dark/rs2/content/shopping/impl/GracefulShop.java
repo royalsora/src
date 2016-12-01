@@ -53,7 +53,11 @@ public class GracefulShop extends Shop {
 		case 1763:
 		case 1771:
 		case 1773:
-			return 175;	
+			return 175;
+				
+		case 13132;
+			return 300;
+				
 		}
 
 		return 2147483647;
@@ -75,7 +79,8 @@ public class GracefulShop extends Shop {
 				new Item(1765, 1), 				
 				new Item(1763, 1), 
 				new Item(1771, 1), 
-				new Item(1773, 1)
+				new Item(1773, 1),
+				new Item(13132, 1)
 			}, false, "Graceful Store");
 	}
 
