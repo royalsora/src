@@ -39,29 +39,35 @@ public class CreditsShop2 extends Shop {
 		case 11863:
 		case 11862:
 		case 12399:
+			return 10000;
+		
+		case 13173:
+			return 22000;
+				
+		case 13175:
 			return 5000;
 		
 		case 1053:
 		case 1055:
 		case 1057:
-			return 1500;
+			return 2000;
 
 		case 11847:
-			return 2000;
+			return 5000;
 
 		case 1050:
 			return 2000;
 
 		case 13343:
-			return 2500;
+			return 5000;
 
 		case 13068:
-			return 1000;
+			return 3000;
 
 		case 6199:
 			return 100;
 		case 7959:
-			return 600;
+			return 150;
 		case 10872:
 			return 700;
 		case 1499:
@@ -132,12 +138,14 @@ public class CreditsShop2 extends Shop {
 				new Item(1044),
 				new Item(1046),
 				new Item(1048),
+				new Item(13173),
 				new Item(11863),
 				new Item(11862),
 				new Item(12399),
 				new Item(1053),
 				new Item(1055),
 				new Item(1057),
+				new Item(13175),
 				new Item(11847),
 				new Item(1050),
 				new Item(13343),	
