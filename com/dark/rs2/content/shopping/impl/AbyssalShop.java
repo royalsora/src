@@ -29,10 +29,10 @@ public class AbyssalShop extends Shop {
 		switch (id) {
 
 		case 13273: 
-			return 10000;
+			return 15000;
 
-		case 5520: 
-			return 0;
+		case 4149: 
+			return 300000;
 		}
 
 		return 2147483647;
@@ -44,7 +44,7 @@ public class AbyssalShop extends Shop {
 	public AbyssalShop() {
 		super(SHOP_ID, new Item[] { 
 			new Item(13273), 
-			new Item(5520), 
+			new Item(4149), 
 
 	 
 		}, false, "Abyssal Rewards");
